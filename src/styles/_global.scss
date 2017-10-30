@@ -1,12 +1,11 @@
 html {
   ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background-color: $color-gold; }
-  ::-webkit-scrollbar-thumb { background-color: $color-gold-darker-2; }
+  ::-webkit-scrollbar-track { background-color: white; }
+  ::-webkit-scrollbar-thumb { background-color: $color-darkblue; }
 }
 
 body {
   color: $color-darkblue;
-  background-color: $color-gold-darker-2;
   -webkit-font-smoothing: antialiased; // Preventing fonts of getting too thin on Safari
   -moz-osx-font-smoothing: grayscale;
 }
@@ -31,14 +30,14 @@ p, li, a, label {
 }
 
 a, .a, .link {
-  color: $color-gold;
+  color: $color-yellow;
   cursor: pointer;
   text-decoration: none;
   letter-spacing: $letterSpacing;
   line-height: 1.2;
   @extend .transitionFadeOnHover;
 
-  &:hover { color: $color-gold-darker-2; }
+  &:hover { color: $color-yellow-darker-2; }
 }
 
 input, textarea, button {
@@ -47,10 +46,10 @@ input, textarea, button {
   background-color: white;
   line-height: 1.5;
 
-  &::-webkit-input-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-gold-darker-3; font-size: $fontSize-xsmall; } /* Chrome/Opera/Safari */
-  &::-moz-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-gold-darker-3; font-size: $fontSize-xsmall;  } /* Firefox 19+ */
-  &:-ms-input-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-gold-darker-3; font-size: $fontSize-xsmall;  }  /* IE 10+ */
-  &:-moz-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-gold-darker-3; font-size: $fontSize-xsmall;  } /* Firefox 18- */
+  &::-webkit-input-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-blue-lighter-2; font-size: $fontSize-xsmall; } /* Chrome/Opera/Safari */
+  &::-moz-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-blue-lighter-2; font-size: $fontSize-xsmall;  } /* Firefox 19+ */
+  &:-ms-input-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-blue-lighter-2; font-size: $fontSize-xsmall;  }  /* IE 10+ */
+  &:-moz-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-blue-lighter-2; font-size: $fontSize-xsmall;  } /* Firefox 18- */
 }
 
 textarea:focus,
@@ -76,7 +75,7 @@ button,
   text-transform: uppercase;
   text-align: center;
   cursor: pointer;
-  background-color: $color-gold;
+  background-color: $color-darkblue;
   color: $color-darkblue;
   font-size: $fontSize-small;
   white-space: nowrap;
@@ -84,8 +83,8 @@ button,
   @extend .transitionFadeOnHover;
 
   &:hover {
-    color: $color-darkblue;
-    background-color: darken($color-gold, 8%);
+    color: white;
+    background-color: darken($color-darkblue, 8%);
   }
 
   &.withInput { border-top-left-radius: 0; border-bottom-left-radius: 0; border: 1px solid $color-darkblue; }

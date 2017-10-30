@@ -19,7 +19,7 @@ $scale-1-4: $scale / 4;
 
 /* ----- Colors ----- */ // ATTENTION! THE COLOR VARIABLES ARE DUPLICATED INTO UTILS/COLORVARS.JS TO MAKE COLORS AVAILABLE IN JS
 
-$color-darkblue: #2B2847;
+$color-darkblue: #28408C;
 $color-darkblue-lighter-6: mix(white, $color-darkblue, 98% );
 $color-darkblue-lighter-5: mix(white, $color-darkblue, 88% );
 $color-darkblue-lighter-4: mix(white, $color-darkblue, 70% );
@@ -31,7 +31,7 @@ $color-darkblue-darker-2: mix(black, $color-darkblue, 28% );
 $color-darkblue-darker-3: mix(black, $color-darkblue, 43% );
 $color-darkblue-darker-4: mix(black, $color-darkblue, 59% );
 
-$color-blue: #2C70B6;
+$color-blue: #426BB3;
 $color-blue-lighter-6: mix(white, $color-blue, 98% );
 $color-blue-lighter-5: mix(white, $color-blue, 88% );
 $color-blue-lighter-4: mix(white, $color-blue, 70% );
@@ -43,69 +43,23 @@ $color-blue-darker-2: mix(black, $color-blue, 28% );
 $color-blue-darker-3: mix(black, $color-blue, 43% );
 $color-blue-darker-4: mix(black, $color-blue, 59% );
 
-$color-red: #F72027;
-$color-red-lighter-8: mix(white, $color-red, 98% );
-$color-red-lighter-7: mix(white, $color-red, 94% );
-$color-red-lighter-6: mix(white, $color-red, 88% );
-$color-red-lighter-5: mix(white, $color-red, 80% );
-$color-red-lighter-4: mix(white, $color-red, 70% );
-$color-red-lighter-3: mix(white, $color-red, 50% );
-$color-red-lighter-2: mix(white, $color-red, 30% );
-$color-red-lighter-1: mix(white, $color-red, 15% );
-$color-red-darker-1: mix(black, $color-red, 11% );
-$color-red-darker-2: mix(black, $color-red, 28% );
-$color-red-darker-3: mix(black, $color-red, 43% );
-$color-red-darker-4: mix(black, $color-red, 59% );
-
-$color-lightred: #FB5B64;
-$color-lightred-lighter-8: mix(white, $color-lightred, 98% );
-$color-lightred-lighter-7: mix(white, $color-lightred, 94% );
-$color-lightred-lighter-6: mix(white, $color-lightred, 88% );
-$color-lightred-lighter-5: mix(white, $color-lightred, 80% );
-$color-lightred-lighter-4: mix(white, $color-lightred, 70% );
-$color-lightred-lighter-3: mix(white, $color-lightred, 50% );
-$color-lightred-lighter-2: mix(white, $color-lightred, 30% );
-$color-lightred-lighter-1: mix(white, $color-lightred, 15% );
-$color-lightred-darker-1: mix(black, $color-lightred, 11% );
-$color-lightred-darker-2: mix(black, $color-lightred, 28% );
-$color-lightred-darker-3: mix(black, $color-lightred, 43% );
-$color-lightred-darker-4: mix(black, $color-lightred, 59% );
-
-$color-orange: #FF5837;
-$color-orange-lighter-8: mix(white, $color-orange, 98% );
-$color-orange-lighter-7: mix(white, $color-orange, 94% );
-$color-orange-lighter-6: mix(white, $color-orange, 88% );
-$color-orange-lighter-5: mix(white, $color-orange, 80% );
-$color-orange-lighter-4: mix(white, $color-orange, 70% );
-$color-orange-lighter-3: mix(white, $color-orange, 50% );
-$color-orange-lighter-2: mix(white, $color-orange, 30% );
-$color-orange-lighter-1: mix(white, $color-orange, 15% );
-$color-orange-darker-1: mix(black, $color-orange, 11% );
-$color-orange-darker-2: mix(black, $color-orange, 28% );
-$color-orange-darker-3: mix(black, $color-orange, 43% );
-$color-orange-darker-4: mix(black, $color-orange, 59% );
-
-$color-gold: #DEC7A2;
-$color-gold-lighter-8: mix(white, $color-gold, 98% );
-$color-gold-lighter-7: mix(white, $color-gold, 94% );
-$color-gold-lighter-6: mix(white, $color-gold, 88% );
-$color-gold-lighter-5: mix(white, $color-gold, 80% );
-$color-gold-lighter-4: mix(white, $color-gold, 70% );
-$color-gold-lighter-3: mix(white, $color-gold, 50% );
-$color-gold-lighter-2: mix(white, $color-gold, 30% );
-$color-gold-lighter-1: mix(white, $color-gold, 15% );
-$color-gold-darker-1: mix(black, $color-gold, 11% );
-$color-gold-darker-2: mix(black, $color-gold, 28% );
-$color-gold-darker-3: mix(black, $color-gold, 43% );
-$color-gold-darker-4: mix(black, $color-gold, 59% );
+$color-yellow: #EFC60F;
+$color-yellow-lighter-8: mix(white, $color-yellow, 98% );
+$color-yellow-lighter-7: mix(white, $color-yellow, 94% );
+$color-yellow-lighter-6: mix(white, $color-yellow, 88% );
+$color-yellow-lighter-5: mix(white, $color-yellow, 80% );
+$color-yellow-lighter-4: mix(white, $color-yellow, 70% );
+$color-yellow-lighter-3: mix(white, $color-yellow, 50% );
+$color-yellow-lighter-2: mix(white, $color-yellow, 30% );
+$color-yellow-lighter-1: mix(white, $color-yellow, 15% );
+$color-yellow-darker-1: mix(black, $color-yellow, 11% );
+$color-yellow-darker-2: mix(black, $color-yellow, 28% );
+$color-yellow-darker-3: mix(black, $color-yellow, 43% );
+$color-yellow-darker-4: mix(black, $color-yellow, 59% );
 
 // Pages
 
-$color-welcome: $color-gold-darker-2;
-$color-news: white;
-$color-concerts: $color-lightred;
-$color-music: $color-blue;
-$color-merch: $color-gold;
+$color-matrix: $color-blue;
 
 // ----- Shortcuts
 $color-light: $color-darkblue-lighter-6;

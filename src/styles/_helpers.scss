@@ -85,14 +85,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .whiteSpace {
 	&-noWrap { white-space: nowrap; }}
 
-.color 					{
-	&-lightred 	{ color: $color-lightred;
-		&-darker {
-			&-1 { color: $color-lightred-darker-1; }
-			&-2 { color: $color-lightred-darker-2; }
-			&-3 { color: $color-lightred-darker-3; }
-		}
-	}
+.color {
 	&-darkblue 	{ color: $color-darkblue;
 		&-lighter {
 			&-1 { color: $color-darkblue-lighter-1; }
@@ -113,7 +106,6 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 }
 
 .backgroundColor 	{
-	&-lightred{ background-color: $color-lightred; }
 	&-dark 		{	background-color: $color-dark; }
 	&-light   { background-color: $color-light; }
 	&-white   { background-color: #fff; }
@@ -194,7 +186,6 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-none 			{ border-style: none; border-width: 0; }
 	// Colors
 	&-dark  	  { border-color: $color-dark; }
-	&-lightred  { border-color: $color-lightred; }
 	&-darkblue  { border-color: $color-darkblue; }
 	&-white 		{ border-color: #fff; }
 	// Widths
@@ -212,10 +203,3 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .slideIn 					{ animation: slideIn 600ms $animationBezier forwards; }
 .transitionFadeOnHover { transition: color .1s ease-out, background-color .1s ease-out; }
 .rotateUpsideDown { transform: rotate( 360deg ) !important; }
-
-.box {
-	animation: fadeIn 1s ease-out forwards;
-	padding: $paddingBox;
-	border: 1px solid $color-gold;
-	background-color: white;
-}
