@@ -1,0 +1,118 @@
+html {
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background-color: $color-gold; }
+  ::-webkit-scrollbar-thumb { background-color: $color-gold-darker-2; }
+}
+
+body {
+  color: $color-darkblue;
+  background-color: $color-gold-darker-2;
+  -webkit-font-smoothing: antialiased; // Preventing fonts of getting too thin on Safari
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+h1, h2, h3, h4 { font-family: $fontFamily-sans; }
+h5, h6 { font-family: $fontFamily-sansCondensed; }
+
+h1, .h1 { font-size: $fontSize-xxxlarge; @include breakpoint( 'mobile' ) { font-size: $fontSize-xxlarge; }}
+h2, .h2 { font-size: $fontSize-xxlarge; @include breakpoint( 'mobile' ) { font-size: $fontSize-xxlarge !important; }}
+h3, .h3 { font-size: $fontSize-xlarge; }
+h4, .h4 { font-size: $fontSize-large; }
+h5, .h5 { font-size: $fontSize-base; }
+h6, .h6 { font-size: $fontSize-small; text-transform: uppercase; }
+
+p, li, a, label {
+  font-family: $fontFamily-serif;
+  font-size: $fontSize-base;
+  line-height: 1.5;
+  font-variant-ligatures: none;
+}
+
+a, .a, .link {
+  color: $color-gold;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: $letterSpacing;
+  line-height: 1.2;
+  @extend .transitionFadeOnHover;
+
+  &:hover { color: $color-gold-darker-2; }
+}
+
+input, textarea, button {
+  padding: 12px $scale-2-1;
+  border: none;
+  background-color: white;
+  line-height: 1.5;
+
+  &::-webkit-input-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-gold-darker-3; font-size: $fontSize-xsmall; } /* Chrome/Opera/Safari */
+  &::-moz-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-gold-darker-3; font-size: $fontSize-xsmall;  } /* Firefox 19+ */
+  &:-ms-input-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-gold-darker-3; font-size: $fontSize-xsmall;  }  /* IE 10+ */
+  &:-moz-placeholder { font-family: $fontFamily-serif; font-weight: bold; color: $color-gold-darker-3; font-size: $fontSize-xsmall;  } /* Firefox 18- */
+}
+
+textarea:focus,
+input:focus {
+  transition: all 300ms $animationBezier;
+  outline: none;
+}
+
+input {
+  font-family: $fontFamily-serif;
+  &.withButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none; }}
+
+input[type="submit"],
+button,
+.button {
+  display: inline-block;
+  font-family: $fontFamily-sans;
+  padding: $scale $scale-4-1;
+  padding-bottom: $scale + 2px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  background-color: $color-gold;
+  color: $color-darkblue;
+  font-size: $fontSize-small;
+  white-space: nowrap;
+  letter-spacing: 0;
+  @extend .transitionFadeOnHover;
+
+  &:hover {
+    color: $color-darkblue;
+    background-color: darken($color-gold, 8%);
+  }
+
+  &.withInput { border-top-left-radius: 0; border-bottom-left-radius: 0; border: 1px solid $color-darkblue; }
+  &.submit {
+    background-color: $color-darkblue;
+    color: white;
+
+    &.disabled {
+      background-color: $color-darkblue-lighter-5;
+      color: $color-darkblue-lighter-3;
+      pointer-events: none;
+    }
+  }
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+	outline: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $color-darkblue-lighter-4;
+  margin: 0;
+  padding: 0;
+}
