@@ -12,8 +12,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
-h1, h2, h3, h4 { font-family: $fontFamily-sans; }
-h5, h6 { font-family: $fontFamily-sansCondensed; }
+h1, h2, h3, h4, h5, h6 { font-family: $fontFamily-serif; }
 
 h1, .h1 { font-size: $fontSize-xxxlarge; @include breakpoint( 'mobile' ) { font-size: $fontSize-xxlarge; }}
 h2, .h2 { font-size: $fontSize-xxlarge; @include breakpoint( 'mobile' ) { font-size: $fontSize-xxlarge !important; }}
@@ -23,7 +22,7 @@ h5, .h5 { font-size: $fontSize-base; }
 h6, .h6 { font-size: $fontSize-small; text-transform: uppercase; }
 
 p, li, a, label {
-  font-family: $fontFamily-serif;
+  font-family: $fontFamily-sans;
   font-size: $fontSize-base;
   line-height: 1.5;
   font-variant-ligatures: none;
