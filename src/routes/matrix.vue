@@ -72,6 +72,7 @@
   @import '~@/styles/vars';
   @import '~@/styles/breakpoints';
   @import '~@/styles/animations';
+  @import '~@/styles/zindexes';
 
   $headerHeight: 99px;
 
@@ -107,7 +108,7 @@
       border-radius: 2px;
       background-color: $color-yellow;
       color: $color-yellow-darker-2;
-      z-index: 2;
+      z-index: $zindex-label;
       position: absolute;
       text-transform: uppercase;
       white-space: nowrap;
@@ -116,8 +117,9 @@
     thead tr:after {
       content: attr(title); // The title="" on the <tr>
       @extend .label;
-      right: 50%;
+      right: calc(50vw - 180px);
       top: 243px;
+      @include breakpoint('custom', '1200px') { top: 240px; }
       @include breakpoint('mobile') {
         right: $scale-2-1;
         top: 147px;
@@ -228,7 +230,7 @@
         height: 100%;
         left: 0;
         position: fixed;
-        z-index: 1;
+        z-index: $zindex-row;
         padding: $scale-2-1;
         font-size: 14px;
         span {
