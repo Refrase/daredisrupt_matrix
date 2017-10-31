@@ -35,7 +35,10 @@
   .headline {
     line-height: 1.3;
     font-size: 22px;
-    @include breakpoint('tablet') { font-size: 16px; }
+    @include breakpoint('tablet') {
+      max-width: 80%;
+      font-size: 16px;
+    }
   }
 
   .subheadline {
@@ -44,5 +47,6 @@
     font-size: 14px;
     margin-top: $scale;
     @include breakpoint('tablet') { font-size: 12px; }
+    @include breakpoint('mobile') { display: none; } 
   }
 </style>

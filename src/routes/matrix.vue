@@ -2,7 +2,7 @@
   <div class="matrixRoute">
     <table class="matrix" cellspacing="0" cellpadding="0">
       <thead>
-        <tr>
+        <tr title="Kommunale områder">
           <th class="corner"><div/></th>
           <th scope="col"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon">Børn og læring</th>
           <th scope="col"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon">Arbejdsmarked og erhverv</th>
@@ -32,7 +32,7 @@
           <td><span/></td>
         </tr>
         <tr>
-          <th scope="row"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon"><span>Virtual Reality og Augmented Reality</span></th>
+          <th scope="row" title="Teknologiske temaer"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon"><span>Virtual Reality og Augmented Reality</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
@@ -96,6 +96,44 @@
       display: block;
       margin: 0 auto;
       margin-bottom: $scale-2-1;
+    }
+
+    .label {
+      font-family: $fontFamily-sans;
+      padding: 4px 6px;
+      line-height: 1;
+      font-size: $fontSize-xsmall;
+      font-weight: bold;
+      border-radius: 2px;
+      background-color: $color-yellow;
+      color: $color-yellow-darker-2;
+      z-index: 2;
+      position: absolute;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    thead tr:after {
+      content: attr(title); // The title="" on the <tr>
+      @extend .label;
+      right: 50%;
+      top: 243px;
+      @include breakpoint('mobile') {
+        right: $scale-2-1;
+        top: 147px;
+      }
+    }
+
+    tbody tr:nth-child(3) th:after {
+      content: attr(title); // The title="" on the <tr>
+      @extend .label;
+      bottom: 50%;
+      transform: translateX(-50%) rotate(270deg);
+      left: calc( 100vw / 7 );
+      @include breakpoint('custom', '1200px') {
+        left: 174px;
+        bottom: 100%;
+      }
     }
 
     th[scope="col"] {
@@ -192,18 +230,19 @@
         position: fixed;
         z-index: 1;
         padding: $scale-2-1;
-        font-size: 12px;
+        font-size: 14px;
         span {
           margin: 0;
           width: 100%;
           height: 100%
         }
       }
+      th { font-size: 14px; }
     }
   }
   @include breakpoint('mobile') {
-    th, td { padding: $scale-2-1 !important; }
-    th[scope="col"] { vertical-align: bottom; }
+    th, td { padding: $scale $scale-2-1 !important; }
+    th[scope="col"] { vertical-align: middle; }
     .icon { display: none !important; }
     .corner,
     th[scope="row"] { width: 120px; }
