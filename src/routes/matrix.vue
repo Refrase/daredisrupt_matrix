@@ -4,17 +4,17 @@
       <thead>
         <tr title="Kommunale områder">
           <th class="corner"><div/></th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-born-og-laering.png" alt="" class="icon">Børn og læring</th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-arbejdsmarked-og-erhverv.png" alt="" class="icon">Arbejdsmarked og erhverv</th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-social-og-sundhed.png" alt="" class="icon">Social og sundhed</th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-miljo-teknik-og-forsyning.png" alt="" class="icon">Miljø, teknik og forsyning</th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-demokrati-og-involvering.png" alt="" class="icon">Demokrati og involvering</th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-administration-og-organisation.png" alt="" class="icon">Administration og organisation</th>
+          <th scope="col"><img src="../assets/icons/x-axis/icon-born-og-laering.png" alt="" class="icon">Børn og læring</th>
+          <th scope="col"><img src="../assets/icons/x-axis/icon-arbejdsmarked-og-erhverv.png" alt="" class="icon">Arbejdsmarked og erhverv</th>
+          <th scope="col"><img src="../assets/icons/x-axis/icon-social-og-sundhed.png" alt="" class="icon">Social og sundhed</th>
+          <th scope="col"><img src="../assets/icons/x-axis/icon-miljo-teknik-og-forsyning.png" alt="" class="icon">Miljø, teknik og forsyning</th>
+          <th scope="col"><img src="../assets/icons/x-axis/icon-demokrati-og-involvering.png" alt="" class="icon">Demokrati og involvering</th>
+          <th scope="col"><img src="../assets/icons/x-axis/icon-administration-og-organisation.png" alt="" class="icon">Administration og organisation</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row"><img src="../assets/icons/y-akse/icon-kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig intelligens, big data og robotter</span></th>
+          <th scope="row"><img src="../assets/icons/y-axis/icon-kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig intelligens, big data og robotter</span></th>
           <td>
             <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-born-og-laering" />
           </td>
@@ -36,7 +36,7 @@
         </tr>
         <tr>
           <th scope="row">
-            <img src="../assets/icons/y-akse/icon-internet-of-things.png" alt="" class="icon">
+            <img src="../assets/icons/y-axis/icon-internet-of-things.png" alt="" class="icon">
             <span>Internet of Things</span>
           </th>
           <td>
@@ -49,7 +49,7 @@
           <td><span/></td>
         </tr>
         <tr>
-          <th scope="row" title="Teknologiske temaer"><img src="../assets/icons/y-akse/icon-virtual-reality-og-augmented-reality.png" alt="" class="icon"><span>Virtual Reality og Augmented Reality</span></th>
+          <th scope="row" title="Teknologiske temaer"><img src="../assets/icons/y-axis/icon-virtual-reality-og-augmented-reality.png" alt="" class="icon"><span>Virtual Reality og Augmented Reality</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
@@ -58,7 +58,7 @@
           <td><span/></td>
         </tr>
         <tr>
-          <th scope="row"><img src="../assets/icons/y-akse/icon-deleokonomi-og-blockchain.png" alt="" class="icon"><span>Deleøkonomi og blockchain</span></th>
+          <th scope="row"><img src="../assets/icons/y-axis/icon-deleokonomi-og-blockchain.png" alt="" class="icon"><span>Deleøkonomi og blockchain</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
@@ -67,7 +67,7 @@
           <td><span/></td>
         </tr>
         <tr>
-          <th scope="row"><img src="../assets/icons/y-akse/icon-data-privatliv-transparens-og-sikkerhed.png" alt="" class="icon"><span>Data, privatliv, transparens og sikkerhed</span></th>
+          <th scope="row"><img src="../assets/icons/y-axis/icon-data-privatliv-transparens-og-sikkerhed.png" alt="" class="icon"><span>Data, privatliv, transparens og sikkerhed</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>

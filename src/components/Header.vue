@@ -3,36 +3,45 @@
     <div class="header"
       :style="{
         height: !isMatrix ? '56px' : '99px',
-        padding: !isMatrix ? '16px 32px' : null
+        padding: !isMatrix ? '16px 0' : null
       }">
-      <div v-if="isMatrix">
-        <h1 class="headline">Kommunernes teknologiske fremtid - et værktøj til viden og dialog</h1>
-        <p class="subheadline">KL har bedt DareDisrupt kortlægge perspektiverne af nye teknologier for kommunernes fremtid</p>
-      </div>
-      <div v-else>
-        <router-link :to="{ name: 'matrix' }" class="display-flex alignItems-center">
-          <img src="../assets/icons/icon-spilleplade-on-button.svg" alt="Logo: Dare Disrupt" height="24" class="margin-right display-inlineBlock" />
-          <span class="display-inlineBlock">Oversigt</span>
-        </router-link>
-      </div>
-      <div>
-        <div>
-          <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: Dare Disrupt" height="19" class="logo float-right" />
-          <img v-if="!isMatrix" src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" class="logo float-right" />
-          <div class="socialLinks">
-            <a href="https://www.linkedin.com/company/kl">
-              <img src="../assets/icons/icon-linkedin.svg" alt="LinkedIn" height="18" />
-            </a>
-            <a href="https://www.facebook.com/kommunerne/?rf=184003641627713">
-              <img src="../assets/icons/icon-facebook.svg" alt="Facebook" height="18" />
-            </a>
-            <a href="https://twitter.com/kommunerne?lang=en">
-              <img src="../assets/icons/icon-twitter.svg" alt="Twitter" height="18" />
-            </a>
+      <grid-block noPadding>
+        <div class="span-12 display-flex justifyContent-spaceBetween alignItems-center margin-none">
+          <div v-if="isMatrix">
+            <h1 class="headline">Kommunernes teknologiske fremtid - et værktøj til viden og dialog</h1>
+            <p class="subheadline">KL har bedt DareDisrupt kortlægge perspektiverne af nye teknologier for kommunernes fremtid</p>
+          </div>
+          <div v-else>
+            <router-link :to="{ name: 'matrix' }" class="display-flex alignItems-center">
+              <img src="../assets/icons/icon-spilleplade-on-button.svg" alt="Logo: Dare Disrupt" height="24" class="margin-right display-inlineBlock" />
+              <span class="buttonBackLabel">Oversigt</span>
+            </router-link>
+          </div>
+          <div>
+            <div :style="{ minWidth: '240px' }">
+              <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: Dare Disrupt" height="19" class="logo logo-daredisrupt" />
+              <img v-if="!isMatrix" src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" class="logo logo-kl" />
+              <div class="socialLinks">
+                <a href="https://www.linkedin.com/company/kl">
+                  <img src="../assets/icons/icon-linkedin.svg" alt="LinkedIn" height="18" />
+                </a>
+                <a href="https://www.facebook.com/kommunerne/?rf=184003641627713">
+                  <img src="../assets/icons/icon-facebook.svg" alt="Facebook" height="18" />
+                </a>
+                <a href="https://twitter.com/kommunerne?lang=en">
+                  <img src="../assets/icons/icon-twitter.svg" alt="Twitter" height="18" />
+                </a>
+              </div>
+            </div>
+            <p v-if="isMatrix" class="dropdownToggle" @click="dropdownVisible = !dropdownVisible">Om kortlægningen</p>
           </div>
         </div>
-        <p v-if="isMatrix" class="dropdownToggle" @click="dropdownVisible = !dropdownVisible">Om kortlægningen</p>
-      </div>
+      </grid-block>
+    </div>
+    <div v-if="!isMatrix" class="subheader">
+      <router-link :to="{ name: '', params: {} }">Kunstig intelligens, big data og robotter</router-link>
+      <img class="matrixlocation" src="../assets/icons/matrix-locations/matrixplacering-01.svg" alt="Placering i matrix">
+      <router-link :to="{ name: '', params: {} }">Arbejdsmarked og erhverv</router-link>
     </div>
     <dropdown v-if="isMatrix"
       @click.native="dropdownVisible = !dropdownVisible"
@@ -40,11 +49,6 @@
       <h1>Test</h1>
       <p>Indhold...</p>
     </dropdown>
-    <div v-if="!isMatrix" class="subheader">
-      <router-link :to="{ name: '', params: {} }">Kunstig intelligens, big data og robotter</router-link>
-      <img class="matrixlocation" src="../assets/icons/matrix-placeringer/matrixplacering-01.svg" alt="Placering i matrix">
-      <router-link :to="{ name: '', params: {} }">Arbejdsmarked og erhverv</router-link>
-    </div>
   </div>
 </template>
 
@@ -76,8 +80,8 @@
 
   .header,
   .subheader {
-    padding: $scale-3-1 $scale-4-1;
-    @include breakpoint('tablet') { padding: $scale-2-1 $scale-4-1; }
+    padding: $scale-3-1 0;
+    @include breakpoint('tablet') { padding: $scale-2-1 0; }
   }
 
   .header {
@@ -119,8 +123,15 @@
     @include breakpoint('mobile') { display: none; }
   }
 
+  .buttonBackLabel {
+    display: inline-block;
+    @include breakpoint('mobile') { display: none; }
+  }
+
   .socialLinks {
+    position: relative;
     float: right;
+    @include breakpoint('mobile') { top: 2px; }
     img { margin-left: $scale-1-2; }
   }
 
@@ -129,10 +140,10 @@
     position: relative;
     top: 1px;
     margin-left: $scale-2-1;
-    @include breakpoint('mobile') {
-      height: 14px;
-      margin-bottom: $scale;
-    }
+    float: right;
+    @include breakpoint('mobile') { top: 4px; }
+    &-kl { @include breakpoint('mobile') { height: 14px; }}
+    &-daredisrupt { @include breakpoint('mobile') { height: 16px; }}
   }
 
   .dropdownToggle {
@@ -164,6 +175,7 @@
     align-items: center;
     justify-content: center;
     background-color: $color-blue;
+    z-index: $zindex-subheader;
     width: 100%;
     left: 0;
     top: 56px;
@@ -176,6 +188,7 @@
       max-width: 160px;
       display: inline-block;
       &:first-child { text-align: right; }
+      @include breakpoint('mobile') { font-size: $fontSize-xsmall; }
     }
 
     .matrixlocation { margin: 0 $scale-2-1; }

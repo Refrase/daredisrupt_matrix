@@ -203,3 +203,20 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .slideIn 					{ animation: slideIn 600ms $animationBezier forwards; }
 .transitionFadeOnHover { transition: color .1s ease-out, background-color .1s ease-out; }
 .rotateUpsideDown { transform: rotate( 360deg ) !important; }
+
+.watermarkWord {
+	display: block;
+	font-family: $fontFamily-serif;
+	font-weight: bold;
+	font-size: 100px;
+	color: $color-light;
+	line-height: 1;
+	margin-bottom: -32px;
+	margin-left: -16px;
+
+	@include breakpoint( 'mobile' ) {
+		font-size: 48px;
+		margin-bottom: -18px;
+		margin-left: -6px;
+	}
+}

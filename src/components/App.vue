@@ -23,6 +23,7 @@
 
 <style lang="scss">
   @import '~@/styles/main';
+  @import '~@/styles/animations';
 
   .appContainer {
     width: 100%;
@@ -32,6 +33,9 @@
   .route {
     width: 100%;
     min-height: 100vh;
+    padding-top: 144px;
+    opacity: 0;
+    animation: fadeIn .15s .3s ease-out forwards;
   }
 
 </style>

@@ -32,7 +32,7 @@
     width: 1024px;
     display: flex;
     flex-wrap: wrap;
-    padding: $scale-2-1;
+    padding: $scale-10-1 $scale-2-1;
     margin: 0 auto;
 
     &-noPadding {
@@ -46,9 +46,8 @@
     & > * { padding: 0 $scale-2-1; }
 
     // Content-widths
-    @include breakpoint( 'tablet' ) { width: 768px; }
-    @include breakpoint( 'mobile' ) { width: 100%; }
-    @include breakpoint( 'custom', '1400px', true ) { width: 1320px; }
+    @include breakpoint( 'tablet' ) { width: 768px; padding: $scale-4-1 $scale-2-1; }
+    @include breakpoint( 'mobile' ) { width: 100%; padding: $scale-2-1; }
   }
 
   // Grid
@@ -60,7 +59,7 @@
       @include breakpoint( 'mobile' ) { width: 100% !important; }} // Default to 100% width on tablet and below
 
     @each $span in $spans {
-      .gridBlock-columns-#{$col} > *.span-#{$span} { width: percentage(1/$col * $span); } // Set num. of columns to span for direct children
+      .gridBlock-columns-#{$col} > *.span-#{$span} { width: percentage(1/$col * $span); margin-bottom: $scale-4-1; } // Set num. of columns to span for direct children
       .gridBlock-columns-#{$col} > *.offset-#{$span} {
         margin-left: percentage(1/$col * $span); // Set num. of columns to offset
         @include breakpoint( 'mobile' ) { margin-left: 0 !important; }}} // Never offset on mobile
