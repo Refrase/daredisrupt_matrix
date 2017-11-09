@@ -7,7 +7,7 @@ module.exports = function( env = {} ) {
 
   if ( env.production ) process.env.NODE_ENV = 'production';
 
-  if ( process.env.NODE_ENV == 'production' ) __webpack_public_path__ = 'http://example.dk/dist/'; // TODO: Change when the live-url is decided
+  if ( process.env.NODE_ENV == 'production' ) __webpack_public_path__ = 'http://kommunernesfremtid.dk/wp-content/themes/matrix/dist/'; // TODO: Change when the live-url is decided
 
   function makeStyleLoader( type ) {
     const cssLoader = {
@@ -36,7 +36,7 @@ module.exports = function( env = {} ) {
     output: {
       path: path.resolve( __dirname, './dist' ),
       filename: env.production ? 'js/main.min.js' : 'js/main.js',
-      publicPath: env.production ? '/dist/' : 'http://localhost:8080/wp-content/themes/matrix/'
+      publicPath: env.production ? __webpack_public_path__ : 'http://localhost:8080/wp-content/themes/matrix/'
     },
 
     // About combining webpack-dev-server and (in this project) MAMP server: https://webpack.github.io/docs/webpack-dev-server.html#combining-with-an-existing-server

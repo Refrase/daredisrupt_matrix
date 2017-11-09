@@ -4,17 +4,17 @@
       <thead>
         <tr title="Kommunale områder">
           <th class="corner"><div/></th>
-          <th scope="col"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon">Børn og læring</th>
-          <th scope="col"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon">Arbejdsmarked og erhverv</th>
-          <th scope="col"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon">Social og sundhed</th>
-          <th scope="col"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon">Miljø, teknik og forsyning</th>
-          <th scope="col"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon">Demokrati og involvering</th>
-          <th scope="col"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon">Administration og organisation</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-born-og-laering.png" alt="" class="icon icon-x">Børn og læring</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-arbejdsmarked-og-erhverv.png" alt="" class="icon icon-x">Arbejdsmarked og erhverv</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-social-og-sundhed.png" alt="" class="icon icon-x">Social og sundhed</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-miljo-teknik-og-forsyning.png" alt="" class="icon icon-x">Miljø, teknik og forsyning</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-demokrati-og-involvering.png" alt="" class="icon icon-x">Demokrati og involvering</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-administration-og-organisation.png" alt="" class="icon icon-x">Administration og organisation</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon"><span>Kunstig intelligens, big data og robotter</span></th>
+          <th scope="row"><img src="../assets/icons/y-akse/icon-kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig intelligens, big data og robotter</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
@@ -23,7 +23,7 @@
           <td><span/></td>
         </tr>
         <tr>
-          <th scope="row"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon"><span>Internet of Things</span></th>
+          <th scope="row"><img src="../assets/icons/y-akse/icon-internet-of-things.png" alt="" class="icon"><span>Internet of Things</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
@@ -32,7 +32,7 @@
           <td><span/></td>
         </tr>
         <tr>
-          <th scope="row" title="Teknologiske temaer"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon"><span>Virtual Reality og Augmented Reality</span></th>
+          <th scope="row" title="Teknologiske temaer"><img src="../assets/icons/y-akse/icon-virtual-reality-og-augmented-reality.png" alt="" class="icon"><span>Virtual Reality og Augmented Reality</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
@@ -41,7 +41,7 @@
           <td><span/></td>
         </tr>
         <tr>
-          <th scope="row"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon"><span>Deleøkonomi og blockchain</span></th>
+          <th scope="row"><img src="../assets/icons/y-akse/icon-deleokonomi-og-blockchain.png" alt="" class="icon"><span>Deleøkonomi og blockchain</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
@@ -50,7 +50,7 @@
           <td><span/></td>
         </tr>
         <tr>
-          <th scope="row"><img src="../assets/icons/icon-placeholder.png" alt="" class="icon"><span>Data, privatliv, transparens og sikkerhed</span></th>
+          <th scope="row"><img src="../assets/icons/y-akse/icon-data-privatliv-transparens-og-sikkerhed.png" alt="" class="icon"><span>Data, privatliv, transparens og sikkerhed</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
@@ -105,7 +105,6 @@
       line-height: 1;
       font-size: $fontSize-xsmall;
       font-weight: bold;
-      border-radius: 2px;
       background-color: $color-yellow;
       color: $color-yellow-darker-2;
       z-index: $zindex-label;
@@ -118,20 +117,21 @@
       content: attr(title); // The title="" on the <tr>
       @extend .label;
       right: calc(50vw - 180px);
-      top: 243px;
+      top: 244px;
       @include breakpoint('custom', '1200px') { top: 240px; }
       @include breakpoint('mobile') {
-        right: $scale-2-1;
-        top: 147px;
+        right: 0;
+        top: 152px;
       }
     }
+
 
     tbody tr:nth-child(3) th:after {
       content: attr(title); // The title="" on the <tr>
       @extend .label;
       bottom: 50%;
-      transform: translateX(-50%) rotate(270deg);
-      left: calc( 100vw / 7 );
+      transform: translateX(-43%) rotate(270deg);
+      left: calc(100vw / 7);
       @include breakpoint('custom', '1200px') {
         left: 174px;
         bottom: 100%;
@@ -142,6 +142,11 @@
       position: relative;
       height: 100%;
       border-bottom: 4px solid $color-yellow;
+
+      .icon {
+        width: auto;
+        max-height: 40px;
+      }
     }
 
     tr { width: 100%; }
