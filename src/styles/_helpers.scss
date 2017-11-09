@@ -138,7 +138,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .display {
 	&-block { display: block !important; }
 	&-flex { display: flex; }
-	&-inlineBlock { display: inline-block; }}
+	&-inlineBlock { display: inline-block !important; }}
 
 // Flex
 .flex {

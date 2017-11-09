@@ -4,27 +4,44 @@
       <thead>
         <tr title="Kommunale områder">
           <th class="corner"><div/></th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-born-og-laering.png" alt="" class="icon icon-x">Børn og læring</th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-arbejdsmarked-og-erhverv.png" alt="" class="icon icon-x">Arbejdsmarked og erhverv</th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-social-og-sundhed.png" alt="" class="icon icon-x">Social og sundhed</th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-miljo-teknik-og-forsyning.png" alt="" class="icon icon-x">Miljø, teknik og forsyning</th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-demokrati-og-involvering.png" alt="" class="icon icon-x">Demokrati og involvering</th>
-          <th scope="col"><img src="../assets/icons/x-akse/icon-administration-og-organisation.png" alt="" class="icon icon-x">Administration og organisation</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-born-og-laering.png" alt="" class="icon">Børn og læring</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-arbejdsmarked-og-erhverv.png" alt="" class="icon">Arbejdsmarked og erhverv</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-social-og-sundhed.png" alt="" class="icon">Social og sundhed</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-miljo-teknik-og-forsyning.png" alt="" class="icon">Miljø, teknik og forsyning</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-demokrati-og-involvering.png" alt="" class="icon">Demokrati og involvering</th>
+          <th scope="col"><img src="../assets/icons/x-akse/icon-administration-og-organisation.png" alt="" class="icon">Administration og organisation</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row"><img src="../assets/icons/y-akse/icon-kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig intelligens, big data og robotter</span></th>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
+          <td>
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-born-og-laering" />
+          </td>
+          <td>
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-arbejdsmarked-og-erhverv" />
+          </td>
+          <td>
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-social-og-sundhed" />
+          </td>
+          <td>
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-miljo-teknik-og-forsyning" />
+          </td>
+          <td>
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-demokrati-og-involvering" />
+          </td>
+          <td>
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-administration-og-organisation" />
+          </td>
         </tr>
         <tr>
-          <th scope="row"><img src="../assets/icons/y-akse/icon-internet-of-things.png" alt="" class="icon"><span>Internet of Things</span></th>
-          <td><span/></td>
+          <th scope="row">
+            <img src="../assets/icons/y-akse/icon-internet-of-things.png" alt="" class="icon">
+            <span>Internet of Things</span>
+          </th>
+          <td>
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-administration-og-organisation" />
+          </td>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
@@ -64,8 +81,11 @@
 </template>
 
 <script>
-  import GridBlock from '@/components/GridBlock'
-  export default { name: 'MatrixRoute' }
+  import Dot from '@/components/Dot'
+  export default {
+    name: 'MatrixRoute',
+    components: { dot: Dot }
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -140,7 +160,6 @@
 
     th[scope="col"] {
       position: relative;
-      height: 100%;
       border-bottom: 4px solid $color-yellow;
 
       .icon {
@@ -198,25 +217,9 @@
     }
 
     td {
-      span {
+      a {
+        position: relative;
         display: block;
-        border-radius: 100%;
-        margin: 0 auto;
-        width: 28px;
-        height: 28px;
-        background-color: white;
-        cursor: pointer;
-
-        box-shadow: 0 0 0 0 rgba($color-darkblue, 0.4);
-        animation: pulse 2s infinite;
-
-        transform: scale(1);
-        transition: transform .15s ease-out;
-
-        &:hover {
-          animation: none;
-          transform: scale(1.2);
-        }
       }
     }
   }
@@ -247,6 +250,7 @@
       th { font-size: 14px; }
     }
   }
+
   @include breakpoint('mobile') {
     th, td { padding: $scale $scale-2-1 !important; }
     th[scope="col"] { vertical-align: middle; }

@@ -33,7 +33,14 @@ router.beforeEach( (to, from, next) => {
     to: to
   }
   EventBus.$emit( 'routeChange', routeChange )
-  next()
+
+  if ( from.path === '/' ) { // If coming from matrix delay route change for the dot animation
+    setTimeout( () => {
+      next()
+    }, 300)
+  } else {
+    next()
+  }
 })
 
 const Matrix = Vue.extend({

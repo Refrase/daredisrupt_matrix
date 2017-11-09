@@ -22,18 +22,17 @@ h5, .h5 { font-size: $fontSize-base; }
 h6, .h6 { font-size: $fontSize-small; text-transform: uppercase; }
 
 p, li, a, label {
-  font-family: $fontFamily-sans;
   font-size: $fontSize-base;
   line-height: 1.5;
   font-variant-ligatures: none;
 }
 
 a, .a, .link {
+  font-family: $fontFamily-serif;
   color: $color-yellow;
   cursor: pointer;
   text-decoration: none;
-  letter-spacing: $letterSpacing;
-  line-height: 1.2;
+  line-height: 1.4;
   @extend .transitionFadeOnHover;
 
   &:hover { color: $color-yellow-darker-2; }
