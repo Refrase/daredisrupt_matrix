@@ -16,22 +16,22 @@
         <tr>
           <th scope="row"><img src="../assets/icons/y-axis/icon-kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig intelligens, big data og robotter</span></th>
           <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-born-og-laering" />
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-born-og-laering" />
           </td>
           <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-arbejdsmarked-og-erhverv" />
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-arbejdsmarked-og-erhverv" />
           </td>
           <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-social-og-sundhed" />
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-social-og-sundhed" />
           </td>
           <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-miljo-teknik-og-forsyning" />
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-miljo-teknik-og-forsyning" />
           </td>
           <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-demokrati-og-involvering" />
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-demokrati-og-involvering" />
           </td>
           <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-administration-og-organisation" />
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-administration-og-organisation" />
           </td>
         </tr>
         <tr>
@@ -40,7 +40,7 @@
             <span>Internet of Things</span>
           </th>
           <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-i-administration-og-organisation" />
+            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-administration-og-organisation" />
           </td>
           <td><span/></td>
           <td><span/></td>

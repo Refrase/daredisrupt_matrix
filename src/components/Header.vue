@@ -18,7 +18,7 @@
             </router-link>
           </div>
           <div>
-            <div :style="{ minWidth: '240px' }">
+            <div :style="{ minWidth: '210px' }">
               <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: Dare Disrupt" height="19" class="logo logo-daredisrupt" />
               <img v-if="!isMatrix" src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" class="logo logo-kl" />
               <div class="socialLinks">
@@ -125,7 +125,7 @@
 
   .buttonBackLabel {
     display: inline-block;
-    @include breakpoint('mobile') { display: none; }
+    @include breakpoint('custom', '479px') { display: none; }
   }
 
   .socialLinks {
@@ -142,8 +142,16 @@
     margin-left: $scale-2-1;
     float: right;
     @include breakpoint('mobile') { top: 4px; }
-    &-kl { @include breakpoint('mobile') { height: 14px; }}
-    &-daredisrupt { @include breakpoint('mobile') { height: 16px; }}
+    @include breakpoint('custom', '374px') { top: 6px; }
+    &-kl {
+      @include breakpoint('mobile') { height: 14px; }
+      @include breakpoint('custom', '374px') { height: 10px; }
+
+    }
+    &-daredisrupt {
+      @include breakpoint('mobile') { height: 17px; }
+      @include breakpoint('custom', '374px') { height: 12px; }
+    }
   }
 
   .dropdownToggle {

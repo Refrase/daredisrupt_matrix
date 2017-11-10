@@ -1,3 +1,5 @@
+@import './helpers';
+
 html {
   ::-webkit-scrollbar { width: 4px; height: 4px; }
   ::-webkit-scrollbar-track { background-color: $color-blue; }
@@ -6,6 +8,7 @@ html {
 
 body {
   color: $color-darkblue;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased; // Preventing fonts of getting too thin on Safari
   -moz-osx-font-smoothing: grayscale;
 }
@@ -68,22 +71,19 @@ input[type="submit"],
 button,
 .button {
   display: inline-block;
-  font-family: $fontFamily-sans;
-  padding: $scale $scale-4-1;
-  padding-bottom: $scale + 2px;
-  text-transform: uppercase;
+  font-family: $fontFamily-serif;
+  padding: 12px $scale-4-1;
+  padding-bottom: 12px + 2px;
   text-align: center;
   cursor: pointer;
-  background-color: $color-darkblue;
+  background-color: $color-yellow;
   color: $color-darkblue;
   font-size: $fontSize-small;
-  white-space: nowrap;
-  letter-spacing: 0;
   @extend .transitionFadeOnHover;
 
   &:hover {
-    color: white;
-    background-color: darken($color-darkblue, 8%);
+    color: $color-darkblue;
+    background-color: darken($color-yellow, 2%);
   }
 
   &.withInput { border-top-left-radius: 0; border-bottom-left-radius: 0; border: 1px solid $color-darkblue; }
