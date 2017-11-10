@@ -25,7 +25,7 @@
     </div>
 
     <div class="backgroundColor-white">
-      <grid-block>
+      <grid-block noPadding>
         <div class="span-12">
 
           <card
@@ -41,6 +41,52 @@
       </grid-block>
     </div>
 
+    <div class="backgroundColor-white">
+      <grid-block>
+
+        <div class="span-8 offset-4">
+          <h1>Perspektiver</h1>
+        </div>
+
+        <div class="span-3 perspectives_imageWrap">
+          <img src="../assets/images/telescope.png" width="100%" alt="Stjernekikkert">
+        </div>
+
+        <div class="span-8 offset-1">
+          <accordion :items="perspectivesItems" />
+        </div>
+
+      </grid-block>
+    </div>
+
+    <grid-block>
+
+      <headline watermark="Cases" center white />
+
+      <div class="span-6" v-for="(caseInstance, index) in cases" :key="index">
+        <card
+          :imageUrl="testImage"
+          backgroundColor="white"
+          headline="Test"
+          text="Texttest"
+          linkUrl="test"
+          linkLabel="Test" />
+      </div>
+
+    </grid-block>
+
+    <div class="backgroundColor-white">
+      <grid-block>
+
+        <headline center watermark="Hvad nu hvis?" headline="Oplæg til dialog og refleksion" />
+
+        <div class="span-8 offset-2">
+          <list largeText ellipsis :items="whatListItems" />
+        </div>
+
+      </grid-block>
+    </div>
+
   </div>
 </template>
 
@@ -49,15 +95,18 @@
   import Card from '@/components/Card'
   import List from '@/components/List'
   import Headline from '@/components/Headline'
+  import Accordion from '@/components/Accordion'
   import Rocket from '@/assets/icons/icon-rocket.svg'
-  import TestImage from '@/assets/images/matrix-maturity-potential/matrix-maturity-potential-04.png'
+  import TestImage from '@/assets/images/test-image.png'
   export default {
     name: 'DotRoute',
+    props: { routeChange: Object },
     components: {
       'grid-block': GridBlock,
       'card': Card,
       'list': List,
       'headline': Headline,
+      'accordion': Accordion,
     },
     data() {
       return {
@@ -70,7 +119,13 @@
         pilotsItems: [
           'Man kan fremad se, at de har været udset til at læse, at der skal dannes par af ligheder.',
           'Dermed kan der afsluttes uden løse ender, og de kan optimeres fra oven af at formidles stort uden brug fra presse.'
-        ]
+        ],
+        perspectivesItems: [
+          { title: 'Test', text: 'Text...' },
+          { title: 'Test 2', text: 'Text 2...' },
+          { title: 'Test 3', text: 'Text 3...' },
+        ],
+        cases: [{}, {}]
       }
     }
   }
@@ -78,4 +133,12 @@
 
 <style lang="scss" scoped>
   @import '~@/styles/vars';
+  @import '~@/styles/breakpoints';
+  .perspectives {
+    &_imageWrap {
+      @include breakpoint( 'mobile' ) {
+        display: none;
+      }
+    }
+  }
 </style>

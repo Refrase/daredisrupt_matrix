@@ -40,7 +40,9 @@
     </div>
     <div v-if="!isMatrix" class="subheader">
       <router-link :to="{ name: '', params: {} }">Kunstig intelligens, big data og robotter</router-link>
-      <img class="matrixlocation" src="../assets/icons/matrix-locations/matrixplacering-01.svg" alt="Placering i matrix">
+      <router-link :to="{ name: 'matrix' }">
+        <img class="matrixlocation" src="../assets/icons/matrix-locations/matrixplacering-01.svg" alt="Placering i matrix">
+      </router-link>
       <router-link :to="{ name: '', params: {} }">Arbejdsmarked og erhverv</router-link>
     </div>
     <dropdown v-if="isMatrix"
@@ -97,6 +99,12 @@
     justify-content: space-between;
     z-index: $zindex-header;
     transition: height .6s ease-out;
+  }
+
+  .headline,
+  .subheadline {
+    opacity: 0;
+    animation: fadeIn .3s .6s ease-out forwards;
   }
 
   .headline {
@@ -199,6 +207,6 @@
       @include breakpoint('mobile') { font-size: $fontSize-xsmall; }
     }
 
-    .matrixlocation { margin: 0 $scale-2-1; }
+    .matrixlocation { position: relative; margin: 0 $scale-2-1; top: 2px; }
   }
 </style>

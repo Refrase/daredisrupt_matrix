@@ -196,10 +196,13 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 }
 
 // Animation
-.fadeIn 					{ animation: fadeIn 600ms ease-out forwards; }
-.fadeInFast				{ animation: fadeIn 300ms ease-out forwards; }
-.fadeInWithDelay	{ animation: fadeIn 300ms 1000ms ease-out forwards; }
+.fadeIn 					{ opacity: 0; animation: fadeIn 600ms ease-out forwards; }
+.fadeInFast				{ opacity: 0; animation: fadeIn 300ms ease-out forwards; }
+.fadeInWithDelay	{ opacity: 0; animation: fadeIn 150ms 600ms ease-out forwards; }
 .fadeOut 					{ animation: fadeOut 600ms $animationBezier forwards; }
 .slideIn 					{ animation: slideIn 600ms $animationBezier forwards; }
 .transitionFadeOnHover { transition: color .1s ease-out, background-color .1s ease-out; }
 .rotateUpsideDown { transform: rotate( 360deg ) !important; }
+.slideRight 			{ opacity: 0; animation: fadeIn .1s ease-out forwards, slideRight .6s $animationBezier-easeOut-extreme forwards; }
+.slideLeft	 			{ opacity: 0; animation: fadeIn .1s ease-out forwards, slideLeft .6s $animationBezier-easeOut-extreme forwards; }
+.slideDown	 			{ opacity: 0; animation: fadeIn .1s .6s ease-out forwards, slideDown .6s .6s $animationBezier-easeOut-extreme forwards; }

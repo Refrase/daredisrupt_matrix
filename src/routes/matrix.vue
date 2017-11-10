@@ -97,14 +97,14 @@
   $headerHeight: 99px;
 
   .matrixRoute {
-    padding-top: $headerHeight;
     background-color: $color-blue;
     overflow-y: hidden;
+    padding-top: 0;
   }
 
   .matrix {
     width: 100%;
-    height: calc( 100vh - #{$headerHeight} );
+    height: 100vh;
     text-align: center;
     font-family: $fontFamily-serif;
     color: white;
@@ -158,7 +158,13 @@
       }
     }
 
+    th, td {
+      padding: $scale-3-1;
+      line-height: 1.3;
+    }
+
     th[scope="col"] {
+      padding-top: $headerHeight + $scale-3-1;
       position: relative;
       border-bottom: 4px solid $color-yellow;
 
@@ -177,11 +183,6 @@
     tbody tr:nth-child(odd),
     th:nth-child(even),
     td:nth-child(even), { background-color: rgba($color-darkblue, 0.3); }
-
-    th, td {
-      padding: $scale-3-1;
-      line-height: 1.3;
-    }
 
     th[scope="row"], td { vertical-align: middle; }
 
@@ -225,7 +226,6 @@
   }
   @include breakpoint('custom', '1200px') {
     .matrix {
-      height: calc( 100vh - 103px ) !important;
       .corner {
         display: block;
         width: 176px;
@@ -253,7 +253,10 @@
 
   @include breakpoint('mobile') {
     th, td { padding: $scale $scale-2-1 !important; }
-    th[scope="col"] { vertical-align: middle; }
+    th[scope="col"] {
+      padding-top: $headerHeight + $scale !important;
+      vertical-align: middle;
+    }
     .icon { display: none !important; }
     .corner,
     th[scope="row"] { width: 120px; }

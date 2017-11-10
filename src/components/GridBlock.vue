@@ -46,8 +46,8 @@
     & > * { padding: 0 $scale-2-1; }
 
     // Content-widths
-    @include breakpoint( 'tablet' ) { width: 768px; padding: $scale-4-1 $scale-2-1; }
-    @include breakpoint( 'mobile' ) { width: 100%; padding: $scale-2-1; }
+    @include breakpoint( 'tablet' ) { width: 768px; padding: $scale-6-1 $scale-2-1; }
+    @include breakpoint( 'mobile' ) { width: 100%; padding: $scale-4-1 $scale-2-1; }
   }
 
   // Grid

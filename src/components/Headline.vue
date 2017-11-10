@@ -1,17 +1,18 @@
 <template>
-  <div class="headline">
+  <div class="headline" :class="{ 'headline-center': center, 'headline-white': white }">
     <span v-if="watermark" class="watermark">{{ watermark }}</span>
-    <h1 class="margin-bottom-4-1">{{ headline }}</h1>
+    <h1 v-if="headline" class="margin-bottom-4-1">{{ headline }}</h1>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'HeaderWatermark',
+    name: 'Headline',
     props: {
-      items: Array,
       watermark: String,
-      headline: String
+      headline: String,
+      center: Boolean,
+      white: Boolean
     }
   }
 </script>
@@ -19,6 +20,11 @@
 <style lang="scss" scoped>
   @import '~@/styles/vars';
   @import '~@/styles/breakpoints';
+  .headline {
+    width: 100%;
+    &-center { text-align: center; }
+    &-white { * { color: white !important; }}
+  }
   .watermark {
   	display: block;
   	font-family: $fontFamily-serif;
@@ -26,13 +32,11 @@
   	font-size: 100px;
   	color: $color-light;
   	line-height: 1;
-  	margin-bottom: -32px;
+  	margin-bottom: -26px;
   	margin-left: -16px;
 
-  	@include breakpoint( 'mobile' ) {
-  		font-size: 48px;
-  		margin-bottom: -18px;
-  		margin-left: -6px;
-  	}
+    @include breakpoint( 'tablet' ) { font-size: 84px;  }
+  	@include breakpoint( 'mobile' ) { font-size: 48px; margin-bottom: -8px; margin-left: 0px; }
+    @include breakpoint( 'custom', '400px' ) { font-size: 36px; }
   }
 </style>

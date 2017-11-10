@@ -45,15 +45,7 @@ router.beforeEach( (to, from, next) => {
 
 const Matrix = Vue.extend({
   components: { 'app': App },
-  data() {
-    return {
-      routeChange: {}
-    }
-  },
-  created() {
-    EventBus.$on( 'routeChange', (routeChange) => { this.routeChange = routeChange })
-  },
-  template: '<app :routeChange="routeChange" />'
+  template: '<app />'
 })
 
 new Vue({

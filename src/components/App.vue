@@ -1,7 +1,13 @@
 <template>
   <div class="appContainer">
     <app-header :routeChange="routeChange" />
-    <router-view class="route" />
+    <router-view
+      class="route"
+      :class="{
+        slideRight: routeChange.to ? routeChange.to.path === '/' : null,
+        fadeInWithDelay: routeChange.to ? routeChange.to.path !== '/' : null,
+      }"
+      :routeChange="routeChange" />
     <app-footer />
   </div>
 </template>
@@ -15,15 +21,19 @@
       'app-header': Header,
       'app-footer': Footer
     },
-    props: {
-      routeChange: Object
-    }
+    data() {
+      return {
+        routeChange: {}
+      }
+    },
+    created() {
+      this.$bus.$on( 'routeChange', (routeChange) => { this.routeChange = routeChange; console.log(routeChange); })
+    },
   }
 </script>
 
 <style lang="scss">
   @import '~@/styles/main';
-  @import '~@/styles/animations';
 
   .appContainer {
     width: 100%;
@@ -33,9 +43,7 @@
   .route {
     width: 100%;
     min-height: 100vh;
-    padding-top: 144px;
-    opacity: 0;
-    animation: fadeIn .15s .3s ease-out forwards;
+    padding-top: 144px; // Header on pages not 'matrix'
+    // opacity: 0;
   }
-
 </style>
