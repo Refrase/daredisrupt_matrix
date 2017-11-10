@@ -112,7 +112,19 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 }
 
 .width		{
-	&-full  { width: 100% }}
+	&-full  { width: 100% }
+	&-fill  { // Counter spacing the grid for covering margins defined by grid. ATT! Depending on grid side paddings as they are
+		&-right	{
+	    position: absolute;
+			width: 100%;
+			left: 0;
+	    @include breakpoint( 'tablet' ) {
+				margin-left: -$scale-2-1;
+				width: calc( 100% + #{$scale-4-1} ) !important;
+			}
+		}
+	}
+}
 
 .height 	{
 	&-full 	{ height: 100%; }}

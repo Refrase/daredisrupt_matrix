@@ -34,7 +34,7 @@ router.beforeEach( (to, from, next) => {
   }
   EventBus.$emit( 'routeChange', routeChange )
 
-  if ( from.path === '/' ) { // If coming from matrix delay route change for the dot animation
+  if ( to.name === 'dot' ) { // If coming from matrix delay route change for the dot animation
     setTimeout( () => {
       next()
     }, 300)

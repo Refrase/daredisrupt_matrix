@@ -27,7 +27,7 @@
       }
     },
     created() {
-      this.$bus.$on( 'routeChange', (routeChange) => { this.routeChange = routeChange; console.log(routeChange); })
+      this.$bus.$on( 'routeChange', (routeChange) => { this.routeChange = routeChange })
     },
   }
 </script>

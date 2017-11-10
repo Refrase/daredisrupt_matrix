@@ -55,6 +55,7 @@
   $spans: 0 1 2 3 4 5 6 7 8 9 10 11 12;
   @each $col in $cols {
     .gridBlock-columns-#{$col} > * { // Set num. columns with columns="X"
+      position: relative;
       width: percentage(1/$col);
       @include breakpoint( 'mobile' ) { width: 100% !important; }} // Default to 100% width on tablet and below
 

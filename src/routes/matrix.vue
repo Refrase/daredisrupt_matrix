@@ -4,7 +4,11 @@
       <thead>
         <tr title="Kommunale områder">
           <th class="corner"><div/></th>
-          <th scope="col"><img src="../assets/icons/x-axis/icon-born-og-laering.png" alt="" class="icon">Børn og læring</th>
+          <th scope="col">
+            <router-link :to="{ name: 'x-axis', params: { id: 'born-og-laering' } }">
+              <img src="../assets/icons/x-axis/icon-born-og-laering.png" alt="" class="icon">Børn og læring
+            </router-link>
+          </th>
           <th scope="col"><img src="../assets/icons/x-axis/icon-arbejdsmarked-og-erhverv.png" alt="" class="icon">Arbejdsmarked og erhverv</th>
           <th scope="col"><img src="../assets/icons/x-axis/icon-social-og-sundhed.png" alt="" class="icon">Social og sundhed</th>
           <th scope="col"><img src="../assets/icons/x-axis/icon-miljo-teknik-og-forsyning.png" alt="" class="icon">Miljø, teknik og forsyning</th>
@@ -168,6 +172,8 @@
       position: relative;
       border-bottom: 4px solid $color-yellow;
 
+      a { font-size: $fontSize-large; }
+
       .icon {
         width: auto;
         max-height: 40px;
@@ -247,7 +253,8 @@
           height: 100%
         }
       }
-      th { font-size: 14px; }
+      th,
+      th[scope="col"] a { font-size: 14px; }
     }
   }
 

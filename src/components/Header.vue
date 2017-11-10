@@ -33,22 +33,38 @@
                 </a>
               </div>
             </div>
-            <p v-if="isMatrix" class="dropdownToggle" @click="dropdownVisible = !dropdownVisible">Om kortlægningen</p>
+            <p v-if="isMatrix" class="dropdownToggle a" @click="dropdownVisible = !dropdownVisible">Om kortlægningen</p>
           </div>
         </div>
       </grid-block>
     </div>
     <div v-if="!isMatrix" class="subheader">
-      <router-link :to="{ name: '', params: {} }">Kunstig intelligens, big data og robotter</router-link>
-      <router-link :to="{ name: 'matrix' }">
-        <img class="matrixlocation" src="../assets/icons/matrix-locations/matrixplacering-01.svg" alt="Placering i matrix">
-      </router-link>
-      <router-link :to="{ name: '', params: {} }">Arbejdsmarked og erhverv</router-link>
+      <div v-if="isDot" class="subheader-dot">
+        <router-link :to="{ name: '', params: {} }">Kunstig intelligens, big data og robotter</router-link>
+        <router-link :to="{ name: 'matrix' }">
+          <img class="matrixlocation" src="../assets/icons/matrix-locations/matrixplacering-01.svg" alt="Placering i matrix">
+        </router-link>
+        <router-link :to="{ name: '', params: {} }">Arbejdsmarked og erhverv</router-link>
+      </div>
+      <grid-block v-if="!isDot" noPadding>
+        <div class="span-12 margin-none">
+          <div class="subheader-axis">
+            <h1 class="subheader-axis_title">Arbejdsmarked og erhverv</h1>
+            <p class="dropdownToggle a margin-none" @click="dropdownTechnologicalThemesVisible = !dropdownTechnologicalThemesVisible">De 5 teknologiske temaer</p>
+          </div>
+        </div>
+      </grid-block>
     </div>
     <dropdown v-if="isMatrix"
       @click.native="dropdownVisible = !dropdownVisible"
       :visible="dropdownVisible">
       <h1>Test</h1>
+      <p>Indhold...</p>
+    </dropdown>
+    <dropdown class="dropdown-axis" v-if="isXAxis"
+      @click.native="dropdownTechnologicalThemesVisible = !dropdownTechnologicalThemesVisible"
+      :visible="dropdownTechnologicalThemesVisible">
+      <h1>De 5 teknologiske temaer</h1>
       <p>Indhold...</p>
     </dropdown>
   </div>
@@ -66,11 +82,14 @@
     props: { routeChange: Object },
     data() {
       return {
-        dropdownVisible: false
+        dropdownVisible: false,
+        dropdownTechnologicalThemesVisible: false
       }
     },
     computed: {
-      isMatrix() { return this.$route.name === 'matrix' }
+      isMatrix() { return this.$route.name === 'matrix' },
+      isDot() { return this.$route.name === 'dot' },
+      isXAxis() { return this.$route.name === 'x-axis' }
     }
   }
 </script>
@@ -165,10 +184,6 @@
   .dropdownToggle {
     clear: both;
     white-space: nowrap;
-    cursor: pointer;
-    font-family: $fontFamily-serif;
-    vertical-align: baseline;
-    color: $color-yellow;
     text-align: right;
     font-size: 14px;
     margin-top: $scale-4-1;
@@ -185,18 +200,44 @@
     }
   }
 
+  .dropdown {
+    &-axis {
+      z-index: $zindex-dropdownAxis !important;
+    }
+  }
+
   .subheader {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: $color-blue;
     z-index: $zindex-subheader;
     width: 100%;
+    height: 93px;
     left: 0;
     top: 56px;
     transform: translate3d(0, -160px, 0);
     animation: slideDownSubheader .6s .3s forwards;
+
+    &-dot,
+    &-axis {
+      display: flex;
+      align-items: center;
+    }
+
+    &-dot { justify-content: center; }
+    &-axis {
+      justify-content: space-between;
+      padding: 9px 0;
+
+      &_title {
+        color: white;
+        font-size: 24px;
+
+        @include breakpoint( 'custom', '540px' ) {
+          line-height: 1.4;
+          font-size: 14px;
+        }
+      }
+    }
 
     a {
       font-size: $fontSize-small;
