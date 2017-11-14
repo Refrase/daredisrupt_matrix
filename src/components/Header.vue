@@ -183,9 +183,8 @@
       max-width: 80%;
       font-size: 16px;
     }
-    @include breakpoint('mobile') {
-      font-size: 14px;
-    }
+    @include breakpoint('mobile') { font-size: 14px; }
+    @include breakpoint('custom', '449px') { font-size: 12px; }
   }
 
   .subheadline {
@@ -193,11 +192,7 @@
     font-style: italic;
     font-size: 14px;
     margin-top: $scale;
-    @include breakpoint('tablet') {
-      max-width: 80%;
-      font-size: 12px;
-    }
-    @include breakpoint('mobile') { display: none; }
+    @include breakpoint('tablet') { display: none; }
   }
 
   .buttonBackLabel {
