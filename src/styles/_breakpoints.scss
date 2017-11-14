@@ -1,6 +1,8 @@
 @mixin breakpoint($class, $value: false, $min: false) {
 
-  @if $class == 'mobile' {
+  @if $class == 'mobileSmall' {
+    @media (max-width: 375px) { @content; }
+  } @else if $class == 'mobile' {
     @media (max-width: 767px) { @content; }
   } @else if $class == 'tablet' {
     @media (max-width: 1023px) { @content; }

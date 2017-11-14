@@ -30,7 +30,7 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white">
+    <div class="backgroundColor-white" :style="{ marginTop: '-8%' }">
       <grid-block>
 
         <div class="span-8 offset-4">
@@ -48,10 +48,55 @@
       </grid-block>
     </div>
 
-    <grid-block>
+    <grid-block noPadding>
+      <div class="span-12">
 
-      <h1>Betydning for danske kommuner</h1>
+        <headline headline="Betydning for </br>danske kommuner" center yellow :style="{ marginTop: '-2.5%' }" />
 
+        <table class="table-meanings">
+          <thead>
+            <tr>
+              <th></th>
+              <th scope="col" class="hide-mobile">Hvor ses det?</th>
+              <th scope="col">Perspektiver og muligheder</th>
+              <th scope="col" class="hide-mobileSmall">Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span>AI, Big Data og Robotter</span></th>
+              <td class="hide-mobile"><span>Virksomheder vil benytte AI og robotter til at effektivisere og opnå konkurrenceevne via. I de næste ca. 13 år vil omkring 40% af de jobs vi kender i dag forsvinde og ca. 20% nye vil opstå.Virksomheder vil benytte AI og robotter til at effektivisere og opnå konkurrenceevne via. I de næste ca. 13 år vil omkring 40% af de jobs vi kender i dag forsvinde og ca. 20% nye vil opstå.Virksomheder vil benytte AI og robotter til at effektivisere og opnå konkurrenceevne via. I de næste ca. 13 år vil omkring 40% af de jobs vi kender i dag forsvinde og ca. 20% nye vil opstå.Virksomheder vil benytte AI og robotter til at effektivisere og opnå konkurrenceevne via. I de næste ca. 13 år vil omkring 40% af de jobs vi kender i dag forsvinde og ca. 20% nye vil opstå.</span></td>
+              <td><span>Man kan fremad se, at de har været udset til at læse, at der skal dannes par af ligheder. Dermed kan der afsluttes uden løse ender, og de kan optimeres fra oven af at formidles stort uden brug fra presse. I en kant af landet går der blandt om, at de vil sætte den over forbehold for tiden. Vi flotter med et hold, der vil rundt og se sig om i byen. Det gør heller ikke mere. Virksomheder vil benytte AI og robotter til at effektivisere og opnå konkurrenceevne via. I de næste ca. 13 år vil omkring 40% af de jobs vi kender i dag forsvinde og ca. 20% nye vil opstå. Virksomheder vil benytte AI og robotter til at effektivisere og opnå konkurrenceevne via. I de næste ca. 13 år vil omkring 40% af de jobs vi kender i dag forsvinde og ca. 20% nye vil opstå. Virksomheder vil benytte AI og robotter til at effektivisere og opnå konkurrenceevne via. I de næste ca. 13 år vil omkring 40% af de jobs vi kender i dag forsvinde og ca. 20% nye vil opstå. Virksomheder vil benytte AI og robotter til at effektivisere og opnå konkurrenceevne via. I de næste ca. 13 år vil omkring 40% af de jobs vi kender i dag forsvinde og ca. 20% nye vil opstå.</span></td>
+              <td class="impact hide-mobileSmall high"><span>Høj</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span>Internet of Things</span></th>
+              <td class="hide-mobile"></td>
+              <td></td>
+              <td class="impact hide-mobileSmall low"><span>Lav</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span>VR &amp; AR</span></th>
+              <td class="hide-mobile"></td>
+              <td></td>
+              <td class="impact hide-mobileSmall medium"><span>Mellem</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span>Deleøkonomi &amp; Blockchain</span></th>
+              <td class="hide-mobile"></td>
+              <td></td>
+              <td class="impact hide-mobileSmall high"><span>Høj</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span>Data, Privatliv, Transparens</span></th>
+              <td class="hide-mobile"></td>
+              <td></td>
+              <td class="impact hide-mobileSmall high"><span>Høj</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
     </grid-block>
 
     <div class="backgroundColor-white">
@@ -72,8 +117,8 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white">
-      <grid-block>
+    <div class="backgroundColor-white" :style="{ marginBottom: '120px' }">
+      <grid-block noPadding>
 
         <headline center watermark="Hvad nu hvis?" headline="Oplæg til dialog og refleksion" />
 
@@ -135,10 +180,80 @@
 <style lang="scss" scoped>
   @import '~@/styles/vars';
   @import '~@/styles/breakpoints';
+  @import '~@/styles/helpers';
   .perspectives {
     &_imageWrap {
       @include breakpoint( 'mobile' ) {
         display: none;
+      }
+    }
+  }
+
+  .table-meanings {
+    margin-bottom: $scale-10-1;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: $color-light;
+    th, td {
+      border: 12px solid $color-light;
+      padding: $scale-2-1 $scale;
+      min-height: 250px;
+    }
+    th {
+      font-family: $fontFamily-serif;
+
+      line-height: 1.2;
+    }
+    td {
+      font-family: $fontFamily-sans;
+      font-size: $fontSize-base;
+      line-height: 1.3;
+      padding: $scale-3-1 $scale-4-1;
+      position: relative;
+      height: 250px;
+      span {
+        position: relative;
+        z-index: 1;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        background-color: white;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        border-radius: 3px;
+      }
+    }
+    th[scope="col"] { padding-bottom: 0; }
+    th[scope="row"] {
+      position: relative;
+      border: 0;
+      padding: 0;
+      span {
+        @extend .rotateToVertical;
+        white-space: nowrap;
+      }
+    }
+    .impact {
+      font-family: $fontFamily-serif;
+      font-weight: 600;
+      font-size: $fontSize-xxlarge;
+      text-transform: uppercase;
+      position: relative;
+      &.high   { color: $color-green; }
+      &.medium { color: $color-darkblue; }
+      &.low    { color: $color-yellow; }
+      span {
+        @extend .rotateToVertical;
+        @include breakpoint( 'mobile' ) {
+          top: 0;
+          width: 200px;
+          text-align: right;
+          transform: translateX(-50%) translateY(116px) rotate(-90deg);
+        }
       }
     }
   }

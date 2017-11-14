@@ -1,7 +1,7 @@
 <template>
-  <div class="headline" :class="{ 'headline-center': center, 'headline-white': white }">
+  <div class="headline" :class="{ 'headline-center': center, 'headline-white': white, 'headline-yellow': yellow }">
     <span v-if="watermark" class="watermark">{{ watermark }}</span>
-    <h1 v-if="headline" class="margin-bottom-4-1">{{ headline }}</h1>
+    <h1 v-if="headline" class="margin-bottom-4-1" v-html="headline" /></h1>
   </div>
 </template>
 
@@ -12,7 +12,8 @@
       watermark: String,
       headline: String,
       center: Boolean,
-      white: Boolean
+      white: Boolean,
+      yellow: Boolean
     }
   }
 </script>
@@ -22,8 +23,12 @@
   @import '~@/styles/breakpoints';
   .headline {
     width: 100%;
+
     &-center { text-align: center; }
     &-white { * { color: white !important; }}
+    &-yellow { * { color: $color-yellow !important; }}
+
+    h1 { line-height: 1.2; }
   }
   .watermark {
   	display: block;

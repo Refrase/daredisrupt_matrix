@@ -136,6 +136,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .hidden { opacity: 0 !important; }
 .shown { opacity: 1 !important; }
 .hide { display: none !important;
+	&-mobileSmall { @include breakpoint( 'mobileSmall' ) { display: none !important; }}
 	&-mobile { @include breakpoint( 'mobile' ) { display: none !important; }}
 	&-tablet { @include breakpoint( 'tablet' ) { display: none !important; }}}
 .show { display: block !important; }
@@ -218,3 +219,12 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .slideRight 			{ opacity: 0; animation: fadeIn .1s ease-out forwards, slideRight .6s $animationBezier-easeOut-extreme forwards; }
 .slideLeft	 			{ opacity: 0; animation: fadeIn .1s ease-out forwards, slideLeft .6s $animationBezier-easeOut-extreme forwards; }
 .slideDown	 			{ opacity: 0; animation: fadeIn .1s .6s ease-out forwards, slideDown .6s .6s $animationBezier-easeOut-extreme forwards; }
+
+// Rotation
+.rotateToVertical {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+}
