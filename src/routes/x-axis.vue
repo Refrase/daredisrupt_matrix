@@ -51,8 +51,6 @@
     <grid-block noPadding>
       <div class="span-12">
 
-        <headline headline="Betydning for </br>danske kommuner" center yellow :style="{ marginTop: '-2.5%' }" />
-
         <table class="table-meanings">
           <thead>
             <tr>
