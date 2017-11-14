@@ -29,11 +29,7 @@
     },
     created() {
       this.$bus.$on( 'routeChange', (routeChange) => { this.routeChange = routeChange })
-      this.$bus.$on( 'dropdownToggled', (dropdownVisible) => {
-        console.log(dropdownVisible);
-        this.dropdownVisible = dropdownVisible.visible
-        console.log(this.dropdownVisible, 'this');
-      })
+      this.$bus.$on( 'dropdownToggled', (dropdownVisible) => { this.dropdownVisible = dropdownVisible.visible })
     },
   }
 </script>

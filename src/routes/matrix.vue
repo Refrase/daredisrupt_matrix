@@ -192,7 +192,6 @@
       }
     }
 
-
     tbody tr:nth-child(3) th:after {
       content: attr(title); // The title="" on the <tr>
       @extend .label;
@@ -293,6 +292,8 @@
         background-color: $color-blue;
         padding: $scale-2-1;
         a {
+          position: fixed;
+          max-width: 140px;
           .icon { display: none; }
           font-size: 14px;
           span {
