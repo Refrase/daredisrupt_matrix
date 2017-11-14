@@ -46,10 +46,15 @@
         </router-link>
         <router-link :to="{ name: '', params: {} }">Arbejdsmarked og erhverv</router-link>
       </div>
-      <grid-block v-if="!isDot" noPadding>
-        <div class="span-12 margin-none">
+      <grid-block v-if="!isDot" noPadding class="height-full">
+        <div class="span-12 margin-none height-full display-flex">
           <div class="subheader-axis">
-            <h1 class="subheader-axis_title">Arbejdsmarked og erhverv</h1>
+            <div :style="{ height: '40px', position: 'relative', whiteSpace: 'nowrap' }">
+              <div class="height-full display-inlineBlock">
+                <img src="../assets/icons/x-axis/icon-arbejdsmarked-og-erhverv.png" height="100%" class="display-block" :style="{ margin: '0 auto' }">
+              </div>
+              <h1 class="subheader-axis_title">Arbejdsmarked og erhverv</h1>
+            </div>
             <p class="dropdownToggle a margin-none" @click="dropdownTechnologicalThemesVisible = !dropdownTechnologicalThemesVisible">De 5 teknologiske temaer</p>
           </div>
         </div>
@@ -226,27 +231,40 @@
     &-dot { justify-content: center; }
     &-axis {
       justify-content: space-between;
-      padding: 9px 0;
+      width: 100%;
+      align-self: center;
 
       &_title {
         color: white;
+        display: inline-block;
+        bottom: 14px;
+        position: relative;
+        margin-left: $scale-2-1;
+        white-space: wrap;
         font-size: 24px;
 
-        @include breakpoint( 'custom', '540px' ) {
+        @include breakpoint( 'mobile' ) {
           line-height: 1.4;
+          font-size: 20px;
+        }
+
+        @include breakpoint( 'custom', '620px' ) {
+          line-height: 1.4;
+          bottom: 32px;
           font-size: 14px;
+        }
+      }
+
+      .a {
+        @include breakpoint( 'custom', '620px' ) {
+          position: absolute;
+          bottom: 2px;
+          right: 0;
         }
       }
     }
 
-    a {
-      font-size: $fontSize-small;
-      display: block;
-      max-width: 160px;
-      display: inline-block;
-      &:first-child { text-align: right; }
-      @include breakpoint('mobile') { font-size: $fontSize-xsmall; }
-    }
+
 
     .matrixlocation { position: relative; margin: 0 $scale-2-1; top: 2px; }
   }
