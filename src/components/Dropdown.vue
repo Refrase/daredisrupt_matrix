@@ -1,7 +1,7 @@
 <template>
   <div v-if="visible" class="dropdown">
-    <grid-block>
-      <div class="span-8 offset-2">
+    <grid-block noPadding>
+      <div class="span-8 offset-2" :class="{ 'span-12 margin-none': fullWidth }">
         <slot />
       </div>
     </grid-block>
@@ -13,7 +13,10 @@ import GridBlock from '@/components/GridBlock'
   export default {
     name: 'Dropdown',
     components: { 'grid-block': GridBlock },
-    props: { visible: Boolean }
+    props: {
+      visible: Boolean,
+      fullWidth: Boolean
+    }
   }
 </script>
 
@@ -21,7 +24,7 @@ import GridBlock from '@/components/GridBlock'
   @import '~@/styles/vars';
   @import '~@/styles/zindexes';
   .dropdown {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -29,9 +32,11 @@ import GridBlock from '@/components/GridBlock'
     // box-shadow: 0px 0px 0px 10000px rgba($color-darkblue-darker-2, 0.9);
     z-index: $zindex-dropdown;
     background-color: rgba($color-yellow, 0.97);
-    color: $color-yellow-darker-4;
+    color: $color-yellow-darker-3;
     padding-top: $headerHeight + $scale-4-1;
     padding-bottom: $scale-6-1;
+    overflow-y: scroll;
+    animation: fadeIn .15s ease-out, slideDownSubheader .3s $animationBezier-easeOut-extreme;
 
     &:after {
       content: ' \2715';

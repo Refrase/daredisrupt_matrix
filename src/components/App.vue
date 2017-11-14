@@ -1,5 +1,5 @@
 <template>
-  <div class="appContainer">
+  <div class="appContainer" :style="{ position: dropdownVisible ? 'fixed' : null, overflow: dropdownVisible ? 'hidden' : null }">
     <app-header :routeChange="routeChange" />
     <router-view
       class="route"
@@ -23,11 +23,17 @@
     },
     data() {
       return {
-        routeChange: {}
+        routeChange: {},
+        dropdownVisible: false
       }
     },
     created() {
       this.$bus.$on( 'routeChange', (routeChange) => { this.routeChange = routeChange })
+      this.$bus.$on( 'dropdownToggled', (dropdownVisible) => {
+        console.log(dropdownVisible);
+        this.dropdownVisible = dropdownVisible.visible
+        console.log(this.dropdownVisible, 'this');
+      })
     },
   }
 </script>

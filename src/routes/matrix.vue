@@ -18,7 +18,7 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row"><img src="../assets/icons/y-axis/icon-kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig intelligens, big data og robotter</span></th>
+          <th scope="row"><img src="../assets/icons/y-axis/kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig intelligens, big data og robotter</span></th>
           <td>
             <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-born-og-laering" />
           </td>
@@ -40,7 +40,7 @@
         </tr>
         <tr>
           <th scope="row">
-            <img src="../assets/icons/y-axis/icon-internet-of-things.png" alt="" class="icon">
+            <img src="../assets/icons/y-axis/internet-of-things.png" alt="" class="icon">
             <span>Internet of Things</span>
           </th>
           <td>
@@ -53,7 +53,7 @@
           <td><span/></td>
         </tr>
         <tr>
-          <th scope="row" title="Teknologiske temaer"><img src="../assets/icons/y-axis/icon-virtual-reality-og-augmented-reality.png" alt="" class="icon"><span>Virtual Reality og Augmented Reality</span></th>
+          <th scope="row" title="Teknologiske temaer"><img src="../assets/icons/y-axis/virtual-reality-og-augmented-reality.png" alt="" class="icon"><span>Virtual Reality og Augmented Reality</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
@@ -62,7 +62,7 @@
           <td><span/></td>
         </tr>
         <tr>
-          <th scope="row"><img src="../assets/icons/y-axis/icon-deleokonomi-og-blockchain.png" alt="" class="icon"><span>Deleøkonomi og blockchain</span></th>
+          <th scope="row"><img src="../assets/icons/y-axis/deleokonomi-og-blockchain.png" alt="" class="icon"><span>Deleøkonomi og blockchain</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
@@ -71,7 +71,7 @@
           <td><span/></td>
         </tr>
         <tr>
-          <th scope="row"><img src="../assets/icons/y-axis/icon-data-privatliv-transparens-og-sikkerhed.png" alt="" class="icon"><span>Data, privatliv, transparens og sikkerhed</span></th>
+          <th scope="row"><img src="../assets/icons/y-axis/data-privatliv-transparens-og-sikkerhed.png" alt="" class="icon"><span>Data, privatliv, transparens og sikkerhed</span></th>
           <td><span/></td>
           <td><span/></td>
           <td><span/></td>
