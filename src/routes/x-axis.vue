@@ -48,7 +48,7 @@
       </grid-block>
     </div>
 
-    <grid-block noPadding>
+    <grid-block>
       <div class="span-12">
 
         <table class="table-meanings">
@@ -188,7 +188,6 @@
   }
 
   .table-meanings {
-    margin-bottom: $scale-10-1;
     width: 100%;
     border-collapse: collapse;
     background-color: $color-light;
