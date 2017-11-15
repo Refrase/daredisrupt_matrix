@@ -43,23 +43,8 @@
               <img src="../assets/icons/y-axis/kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig intelligens, big data og robotter</span>
             </router-link>
           </th>
-          <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-born-og-laering" />
-          </td>
-          <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-arbejdsmarked-og-erhverv" />
-          </td>
-          <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-social-og-sundhed" />
-          </td>
-          <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-miljo-teknik-og-forsyning" />
-          </td>
-          <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-demokrati-og-involvering" />
-          </td>
-          <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-administration-og-organisation" />
+          <td v-for="(slug, index) in slugsXAxis">
+            <dot :linkParam="`kunstig-intelligens-big-data-og-robotter-for-${slug}`" />
           </td>
         </tr>
         <tr>
@@ -69,14 +54,9 @@
               <span>Internet of Things</span>
             </router-link>
           </th>
-          <td>
-            <dot linkParam="kunstig-intelligens-big-data-og-robotter-for-administration-og-organisation" />
+          <td v-for="(slug, index) in slugsXAxis">
+            <dot :linkParam="`internet-of-things-for-${slug}`" />
           </td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
         </tr>
         <tr>
           <th scope="row" title="Teknologiske temaer">
@@ -85,12 +65,9 @@
               <span>Virtual Reality og Augmented Reality</span>
             </router-link>
           </th>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
+          <td v-for="(slug, index) in slugsXAxis">
+            <dot :linkParam="`virtual-reality-og-augmented-reality-for-${slug}`" />
+          </td>
         </tr>
         <tr>
           <th scope="row">
@@ -99,12 +76,9 @@
               <span>Deleøkonomi og blockchain</span>
             </router-link>
           </th>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
+          <td v-for="(slug, index) in slugsXAxis">
+            <dot :linkParam="`deleokonomi-og-blockchain-for-${slug}`" />
+          </td>
         </tr>
         <tr>
           <th scope="row">
@@ -113,12 +87,9 @@
               <span>Data, privatliv, transparens og sikkerhed</span>
             </router-link>
           </th>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
-          <td><span/></td>
+          <td v-for="(slug, index) in slugsXAxis">
+            <dot :linkParam="`data-privatliv-transparens-og-sikkerhed-for-${slug}`" />
+          </td>
         </tr>
       </tbody>
     </table>
@@ -129,7 +100,12 @@
   import Dot from '@/components/Dot'
   export default {
     name: 'MatrixRoute',
-    components: { dot: Dot }
+    components: { dot: Dot },
+    data() {
+      return {
+        slugsXAxis: [ 'born-og-laering', 'arbejdsmarked-og-erhverv', 'social-og-sundhed', 'miljo-teknik-og-forsyning', 'demokrati-og-involvering', 'administration-og-organisation' ]
+      }
+    }
   }
 </script>
 
@@ -327,4 +303,12 @@
     .corner,
     th[scope="row"] { width: 120px; }
   }
+
+  // Postpone animation slightly for each dot from top left to bottom right
+  @for $row from 1 through 5 {
+  	@for $col from 2 through 7 { // Dot-cols start at col 2
+      tr:nth-child(#{$row}) td:nth-child(#{$col}) a /deep/ .dot_shadow { animation-delay: #{($col - 1) * ($row / 30)}s !important; }
+    }
+  }
+
 </style>
