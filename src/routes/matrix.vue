@@ -214,7 +214,13 @@
       position: relative;
       border-bottom: 4px solid $color-yellow;
 
-      a { font-size: $fontSize-large; }
+      a {
+        color: white;
+        text-decoration: underline;
+        text-decoration-color: $color-yellow;
+        font-size: $fontSize-large;
+        &:hover { text-decoration: none; }
+      }
 
       .icon {
         width: auto;
@@ -249,12 +255,15 @@
       position: relative;
       border-right: 4px solid $color-yellow;
       a {
-
+        color: white;
+        text-decoration: underline;
+        text-decoration-color: $color-yellow;
         text-align: left;
         font-size: $fontSize-small;
         display: flex;
         align-items: center;
         height: 100%;
+        &:hover { text-decoration: none; }
         span, .icon { display: inline-block; }
         span {
           width: calc(80% - #{$scale});
