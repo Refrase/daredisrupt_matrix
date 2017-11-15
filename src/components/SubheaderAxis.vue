@@ -9,7 +9,7 @@
             </div>
             <h1 class="subheaderAxis_title">Arbejdsmarked og erhverv</h1>
           </div>
-          <dropdown-toggle @click.native="dropdownVisible = !dropdownVisible" label="De 5 teknologiske temaer" class="margin-none" />
+          <dropdown-toggle v-if="isXAxis" @click.native="dropdownVisible = !dropdownVisible" label="De 5 teknologiske temaer" class="margin-none" />
         </div>
       </div>
       <dropdown-x-axis v-if="isXAxis" @click.native="dropdownVisible = !dropdownVisible" :visible="dropdownVisible" />

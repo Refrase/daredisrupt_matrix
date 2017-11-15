@@ -1,5 +1,5 @@
 <template>
-  <div class="xAxisRoute backgroundColor-light">
+  <div class="yAxisRoute backgroundColor-light">
 
     <grid-block>
       <div class="span-6">
@@ -15,12 +15,9 @@
       <grid-block>
         <div class="span-12">
           <card
-            :illustrationUrl="rocket"
-            headline="Piloter i Danmark"
-            :items="pilotsItems"
-            linkUrl="mailto:ida@daredisrupt.com"
-            linkLabel="Skriv til os her"
-            linkIntro="Gør I noget lignende i jeres kommune?"
+            :illustrationUrl="graphArrow"
+            headline="Drivere"
+            :items="driversItems"
             withSplitter />
         </div>
       </grid-block>
@@ -28,14 +25,13 @@
 
     <div class="backgroundColor-white" :style="{ marginTop: '-8%' }">
       <grid-block>
-        <div class="span-8 offset-4">
-          <h1>Perspektiver</h1>
-        </div>
         <div class="span-3 hide-mobile">
           <app-image :url="testImage" height="300" />
         </div>
         <div class="span-8 offset-1">
-          <accordion :items="perspectivesItems" />
+          <h1 class="margin-bottom-2-1">Perspektiver</h1>
+          <p class="margin-bottom-4-1">Perspektic y-akse tekst</p>
+          <accordion :items="possibilitiesItems" />
         </div>
       </grid-block>
     </div>
@@ -64,9 +60,14 @@
 
     <div class="backgroundColor-white" :style="{ marginBottom: '120px' }">
       <grid-block noPadding>
-        <headline center watermark="Hvad nu hvis?" headline="Oplæg til dialog og refleksion" />
+        <headline center headline="Forventet udvikling" />
+        <headline center yellow headline="Kort sigt" watermark="Ca. 3 år" />
         <div class="span-8 offset-2">
-          <list largeText ellipsis :items="discussionItems" />
+          <p>Kortsigtet...</p>
+        </div>
+        <headline center yellow headline="Lang sigt" watermark="+ 3 år" />
+        <div class="span-8 offset-2">
+          <p>Langsigtet...</p>
         </div>
       </grid-block>
     </div>
@@ -78,24 +79,22 @@
   // Components
   import GridBlock from '@/components/GridBlock'
   import Card from '@/components/Card'
-  import List from '@/components/List'
   import Headline from '@/components/Headline'
   import Accordion from '@/components/Accordion'
   import Image from '@/components/Image'
   import TableMeaning from '@/components/TableMeaning'
 
   // Assets
-  import Rocket from '@/assets/icons/icon-rocket.svg'
+  import GraphArrow from '@/assets/icons/icon-graph-arrow.svg'
   import TestImage from '@/assets/images/telescope.png'
   import TestImage2 from '@/assets/images/arbejdsmarked-og-erhverv.png'
 
   export default {
-    name: 'xAxisRoute',
+    name: 'yAxisRoute',
     props: { routeChange: Object },
     components: {
       'grid-block': GridBlock,
       'card': Card,
-      'list': List,
       'headline': Headline,
       'accordion': Accordion,
       'app-image': Image,
@@ -103,27 +102,20 @@
     },
     data() {
       return {
-        rocket: Rocket,
+        graphArrow: GraphArrow,
         testImage: TestImage,
         testImage2: TestImage2,
-        discussionItems: [
+        driversItems: [
           'Man kan fremad se, at de har været udset til at læse, at der skal dannes par af ligheder.',
           'Dermed kan der afsluttes uden løse ender, og de kan optimeres fra oven af at formidles stort uden brug fra presse.'
         ],
-        pilotsItems: [
-          'Man kan fremad se, at de har været udset til at læse, at der skal dannes par af ligheder.',
-          'Dermed kan der afsluttes uden løse ender, og de kan optimeres fra oven af at formidles stort uden brug fra presse.'
-        ],
-        perspectivesItems: [
-          { title: 'Test', text: 'Text...' },
-          { title: 'Test 2', text: 'Text 2...' },
-          { title: 'Test 3', text: 'Text 3...' },
-        ],
+        possibilitiesItems: [ { title: 'Nye muligheder', text: 'Text...' } ],
         tableMeaningRows: [
           { title: 'Børn og læring', whereIsItSeen: 'Text...', perspectivesAndPossibilities: 'Text...', impact: 'Høj' },
           { title: 'Børn og læring', whereIsItSeen: 'Text...', perspectivesAndPossibilities: 'Text...', impact: 'Mellem' },
           { title: 'Børn og læring', whereIsItSeen: 'Text...', perspectivesAndPossibilities: 'Text...', impact: 'Lav' },
           { title: 'Børn og læring', whereIsItSeen: 'Text...', perspectivesAndPossibilities: 'Text...', impact: 'Mellem' },
+          { title: 'Børn og læring', whereIsItSeen: 'Text...', perspectivesAndPossibilities: 'Text...', impact: 'Høj' },
           { title: 'Børn og læring', whereIsItSeen: 'Text...', perspectivesAndPossibilities: 'Text...', impact: 'Høj' }
         ],
         cases: [{}, {}]
@@ -132,76 +124,4 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import '~@/styles/vars';
-  @import '~@/styles/breakpoints';
-  @import '~@/styles/helpers';
-
-  .table-meanings {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: $color-light;
-    th, td {
-      border: 12px solid $color-light;
-      padding: $scale-2-1 $scale;
-      min-height: 250px;
-    }
-    th {
-      font-family: $fontFamily-serif;
-
-      line-height: 1.2;
-    }
-    td {
-      font-family: $fontFamily-sans;
-      font-size: $fontSize-base;
-      line-height: 1.3;
-      padding: $scale-3-1 $scale-4-1;
-      position: relative;
-      height: 250px;
-      span {
-        position: relative;
-        z-index: 1;
-      }
-      &:before {
-        content: '';
-        position: absolute;
-        background-color: white;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        border-radius: 3px;
-      }
-    }
-    th[scope="col"] { padding-bottom: 0; }
-    th[scope="row"] {
-      position: relative;
-      border: 0;
-      padding: 0;
-      span {
-        @extend .rotateToVertical;
-        white-space: nowrap;
-      }
-    }
-    .impact {
-      font-family: $fontFamily-serif;
-      font-weight: 600;
-      font-size: $fontSize-xxlarge;
-      text-transform: uppercase;
-      position: relative;
-      &.high   { color: $color-green; }
-      &.medium { color: $color-darkblue; }
-      &.low    { color: $color-yellow; }
-      span {
-        @extend .rotateToVertical;
-        @include breakpoint( 'mobile' ) {
-          top: 0;
-          width: 200px;
-          text-align: right;
-          transform: translateX(-50%) translateY(116px) rotate(-90deg);
-        }
-      }
-    }
-  }
-</style>
+<style lang="scss" scoped></style>

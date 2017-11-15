@@ -1,7 +1,7 @@
 <template>
   <div class="headline" :class="{ 'headline-center': center, 'headline-white': white, 'headline-yellow': yellow }">
     <span v-if="watermark" class="watermark">{{ watermark }}</span>
-    <h1 v-if="headline" class="margin-bottom-4-1" v-html="headline" /></h1>
+    <h1 v-if="headline" class="margin-bottom-4-1" v-html="headline" />
   </div>
 </template>
 
@@ -26,7 +26,10 @@
 
     &-center { text-align: center; }
     &-white { * { color: white !important; }}
-    &-yellow { * { color: $color-yellow !important; }}
+    &-yellow {
+      & .watermark { color: $color-yellow-lighter-6 !important; }
+      h1 { color: $color-yellow !important; }
+    }
 
     h1 { line-height: 1.2; }
   }
