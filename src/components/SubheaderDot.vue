@@ -1,15 +1,28 @@
 <template>
   <div class="subheaderDot">
     <router-link :to="{ name: '', params: {} }">Kunstig intelligens, big data og robotter</router-link>
-    <router-link :to="{ name: 'matrix' }">
-      <img class="matrixlocation" src="../assets/icons/matrix-locations/matrixplacering-01.svg" alt="Placering i matrix">
+    <router-link :to="{ name: 'matrix' }" class="matrixlocation">
+      <img
+        v-if="matrixLocation"
+        :src="matrixLocation"
+        alt="Placering i matrix">
     </router-link>
     <router-link :to="{ name: '', params: {} }">Arbejdsmarked og erhverv</router-link>
   </div>
 </template>
 
 <script>
-  export default { name: 'SubheaderDot' }
+  export default {
+    name: 'SubheaderDot',
+    data() {
+      return {
+        matrixLocation: null
+      }
+    },
+    created() {
+      this.$bus.$on( 'matrixLocation', (matrixLocation) => { this.matrixLocation = matrixLocation })
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -33,5 +46,15 @@
       }
     }
   }
-  .matrixlocation { position: relative; margin: 0 $scale-2-1; top: 2px; }
+  .matrixlocation {
+    position: relative;
+    margin: 0 $scale-2-1;
+    top: 2px;
+    width: 48px;
+
+    img {
+      width: 100%;
+      animation: fadeIn .6s ease-out;
+    }
+  }
 </style>

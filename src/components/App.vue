@@ -1,6 +1,11 @@
 <template>
-  <div class="appContainer" :style="{ position: dropdownVisible ? 'fixed' : null, overflow: dropdownVisible ? 'hidden' : null }">
-    <app-header :routeChange="routeChange" />
+  <div class="appContainer"
+    :style="{
+      position: dropdownVisible ? 'fixed' : null,
+      overflow: dropdownVisible ? 'hidden' : null,
+      width: dropdownVisible && this.$route.name === 'x-axis' ? 'calc(100vw - 10px)' : null,
+    }">
+    <app-header :routeChange="routeChange" :class="{ headerRelative: dropdownVisible && this.$route.name === 'x-axis' }" />
     <loading-indicator v-if="loadingPage" />
     <router-view
       class="route"
@@ -46,6 +51,8 @@
     width: 100%;
     min-height: 100%;
   }
+
+  .headerRelative .header { position: relative !important; } // Avoiding header jumping to the right when showing dropdown
 
   .route {
     width: 100%;

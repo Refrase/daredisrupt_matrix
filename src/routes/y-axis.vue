@@ -2,8 +2,8 @@
   <div v-if="technology" class="yAxisRoute backgroundColor-light">
 
     <grid-block v-if="technology.acf.intro_text">
-      <div class="span-6">
-        <h1 :style="{ fontSize: '100px' }" class="margin-bottom-2-1">{{ technology.acf.intro_title }}</h1>
+      <div class="span-6 margin-bottom-6-1">
+        <h1 :style="{ fontSize: '100px' }">{{ technology.acf.intro_title }}</h1>
         <p>{{ technology.acf.intro_text }}</p>
       </div>
       <div class="span-4 offset-2" v-if="technology.acf.intro_image">
@@ -42,9 +42,9 @@
       </grid-block>
     </div>
 
-    <grid-block noPadding v-if="technology.acf.meaning_table_rows">
-      <div class="span-12" :style="{ marginBottom: '80px' }">
-        <headline headline="Betydning for </br>danske kommuner" center yellow :style="{ marginTop: '-2.5%' }" />
+    <grid-block v-if="technology.acf.meaning_table_rows">
+      <div class="span-12">
+        <headline headline="Betydning for </br>danske kommuner" center yellow />
         <table-meaning :rows="technology.acf.meaning_table_rows" />
       </div>
     </grid-block>

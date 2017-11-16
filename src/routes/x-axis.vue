@@ -2,8 +2,8 @@
   <div v-if="area" class="xAxisRoute backgroundColor-light">
 
     <grid-block v-if="area.acf.intro_text">
-      <div class="span-6">
-        <h1 :style="{ fontSize: '100px' }" class="margin-bottom-2-1">{{ area.acf.intro_title }}</h1>
+      <div class="span-6 margin-bottom-6-1">
+        <h1 :style="{ fontSize: '100px' }">{{ area.acf.intro_title }}</h1>
         <p>{{ area.acf.intro_text }}</p>
       </div>
       <div class="span-4 offset-2" v-if="area.acf.intro_image">
@@ -45,9 +45,9 @@
       </grid-block>
     </div>
 
-    <grid-block noPadding v-if="area.acf.meaning_table_rows">
-      <div class="span-12" :style="{ marginBottom: '80px' }">
-        <headline headline="Betydning for </br>danske kommuner" center yellow :style="{ marginTop: '-2.5%' }" />
+    <grid-block v-if="area.acf.meaning_table_rows">
+      <div class="span-12">
+        <headline headline="Betydning for </br>danske kommuner" center yellow />
         <table-meaning :rows="area.acf.meaning_table_rows" />
       </div>
     </grid-block>

@@ -1,11 +1,9 @@
 <template>
-  <div class="loadingIndicator">
-    <h1>
-      <span class="iLetterDotHide" />
-      Henter indhold
-      <span class="newILetterDot">.</span>
-    </h1>
-  </div>
+  <p class="loadingIndicator">
+    <span class="iLetterDotHide" />
+    Henter indhold
+    <span class="newILetterDot">.</span>
+  </p>
 </template>
 
 <script>
@@ -16,14 +14,15 @@
   @import '~@/styles/vars';
   @import '~@/styles/animations';
   .loadingIndicator {
+    font-size: $fontSize-xxxlarge;
+    font-family: $fontFamily-serif;
+    font-weight: bold;
     position: absolute;
     top: calc( 50vh - 100px );
     width: 100%;
     text-align: center;
     animation: fadeIn 1s ease-out;
   }
-
-  h1 { position: relative; }
 
   .iLetterDotHide {
     display: block;
@@ -32,7 +31,7 @@
     height: 8px;
     background-color: white;
     left: 50%;
-    top: 8px;
+    top: 12px;
   }
 
   @keyframes fadeInAndSlideDownEllipsisDot {
@@ -44,7 +43,7 @@
   .newILetterDot {
     display: block;
     position: relative;
-    bottom: 53px;
+    bottom: 56px;
     left: 4px;
     animation: fadeInAndSlideDownEllipsisDot .8s cubic-bezier(.65,.47,0,.85) infinite;
   }

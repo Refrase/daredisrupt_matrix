@@ -2,8 +2,8 @@
   <div v-if="crosspoint" class="dotRoute backgroundColor-light">
 
     <grid-block v-if="crosspoint.acf.intro_text">
-      <div class="span-6">
-        <h1 :style="{ fontSize: '100px' }" class="margin-bottom-2-1">{{ crosspoint.acf.intro_title }}</h1>
+      <div class="span-6 margin-bottom-6-1">
+        <h1 :style="{ fontSize: '100px' }">{{ crosspoint.acf.intro_title }}</h1>
         <p>{{ crosspoint.acf.intro_text }}</p>
       </div>
       <div class="span-4 offset-2">
@@ -41,7 +41,7 @@
         <div class="span-8 offset-4">
           <h1>Perspektiver</h1>
         </div>
-        <div class="span-3 perspectives_imageWrap">
+        <div class="span-3 hide-mobile">
           <app-image
             :url="crosspoint.acf.perspectives_image ? crosspoint.acf.perspectives_image : telescope"
             :height="crosspoint.acf.perspectives_image_height" />
@@ -122,6 +122,7 @@
       this.fetchData( `crosspoints?slug=${ this.$route.params.id }` ).then( res => {
         this.$bus.$emit( 'loadingPage', false )
         this.crosspoint = res[0]
+        this.$bus.$emit( 'matrixLocation', res[0].acf.matrix_location )
         let cases = []
         this.fetchData( `cases?slug=${ this.crosspoint.acf.case_1 }` ).then( res => {
           cases.push(res[0])
@@ -135,14 +136,4 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import '~@/styles/vars';
-  @import '~@/styles/breakpoints';
-  .perspectives {
-    &_imageWrap {
-      @include breakpoint( 'mobile' ) {
-        display: none;
-      }
-    }
-  }
-</style>
+<style lang="scss" scoped></style>
