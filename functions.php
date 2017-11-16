@@ -1,8 +1,5 @@
 <?php
 
-  add_theme_support( 'menus' );
-  add_theme_support( 'post-thumbnails' );
-
   // Styling
   function matrix_theme_styles() {
 
@@ -69,6 +66,11 @@
 	    return array(
 	        'index.php', // Dashboard
 					'edit.php?post_type=page', // Pages
+          'edit.php?post_type=krydspunkt', // Krydspunkter
+          'edit.php?post_type=teknologi', // Teknologier
+          'edit.php?post_type=omraade', // Områder
+          'edit.php?post_type=case', // Cases
+          'edit.php?post_type=dropdown', // Dropdown
 					'edit.php', // Posts
 	        'separator1', // First separator
 	        'upload.php', // Media
@@ -84,10 +86,95 @@
 	add_filter('custom_menu_order', 'custom_menu_order'); // Activate custom_menu_order
 	add_filter('menu_order', 'custom_menu_order');
 
-	function rrh_change_post_links() {
+	function rrh_from_admin_menu() {
 		global $menu;
+    unset($menu[5]); // Remove posts from menu
+    unset($menu[20]); // Remove pages from menu
 		unset($menu[25]); // Remove comments from menu
 	}
-  add_action('admin_menu', 'rrh_change_post_links');
-  
+  add_action('admin_menu', 'rrh_from_admin_menu');
+
+  // Registering af taxonomy used for targeting custom fields to subsets of the Crosspoint (Krydspunkt) custom post type
+  function add_custom_taxonomies() {
+    register_taxonomy('teknologi', 'krydspunkt', array(
+      'hierarchical' => false,
+      'labels' => array(
+        'name' => _x( 'Teknologier', 'taxonomy general name' ),
+        'singular_name' => _x( 'Teknologi', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Teknologier' ),
+        'all_items' => __( 'Alle Teknologier' ),
+        'edit_item' => __( 'Redigér Teknologi' ),
+        'update_item' => __( 'Opdatér Teknologi' ),
+        'add_new_item' => __( 'Tilføj Teknologi' ),
+        'new_item_name' => __( 'Nyt Teknologi Navn' ),
+        'menu_name' => __( 'Teknologier' ),
+      ),
+      'rewrite' => array(
+        'slug' => 'teknologier', // This controls the base slug that will display before each term
+        'with_front' => false, // Don't display the category base before "/locations/"
+        'hierarchical' => false // This will allow URL's like "/locations/boston/cambridge/"
+      ),
+    ));
+  }
+  add_action( 'init', 'add_custom_taxonomies', 0 );
+
+  // Dynamically set options for the pages' select to all Cases created (next four function blocks)
+
+  // Generic function that slugifies input
+  function slugify($text, $strict = false) {
+    $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
+    $text = preg_replace('~[^\\pL\d.]+~u', '-', $text); // replace non letter or digits by -
+    $text = trim($text, '-');
+    setlocale(LC_CTYPE, 'en_GB.utf8');
+    if (function_exists('iconv')) { $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text); } // transliterate
+    $text = strtolower($text); // lowercase
+    $text = preg_replace('~[^-\w.]+~', '', $text); // remove unwanted characters
+    if (empty($text)) { return 'empty_$'; }
+    if ($strict) { $text = str_replace(".", "_", $text); }
+    return $text;
+  }
+
+  // Generic function that combines slugs and names to key/value pairs
+  function build_slug_value_array( $post_type ) {
+    $array = array();
+    // Get title of all posts of given post type
+    $args = array( 'post_type' => $post_type );
+    $query = new WP_Query( $args );
+    if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
+      array_push($array, get_the_title());
+    endwhile; endif; wp_reset_postdata();
+    // Create keys for the array by "transliterating"/formatting it to a slug-like string (that is matched in the client-side code and used to sort)
+    $array_slugified = array();
+    foreach ($array as $release) {
+      array_push($array_slugified, slugify($release, true));
+    }
+    // Combine to an array with slug as key and title as value
+    $array = array_combine( $array_slugified, $array );
+    return $array;
+  }
+
+  // Generic function to automatically set/update select options for a custom field in the wp-admin
+  function acf_load_field_choices( $field, &$slug_value_array ) {  // '&' referencing variable from global scope
+    $field['choices'] = array(); // reset choices
+    if ( !empty($slug_value_array) ) {
+      foreach ($slug_value_array as $key => $value) {
+        $field['choices'][$key] = $value;
+      }
+    }
+    return $field;
+  }
+
+  // Automatically set/update select options for pages with cases to include every Case created
+  $all_cases = build_slug_value_array( 'case' );
+  function acf_load_case_1_field_choices( $field ) {
+    global $all_cases;
+    return acf_load_field_choices( $field, $all_cases );
+  }
+  function acf_load_case_2_field_choices( $field ) {
+    global $all_cases;
+    return acf_load_field_choices( $field, $all_cases );
+  }
+  add_filter('acf/load_field/name=case_1', 'acf_load_case_1_field_choices');
+  add_filter('acf/load_field/name=case_2', 'acf_load_case_2_field_choices');
+
 ?>

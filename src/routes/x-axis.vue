@@ -1,24 +1,27 @@
 <template>
-  <div class="xAxisRoute backgroundColor-light">
+  <div v-if="area" class="xAxisRoute backgroundColor-light">
 
-    <grid-block>
+    <grid-block v-if="area.acf.intro_text">
       <div class="span-6">
-        <h1 :style="{ fontSize: '100px' }" class="margin-bottom-2-1">Intro</h1>
-        <p>Selv om hun har sat alt mere frem, og derfor ikke længere kan betragtes som den glade giver, er det en nem sammenstilling, som bærer ved i lang tid. Det går der så nogle timer ud, hvor det er indlysende, at virkeligheden bliver tydelig istandsættelse. Det er opmuntrende og anderledes, at det er dampet af kurset i morgen. Der indgives hvert år enorme strenge af blade af større eller mindre tilsnit. I denne afdeling finder man blandt andet som en om håndtering af samme grund. Politik handler som bekendt ligeså meget om at tale, som at stå frem for tiden.</p>
+        <h1 :style="{ fontSize: '100px' }" class="margin-bottom-2-1">{{ area.acf.intro_title }}</h1>
+        <p>{{ area.acf.intro_text }}</p>
       </div>
-      <div class="span-4 offset-2">
-        <app-image :url="testImage2" height="300" />
+      <div class="span-4 offset-2" v-if="area.acf.intro_image">
+        <app-image
+          :url="area.acf.intro_image"
+          :height="area.acf.intro_image_height" />
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white">
+    <div class="backgroundColor-white" v-if="area.acf.pilots">
       <grid-block>
         <div class="span-12">
           <card
             :illustrationUrl="rocket"
             headline="Piloter i Danmark"
-            :items="pilotsItems"
-            linkUrl="mailto:ida@daredisrupt.com"
+            :items="area.acf.pilots"
+            itemKey="pilot"
+            :linkUrl="`mailto:${area.acf.pilots_contact_mail}`"
             linkLabel="Skriv til os her"
             linkIntro="Gør I noget lignende i jeres kommune?"
             withSplitter />
@@ -26,47 +29,49 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white" :style="{ marginTop: '-8%' }">
+    <div class="backgroundColor-white" :style="{ marginTop: '-8%' }" v-if="area.acf.perspectives">
       <grid-block>
         <div class="span-8 offset-4">
           <h1>Perspektiver</h1>
         </div>
         <div class="span-3 hide-mobile">
-          <app-image :url="testImage" height="300" />
+          <app-image
+            :url="area.acf.perspectives_image ? area.acf.perspectives_image : telescope"
+            :height="area.acf.perspectives_image_height" />
         </div>
         <div class="span-8 offset-1">
-          <accordion :items="perspectivesItems" />
+          <accordion :items="area.acf.perspectives" />
         </div>
       </grid-block>
     </div>
 
-    <grid-block noPadding>
+    <grid-block noPadding v-if="area.acf.meaning_table_rows">
       <div class="span-12" :style="{ marginBottom: '80px' }">
         <headline headline="Betydning for </br>danske kommuner" center yellow :style="{ marginTop: '-2.5%' }" />
-        <table-meaning :rows="tableMeaningRows" />
+        <table-meaning :rows="area.acf.meaning_table_rows" />
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white">
+    <div class="backgroundColor-white" v-if="this.cases">
       <grid-block>
         <headline watermark="Cases" center />
         <div class="span-6" v-for="(caseInstance, index) in cases" :key="index">
           <card
-            :imageUrl="testImage"
+            :imageUrl="caseInstance.acf.image"
             backgroundColor="light"
-            headline="Test"
-            text="Texttest"
-            linkUrl="test"
-            linkLabel="Test" />
+            :headline="caseInstance.title.rendered"
+            :text="caseInstance.acf.text"
+            :linkUrl="caseInstance.acf.read_more_url"
+            linkLabel="Læs mere her" />
         </div>
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white" :style="{ marginBottom: '120px' }">
-      <grid-block noPadding>
+    <div class="backgroundColor-white" :style="{ marginBottom: '200px' }" v-if="area.acf.what_if">
+      <grid-block>
         <headline center watermark="Hvad nu hvis?" headline="Oplæg til dialog og refleksion" />
         <div class="span-8 offset-2">
-          <list largeText ellipsis :items="discussionItems" />
+          <list largeText ellipsis :items="area.acf.what_if" itemKey="point" />
         </div>
       </grid-block>
     </div>
@@ -86,12 +91,15 @@
 
   // Assets
   import Rocket from '@/assets/icons/icon-rocket.svg'
-  import TestImage from '@/assets/images/telescope.png'
-  import TestImage2 from '@/assets/images/arbejdsmarked-og-erhverv.png'
+  import Telescope from '@/assets/images/telescope.png'
+
+  // Utils
+  import { fetchData } from '@/utils/fetchData'
 
   export default {
     name: 'xAxisRoute',
     props: { routeChange: Object },
+    mixins: [fetchData],
     components: {
       'grid-block': GridBlock,
       'card': Card,
@@ -103,31 +111,26 @@
     },
     data() {
       return {
+        area: null,
+        cases: null,
         rocket: Rocket,
-        testImage: TestImage,
-        testImage2: TestImage2,
-        discussionItems: [
-          'Man kan fremad se, at de har været udset til at læse, at der skal dannes par af ligheder.',
-          'Dermed kan der afsluttes uden løse ender, og de kan optimeres fra oven af at formidles stort uden brug fra presse.'
-        ],
-        pilotsItems: [
-          'Man kan fremad se, at de har været udset til at læse, at der skal dannes par af ligheder.',
-          'Dermed kan der afsluttes uden løse ender, og de kan optimeres fra oven af at formidles stort uden brug fra presse.'
-        ],
-        perspectivesItems: [
-          { title: 'Test', text: 'Text...' },
-          { title: 'Test 2', text: 'Text 2...' },
-          { title: 'Test 3', text: 'Text 3...' },
-        ],
-        tableMeaningRows: [
-          { title: 'Børn og læring', whereIsItSeen: 'Text...', perspectivesAndPossibilities: 'Text...', impact: 'Høj' },
-          { title: 'Børn og læring', whereIsItSeen: 'Text...', perspectivesAndPossibilities: 'Text...', impact: 'Mellem' },
-          { title: 'Børn og læring', whereIsItSeen: 'Text...', perspectivesAndPossibilities: 'Text...', impact: 'Lav' },
-          { title: 'Børn og læring', whereIsItSeen: 'Text...', perspectivesAndPossibilities: 'Text...', impact: 'Mellem' },
-          { title: 'Børn og læring', whereIsItSeen: 'Text...', perspectivesAndPossibilities: 'Text...', impact: 'Høj' }
-        ],
-        cases: [{}, {}]
+        telescope: Telescope
       }
+    },
+    created() {
+      this.$bus.$emit( 'loadingPage', true )
+      this.fetchData( `areas?slug=${ this.$route.params.id }` ).then( res => {
+        this.$bus.$emit( 'loadingPage', false )
+        this.area = res[0]
+        let cases = []
+        this.fetchData( `cases?slug=${ this.area.acf.case_1 }` ).then( res => {
+          cases.push(res[0])
+          this.fetchData( `cases?slug=${ this.area.acf.case_2 }` ).then( res => {
+            cases.push(res[0])
+            this.cases = cases
+          })
+        })
+      })
     }
   }
 </script>

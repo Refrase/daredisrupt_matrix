@@ -12,7 +12,7 @@
     <img v-if="illustrationUrl" class="illustration" :src="illustrationUrl" :alt="illustrationAlt ? illustrationAlt : null" />
     <div class="content" :class="{ 'content-illustration': illustrationUrl }">
       <h2 class="headline">{{ headline }}</h2>
-      <list v-if="items" :items="items" />
+      <list v-if="items" :items="items" :itemKey="itemKey" :htmlContent="htmlContent" />
       <p v-if="text">{{ text }}</p>
     </div>
     <a v-if="linkUrl && linkLabel" class="linkWrap" :href="linkUrl">
@@ -34,6 +34,8 @@
       illustrationAlt: String,
       headline: String,
       items: Array,
+      itemKey: String,
+      htmlContent: Boolean,
       text: String,
       linkUrl: String,
       linkLabel: String,

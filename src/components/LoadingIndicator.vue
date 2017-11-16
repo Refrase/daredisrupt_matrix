@@ -37,7 +37,7 @@
 
   @keyframes fadeInAndSlideDownEllipsisDot {
     0% { transform: translate3d(0, -30px, 0) scaleY(1.1); }
-    50% { transform: translate3d(0, 0, 0) scaleY(0.6); }
+    30% { transform: translate3d(0, 0, 0) scaleY(0.6); }
     100% { transform: translate3d(0, -30px, 0) scaleY(1.1); }
   }
 
@@ -46,7 +46,7 @@
     position: relative;
     bottom: 53px;
     left: 4px;
-    animation: fadeInAndSlideDownEllipsisDot .6s cubic-bezier(.65,.47,0,.85) infinite;
+    animation: fadeInAndSlideDownEllipsisDot .8s cubic-bezier(.65,.47,0,.85) infinite;
   }
 
 </style>

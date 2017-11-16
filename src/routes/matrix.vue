@@ -5,33 +5,33 @@
         <tr title="Kommunale områder">
           <th class="corner"><div/></th>
           <th scope="col">
-            <router-link :to="{ name: 'x-axis', params: { id: 'born-og-laering' } }">
-              <img src="../assets/icons/x-axis/icon-born-og-laering.png" alt="" class="icon">Børn og læring
+            <router-link :to="{ name: 'x-axis', params: { id: 'boern-og-laering' } }">
+              <img src="../assets/icons/x-axis/icon-born-og-laering.png" alt="" class="icon">Børn &amp; Læring
             </router-link>
           </th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'arbejdsmarked-og-erhverv' } }">
-              <img src="../assets/icons/x-axis/icon-arbejdsmarked-og-erhverv.png" alt="" class="icon">Arbejdsmarked og erhverv
+              <img src="../assets/icons/x-axis/icon-arbejdsmarked-og-erhverv.png" alt="" class="icon">Arbejdsmarked &amp; Erhverv
             </router-link>
           </th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'social-og-sundhed' } }">
-              <img src="../assets/icons/x-axis/icon-social-og-sundhed.png" alt="" class="icon">Social og sundhed
+              <img src="../assets/icons/x-axis/icon-social-og-sundhed.png" alt="" class="icon">Social &amp; Sundhed
             </router-link>
           </th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'miljo-teknik-og-forsyning' } }">
-              <img src="../assets/icons/x-axis/icon-miljo-teknik-og-forsyning.png" alt="" class="icon">Miljø, teknik og forsyning
+              <img src="../assets/icons/x-axis/icon-miljo-teknik-og-forsyning.png" alt="" class="icon">Miljø, Teknik &amp; Forsyning
             </router-link>
           </th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'demokrati-og-involvering' } }">
-              <img src="../assets/icons/x-axis/icon-demokrati-og-involvering.png" alt="" class="icon">Demokrati og involvering
+              <img src="../assets/icons/x-axis/icon-demokrati-og-involvering.png" alt="" class="icon">Demokrati &amp; Involvering
             </router-link>
           </th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'administration-og-organisation' } }">
-              <img src="../assets/icons/x-axis/icon-administration-og-organisation.png" alt="" class="icon">Administration og organisation
+              <img src="../assets/icons/x-axis/icon-administration-og-organisation.png" alt="" class="icon">Administration &amp; Organisation
             </router-link>
           </th>
         </tr>
@@ -40,11 +40,11 @@
         <tr>
           <th scope="row">
             <router-link :to="{ name: 'y-axis', params: { id: 'kunstig-intelligens-big-data-og-robotter' } }">
-              <img src="../assets/icons/y-axis/kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig intelligens, big data og robotter</span>
+              <img src="../assets/icons/y-axis/kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig Intelligens, Big Data &amp; Robotter</span>
             </router-link>
           </th>
           <td v-for="(slug, index) in slugsXAxis">
-            <dot :linkParam="`kunstig-intelligens-big-data-og-robotter-for-${slug}`" />
+            <dot :linkParam="`kunstig-intelligens-big-data-og-robotter-${slug}`" />
           </td>
         </tr>
         <tr>
@@ -55,7 +55,7 @@
             </router-link>
           </th>
           <td v-for="(slug, index) in slugsXAxis">
-            <dot :linkParam="`internet-of-things-for-${slug}`" />
+            <dot :linkParam="`internet-of-things-${slug}`" />
           </td>
         </tr>
         <tr>
@@ -66,29 +66,29 @@
             </router-link>
           </th>
           <td v-for="(slug, index) in slugsXAxis">
-            <dot :linkParam="`virtual-reality-og-augmented-reality-for-${slug}`" />
+            <dot :linkParam="`virtual-reality-og-augmented-reality-${slug}`" />
           </td>
         </tr>
         <tr>
           <th scope="row">
             <router-link :to="{ name: 'y-axis', params: { id: 'deleokonomi-og-blockchain' } }">
               <img src="../assets/icons/y-axis/deleokonomi-og-blockchain.png" alt="" class="icon">
-              <span>Deleøkonomi og blockchain</span>
+              <span>Deleøkonomi &amp; Blockchain</span>
             </router-link>
           </th>
           <td v-for="(slug, index) in slugsXAxis">
-            <dot :linkParam="`deleokonomi-og-blockchain-for-${slug}`" />
+            <dot :linkParam="`deleokonomi-og-blockchain-${slug}`" />
           </td>
         </tr>
         <tr>
           <th scope="row">
             <router-link :to="{ name: 'y-axis', params: { id: 'data-privatliv-transparens-og-sikkerhed' } }">
               <img src="../assets/icons/y-axis/data-privatliv-transparens-og-sikkerhed.png" alt="" class="icon">
-              <span>Data, privatliv, transparens og sikkerhed</span>
+              <span>Data, Privatliv, Transparens og Sikkerhed</span>
             </router-link>
           </th>
           <td v-for="(slug, index) in slugsXAxis">
-            <dot :linkParam="`data-privatliv-transparens-og-sikkerhed-for-${slug}`" />
+            <dot :linkParam="`data-privatliv-transparens-og-sikkerhed-${slug}`" />
           </td>
         </tr>
       </tbody>
@@ -103,7 +103,7 @@
     components: { dot: Dot },
     data() {
       return {
-        slugsXAxis: [ 'born-og-laering', 'arbejdsmarked-og-erhverv', 'social-og-sundhed', 'miljo-teknik-og-forsyning', 'demokrati-og-involvering', 'administration-og-organisation' ]
+        slugsXAxis: [ 'boern-og-laering', 'arbejdsmarked-og-erhverv', 'social-og-sundhed', 'miljo-teknik-og-forsyning', 'demokrati-og-involvering', 'administration-og-organisation' ]
       }
     }
   }

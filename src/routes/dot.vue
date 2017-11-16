@@ -1,89 +1,77 @@
 <template>
-  <div class="dotRoute backgroundColor-light">
+  <div v-if="crosspoint" class="dotRoute backgroundColor-light">
 
-    <grid-block>
-
+    <grid-block v-if="crosspoint.acf.intro_text">
       <div class="span-6">
-        <h1 :style="{ fontSize: '100px' }" class="margin-bottom-2-1">Intro</h1>
-        <p>Selv om hun har sat alt mere frem, og derfor ikke længere kan betragtes som den glade giver, er det en nem sammenstilling, som bærer ved i lang tid. Det går der så nogle timer ud, hvor det er indlysende, at virkeligheden bliver tydelig istandsættelse. Det er opmuntrende og anderledes, at det er dampet af kurset i morgen. Der indgives hvert år enorme strenge af blade af større eller mindre tilsnit. I denne afdeling finder man blandt andet som en om håndtering af samme grund. Politik handler som bekendt ligeså meget om at tale, som at stå frem for tiden.</p>
+        <h1 :style="{ fontSize: '100px' }" class="margin-bottom-2-1">{{ crosspoint.acf.intro_title }}</h1>
+        <p>{{ crosspoint.acf.intro_text }}</p>
       </div>
       <div class="span-4 offset-2">
-        <img src="../assets/images/matrix-maturity-potential/matrix-maturity-potential-04.png" width="100%" alt="Maturity/potential">
+        <img v-if="crosspoint.acf.intro_image" :src="crosspoint.acf.intro_image" width="100%" alt="Maturity/potential">
       </div>
-
     </grid-block>
 
-    <div class="backgroundColor-white">
+    <div class="backgroundColor-white" v-if="crosspoint.acf.what_is_it">
       <grid-block>
         <div class="span-8">
-
           <headline watermark="Konkret" headline="Hvad er det?" />
-          <list largeText :items="whatListItems" />
-
+          <list largeText :items="crosspoint.acf.what_is_it" itemKey="point" />
         </div>
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white">
+    <div class="backgroundColor-white" v-if="crosspoint.acf.pilots">
       <grid-block noPadding>
         <div class="span-12">
-
           <card
             :illustrationUrl="rocket"
             headline="Piloter i Danmark"
-            :items="pilotsItems"
-            linkUrl="mailto:ida@daredisrupt.com"
+            :items="crosspoint.acf.pilots"
+            itemKey="pilot"
+            :linkUrl="`mailto:${crosspoint.acf.pilots_contact_mail}`"
             linkLabel="Skriv til os her"
             linkIntro="Gør I noget lignende i jeres kommune?"
             withSplitter />
-
         </div>
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white">
+    <div class="backgroundColor-white" v-if="crosspoint.acf.perspectives">
       <grid-block>
-
         <div class="span-8 offset-4">
           <h1>Perspektiver</h1>
         </div>
-
         <div class="span-3 perspectives_imageWrap">
-          <app-image :url="testImage" height="300" />
+          <app-image
+            :url="crosspoint.acf.perspectives_image ? crosspoint.acf.perspectives_image : telescope"
+            :height="crosspoint.acf.perspectives_image_height" />
         </div>
-
         <div class="span-8 offset-1">
-          <accordion :items="perspectivesItems" />
+          <accordion v-if="!isDataPrivacyAndTransparencyRoute" :items="crosspoint.acf.perspectives" />
+          <p v-else class="margin-bottom-4-1">{{ crosspoint.acf.perspectives_text }}</p>
         </div>
-
       </grid-block>
     </div>
 
-    <grid-block>
-
+    <grid-block v-if="this.cases">
       <headline watermark="Cases" center white />
-
       <div class="span-6" v-for="(caseInstance, index) in cases" :key="index">
         <card
-          :imageUrl="testImage"
+          :imageUrl="caseInstance.acf.image"
           backgroundColor="white"
-          headline="Test"
-          text="Texttest"
-          linkUrl="test"
-          linkLabel="Test" />
+          :headline="caseInstance.title.rendered"
+          :text="caseInstance.acf.text"
+          :linkUrl="caseInstance.acf.read_more_url"
+          linkLabel="Læs mere her" />
       </div>
-
     </grid-block>
 
-    <div class="backgroundColor-white">
+    <div class="backgroundColor-white" :style="{ marginBottom: '200px' }" v-if="crosspoint.acf.what_if">
       <grid-block>
-
         <headline center watermark="Hvad nu hvis?" headline="Oplæg til dialog og refleksion" />
-
         <div class="span-8 offset-2">
-          <list largeText ellipsis :items="whatListItems" />
+          <list largeText ellipsis :items="crosspoint.acf.what_if" itemKey="point" />
         </div>
-
       </grid-block>
     </div>
 
@@ -91,17 +79,25 @@
 </template>
 
 <script>
+  // Components
   import GridBlock from '@/components/GridBlock'
   import Card from '@/components/Card'
   import List from '@/components/List'
   import Headline from '@/components/Headline'
   import Accordion from '@/components/Accordion'
   import Image from '@/components/Image'
+
+  // Assets
   import Rocket from '@/assets/icons/icon-rocket.svg'
-  import TestImage from '@/assets/images/test-image.png'
+  import Telescope from '@/assets/images/telescope.png'
+
+  // Utils
+  import { fetchData } from '@/utils/fetchData'
+
   export default {
     name: 'DotRoute',
     props: { routeChange: Object },
+    mixins: [fetchData],
     components: {
       'grid-block': GridBlock,
       'card': Card,
@@ -112,23 +108,29 @@
     },
     data() {
       return {
+        crosspoint: null,
+        cases: null,
         rocket: Rocket,
-        testImage: TestImage,
-        whatListItems: [
-          'Man kan fremad se, at de har været udset til at læse, at der skal dannes par af ligheder.',
-          'Dermed kan der afsluttes uden løse ender, og de kan optimeres fra oven af at formidles stort uden brug fra presse.'
-        ],
-        pilotsItems: [
-          'Man kan fremad se, at de har været udset til at læse, at der skal dannes par af ligheder.',
-          'Dermed kan der afsluttes uden løse ender, og de kan optimeres fra oven af at formidles stort uden brug fra presse.'
-        ],
-        perspectivesItems: [
-          { title: 'Test', text: 'Text...' },
-          { title: 'Test 2', text: 'Text 2...' },
-          { title: 'Test 3', text: 'Text 3...' },
-        ],
-        cases: [{}, {}]
+        telescope: Telescope,
       }
+    },
+    computed: {
+      isDataPrivacyAndTransparencyRoute() { return this.$route.params.id.indexOf('privatliv') >= 0 }
+    },
+    created() {
+      this.$bus.$emit( 'loadingPage', true )
+      this.fetchData( `crosspoints?slug=${ this.$route.params.id }` ).then( res => {
+        this.$bus.$emit( 'loadingPage', false )
+        this.crosspoint = res[0]
+        let cases = []
+        this.fetchData( `cases?slug=${ this.crosspoint.acf.case_1 }` ).then( res => {
+          cases.push(res[0])
+          this.fetchData( `cases?slug=${ this.crosspoint.acf.case_2 }` ).then( res => {
+            cases.push(res[0])
+            this.cases = cases
+          })
+        })
+      })
     }
   }
 </script>

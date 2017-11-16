@@ -5,7 +5,7 @@ import yAxis from '@/routes/y-axis'
 
 export const routes = [
   { path: '/', component: matrix, name: 'matrix' },
-  { path: '/:id', component: dot, name: 'dot' },
-  { path: '/kommunale-omraader/:id', component: xAxis, name: 'x-axis' },
-  { path: '/teknologiske-temaer/:id', component: yAxis, name: 'y-axis' },
+  { path: '/krydspunkt/:id', component: dot, name: 'dot' },
+  { path: '/omraade/:id', component: xAxis, name: 'x-axis' },
+  { path: '/teknologi/:id', component: yAxis, name: 'y-axis' },
 ]

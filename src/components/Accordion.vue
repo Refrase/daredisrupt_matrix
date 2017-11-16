@@ -9,9 +9,7 @@
   export default {
     name: 'Accordion',
     components: { 'accordion-item': AccordionItem },
-    props: {
-      items: Array,
-    }
+    props: { items: Array }
   }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
-  <li @click="showText = !showText">
-    <span>{{ item.title }}</span>
+  <li>
+    <span @click="showText = !showText">{{ item.title }}</span>
     <p v-show="showText">{{ item.text }}</p>
   </li>
 </template>
@@ -8,9 +8,11 @@
 <script>
   export default {
     name: 'Accordion',
-    props: {
-      item: Object,
-      showText: false
+    props: { item: Object },
+    data() {
+      return {
+        showText: false  
+      }
     }
   }
 </script>

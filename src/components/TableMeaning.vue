@@ -10,11 +10,17 @@
     </thead>
     <tbody>
       <tr v-for="(row, index) in rows">
-        <th scope="row"><span>{{ row.title }}</span></th>
-        <td class="hide-mobile"><span>{{ row.whereIsItSeen }}</span></td>
-        <td><span>{{ row.perspectivesAndPossibilities }}</span></td>
-        <td class="impact hide-mobileSmall" :class="{ high: row.impact === 'Høj', medium: row.impact === 'Mellem', low: row.impact === 'Lav' }">
-          <span>{{ row.impact }}</span>
+        <th scope="row"><span>{{ rowTitles[index] }}</span></th>
+        <td class="hide-mobile"><span v-html="row.where_is_it_seen" />
+        <td><span>{{ row.perspective_and_possibilities }}</span></td>
+        <td
+          class="impact hide-mobileSmall"
+          :class="{
+            high: row.impact.value === 'high',
+            medium: row.impact.value === 'medium',
+            low: row.impact.value === 'low'
+          }">
+          <span>{{ row.impact.label }}</span>
         </td>
       </tr>
     </tbody>
@@ -24,7 +30,23 @@
 <script>
   export default {
     name: 'TableMeaning',
-    props: { rows: Array }
+    props: { rows: Array },
+    data() {
+      return {
+        technologyRowTitles: [
+          'Børn & Læring', 'Arbejdsmarked & Erhverv', 'Social & Sundhed', 'Miljø, Teknik & Forsyning', 'Demokrati & Involvering', 'Administration & Organisation'
+        ],
+        areaRowTitles: [
+          'AI, Big Data & Robotter', 'Internet of Things', 'VR & AR', 'Deleøkonomi & Blockchain', 'Data, Privatliv & Transparens'
+        ]
+      }
+    },
+    computed: {
+      rowTitles() {
+        if ( this.$route.name === 'y-axis' ) return this.technologyRowTitles
+        else if ( this.$route.name === 'x-axis' ) return this.areaRowTitles
+      }
+    }
   }
 </script>
 
@@ -55,6 +77,7 @@
       span {
         position: relative;
         z-index: 1;
+        & /deep/ * { list-style: inside; }
       }
       &:before {
         content: '';
