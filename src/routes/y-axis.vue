@@ -119,9 +119,13 @@
     },
     created() {
       this.$bus.$emit( 'loadingPage', true )
-      this.fetchData( `technologies?slug=${ this.$route.params.id }` ).then( res => {
+      this.fetchData( `technologies?_embed&slug=${ this.$route.params.id }` ).then( res => {
         this.$bus.$emit( 'loadingPage', false )
         this.technology = res[0]
+        this.$bus.$emit( 'pageTitleAndIcon', {
+          title: this.technology.title.rendered,
+          icon: this.technology._embedded['wp:featuredmedia'][0].source_url 
+        })
         let cases = []
         this.fetchData( `cases?slug=${ this.technology.acf.case_1 }` ).then( res => {
           cases.push(res[0])

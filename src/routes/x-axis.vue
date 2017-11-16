@@ -119,9 +119,14 @@
     },
     created() {
       this.$bus.$emit( 'loadingPage', true )
-      this.fetchData( `areas?slug=${ this.$route.params.id }` ).then( res => {
+      this.fetchData( `areas?_embed&slug=${ this.$route.params.id }` ).then( res => {
         this.$bus.$emit( 'loadingPage', false )
         this.area = res[0]
+        this.$bus.$emit( 'pageTitleAndIcon', {
+          title: this.area.title.rendered,
+          icon: this.area._embedded['wp:featuredmedia'][0].source_url
+        })
+        this.$bus.$emit( 'pageTitle', this.area.title.rendered )
         let cases = []
         this.fetchData( `cases?slug=${ this.area.acf.case_1 }` ).then( res => {
           cases.push(res[0])

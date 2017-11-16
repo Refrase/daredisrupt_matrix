@@ -3,11 +3,11 @@
     <grid-block noPadding class="height-full">
       <div class="span-12 margin-none height-full display-flex">
         <div class="subheaderAxis">
-          <div :style="{ height: '40px', position: 'relative', whiteSpace: 'nowrap' }">
-            <div class="height-full display-inlineBlock">
-              <img src="../assets/icons/x-axis/icon-arbejdsmarked-og-erhverv.png" height="100%" class="display-block" :style="{ margin: '0 auto' }">
+          <div :style="{ height: '60px', position: 'relative' }">
+            <div v-if="pageTitleAndIcon.icon" class="height-full display-inlineBlock">
+              <img :src="pageTitleAndIcon.icon" height="100%" class="display-block position-relative" :style="{ bottom: '3px', margin: '0 auto' }">
             </div>
-            <h1 class="subheaderAxis_title">Arbejdsmarked og erhverv</h1>
+            <h1 v-if="pageTitleAndIcon.title" class="subheaderAxis_title" v-html="pageTitleAndIcon.title" />
           </div>
           <dropdown-toggle v-if="isXAxis" @click.native="dropdownVisible = !dropdownVisible" label="De 5 teknologiske temaer" class="margin-none" />
         </div>
@@ -30,7 +30,8 @@
     },
     data() {
       return {
-        dropdownVisible: false
+        dropdownVisible: false,
+        pageTitleAndIcon: null
       }
     },
     computed: {
@@ -43,6 +44,9 @@
       dropdownToggled(trigger) {
         this.$bus.$emit( 'dropdownToggled', { visible: trigger } )
       }
+    },
+    created() {
+      this.$bus.$on( 'pageTitleAndIcon', (pageTitleAndIcon) => { this.pageTitleAndIcon = pageTitleAndIcon })
     }
   }
 </script>
@@ -62,21 +66,26 @@
     &_title {
       color: white;
       display: inline-block;
-      bottom: 14px;
+      bottom: 24px;
       position: relative;
       margin-left: $scale-2-1;
-      white-space: wrap;
+      white-space: wrap !important;
       font-size: 24px;
 
       @include breakpoint( 'mobile' ) {
         line-height: 1.4;
+        bottom: 26px;
         font-size: 20px;
       }
 
       @include breakpoint( 'custom', '620px' ) {
         line-height: 1.4;
-        bottom: 32px;
+        bottom: 28px;
         font-size: 14px;
+      }
+      @include breakpoint( 'custom', '420px' ) {
+        bottom: 26px;
+        max-width: 60%;
       }
     }
 

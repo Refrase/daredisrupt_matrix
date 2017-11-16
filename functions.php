@@ -1,5 +1,7 @@
 <?php
 
+  add_theme_support( 'post-thumbnails' );
+
   // Styling
   function matrix_theme_styles() {
 
