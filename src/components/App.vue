@@ -1,6 +1,7 @@
 <template>
   <div class="appContainer" :style="{ position: dropdownVisible ? 'fixed' : null, overflow: dropdownVisible ? 'hidden' : null }">
     <app-header :routeChange="routeChange" />
+    <loading-indicator v-if="loadingPage" />
     <router-view
       class="route"
       :class="{
@@ -15,21 +16,25 @@
 <script>
   import Header from '@/components/Header'
   import Footer from '@/components/Footer'
+  import LoadingIndicator from '@/components/LoadingIndicator'
   export default {
     name: 'App',
     components: {
       'app-header': Header,
-      'app-footer': Footer
+      'app-footer': Footer,
+      'loading-indicator': LoadingIndicator
     },
     data() {
       return {
         routeChange: {},
-        dropdownVisible: false
+        dropdownVisible: false,
+        loadingPage: null
       }
     },
     created() {
       this.$bus.$on( 'routeChange', (routeChange) => { this.routeChange = routeChange })
       this.$bus.$on( 'dropdownToggled', (dropdownVisible) => { this.dropdownVisible = dropdownVisible.visible })
+      this.$bus.$on( 'loadingPage', (loadingPage) => { this.loadingPage = loadingPage })
     },
   }
 </script>
