@@ -13,7 +13,7 @@
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white" v-if="technology.acf.drivers">
+    <div class="backgroundColor-white fadeIn" v-if="technology.acf.drivers">
       <grid-block>
         <div class="span-12 margin-top-6-1">
           <card
@@ -27,7 +27,8 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white" :style="{ marginTop: '-8%' }" v-if="technology.acf.perspectives_text || technology.acf.perspectives_possibilities">
+    <div class="backgroundColor-white fadeIn" :style="{ marginTop: '-8%' }"
+      v-if="technology.acf.perspectives_text || technology.acf.new_possibilities">
       <grid-block>
         <div class="span-3 hide-mobile">
           <app-image
@@ -49,7 +50,7 @@
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white" v-if="this.cases">
+    <div class="backgroundColor-white fadeIn" v-if="this.cases">
       <grid-block>
         <headline watermark="Cases" center />
         <div class="span-6" v-for="(caseInstance, index) in cases" :key="index">
@@ -64,7 +65,7 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white" :style="{ marginBottom: '120px' }" v-if="technology.acf.short_term && technology.acf.long_term">
+    <div class="backgroundColor-white fadeIn" :style="{ marginBottom: '120px' }" v-if="technology.acf.short_term && technology.acf.long_term">
       <grid-block noPadding>
         <headline center headline="Forventet udvikling" />
         <headline center yellow headline="Kort sigt" watermark="Ca. 3 år" />

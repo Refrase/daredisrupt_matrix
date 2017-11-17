@@ -27,6 +27,7 @@
 <style lang="scss">
   @import '~@/styles/vars';
   @import '~@/styles/breakpoints';
+  @import '~@/styles/animations';
 
   .gridBlock {
     width: 1024px;
@@ -34,6 +35,7 @@
     flex-wrap: wrap;
     padding: 120px $scale-2-1;
     margin: 0 auto;
+    animation: fadeIn .3s ease-out;
 
     &-noPadding {
       padding-top: 0;

@@ -20,7 +20,7 @@
             </router-link>
           </th>
           <th scope="col">
-            <router-link :to="{ name: 'x-axis', params: { id: 'miljo-teknik-og-forsyning' } }">
+            <router-link :to="{ name: 'x-axis', params: { id: 'miljoe-teknik-og-forsyning' } }">
               <img src="../assets/icons/x-axis/icon-miljo-teknik-og-forsyning.png" alt="" class="icon">Miljø, Teknik &amp; Forsyning
             </router-link>
           </th>
@@ -71,13 +71,13 @@
         </tr>
         <tr>
           <th scope="row">
-            <router-link :to="{ name: 'y-axis', params: { id: 'deleokonomi-og-blockchain' } }">
+            <router-link :to="{ name: 'y-axis', params: { id: 'deleoekonomi-og-blockchain' } }">
               <img src="../assets/icons/y-axis/deleokonomi-og-blockchain.png" alt="" class="icon">
               <span>Deleøkonomi &amp; Blockchain</span>
             </router-link>
           </th>
           <td v-for="(slug, index) in slugsXAxis">
-            <dot :linkParam="`deleokonomi-og-blockchain-${slug}`" />
+            <dot :linkParam="`deleoekonomi-og-blockchain-${slug}`" />
           </td>
         </tr>
         <tr>
@@ -103,7 +103,7 @@
     components: { dot: Dot },
     data() {
       return {
-        slugsXAxis: [ 'boern-og-laering', 'arbejdsmarked-og-erhverv', 'social-og-sundhed', 'miljo-teknik-og-forsyning', 'demokrati-og-involvering', 'administration-og-organisation' ]
+        slugsXAxis: [ 'boern-og-laering', 'arbejdsmarked-og-erhverv', 'social-og-sundhed', 'miljoe-teknik-og-forsyning', 'demokrati-og-involvering', 'administration-og-organisation' ]
       }
     }
   }

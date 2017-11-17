@@ -11,7 +11,7 @@
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white" v-if="crosspoint.acf.what_is_it">
+    <div class="backgroundColor-white fadeIn" v-if="crosspoint.acf.what_is_it">
       <grid-block>
         <div class="span-8">
           <headline watermark="Konkret" headline="Hvad er det?" />
@@ -20,7 +20,7 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white" v-if="crosspoint.acf.pilots">
+    <div class="backgroundColor-white fadeIn" v-if="crosspoint.acf.pilots">
       <grid-block noPadding>
         <div class="span-12">
           <card
@@ -36,7 +36,7 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white" v-if="crosspoint.acf.perspectives">
+    <div class="backgroundColor-white fadeIn" v-if="crosspoint.acf.perspectives || crosspoint.acf.perspectives_text">
       <grid-block>
         <div class="span-8 offset-4">
           <h1>Perspektiver</h1>
@@ -47,7 +47,7 @@
             :height="crosspoint.acf.perspectives_image_height" />
         </div>
         <div class="span-8 offset-1">
-          <accordion v-if="!isDataPrivacyAndTransparencyRoute" :items="crosspoint.acf.perspectives" />
+          <accordion v-if="crosspoint.acf.perspectives" :items="crosspoint.acf.perspectives" />
           <p v-else class="margin-bottom-4-1">{{ crosspoint.acf.perspectives_text }}</p>
         </div>
       </grid-block>
@@ -66,7 +66,7 @@
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white" :style="{ marginBottom: '200px' }" v-if="crosspoint.acf.what_if">
+    <div class="backgroundColor-white fadeIn" :style="{ marginBottom: '200px' }" v-if="crosspoint.acf.what_if">
       <grid-block>
         <headline center watermark="Hvad nu hvis?" headline="Oplæg til dialog og refleksion" />
         <div class="span-8 offset-2">
@@ -114,18 +114,15 @@
         telescope: Telescope,
       }
     },
-    computed: {
-      isDataPrivacyAndTransparencyRoute() { return this.$route.params.id.indexOf('privatliv') >= 0 }
-    },
     created() {
       this.$bus.$emit( 'loadingPage', true )
       this.fetchData( `crosspoints?slug=${ this.$route.params.id }` ).then( res => {
         this.$bus.$emit( 'loadingPage', false )
         this.crosspoint = res[0]
         this.$bus.$emit( 'crosspointMeta', {
-          matrixLocation: res[0].acf.matrix_location,
-          area: res[0].acf.area,
-          technology: res[0].acf.technology
+          matrixLocation: this.crosspoint.acf.matrix_location,
+          area: this.crosspoint.acf.area,
+          technology: this.crosspoint.acf.technology
         })
         let cases = []
         this.fetchData( `cases?slug=${ this.crosspoint.acf.case_1 }` ).then( res => {

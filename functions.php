@@ -101,7 +101,7 @@
     register_taxonomy('teknologi', 'krydspunkt', array(
       'hierarchical' => false,
       'labels' => array(
-        'name' => _x( 'Teknologier', 'taxonomy general name' ),
+        'name' => _x( 'Teknologier (ignoreres)', 'taxonomy general name' ),
         'singular_name' => _x( 'Teknologi', 'taxonomy singular name' ),
         'search_items' =>  __( 'Search Teknologier' ),
         'all_items' => __( 'Alle Teknologier' ),

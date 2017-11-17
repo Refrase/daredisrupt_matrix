@@ -13,7 +13,7 @@
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white" v-if="area.acf.pilots">
+    <div class="backgroundColor-white fadeIn" v-if="area.acf.pilots">
       <grid-block>
         <div class="span-12">
           <card
@@ -29,7 +29,7 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white" :style="{ marginTop: '-8%' }" v-if="area.acf.perspectives">
+    <div class="backgroundColor-white fadeIn" :style="{ marginTop: '-8%' }" v-if="area.acf.perspectives">
       <grid-block>
         <div class="span-8 offset-4">
           <h1>Perspektiver</h1>
@@ -52,7 +52,7 @@
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white" v-if="this.cases">
+    <div class="backgroundColor-white fadeIn" v-if="this.cases">
       <grid-block>
         <headline watermark="Cases" center />
         <div class="span-6" v-for="(caseInstance, index) in cases" :key="index">
@@ -67,7 +67,7 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white" :style="{ marginBottom: '200px' }" v-if="area.acf.what_if">
+    <div class="backgroundColor-white fadeIn" :style="{ marginBottom: '200px' }" v-if="area.acf.what_if">
       <grid-block noPadding>
         <headline center watermark="Hvad nu hvis?" headline="Oplæg til dialog og refleksion" />
         <div class="span-8 offset-2">
