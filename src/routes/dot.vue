@@ -122,7 +122,11 @@
       this.fetchData( `crosspoints?slug=${ this.$route.params.id }` ).then( res => {
         this.$bus.$emit( 'loadingPage', false )
         this.crosspoint = res[0]
-        this.$bus.$emit( 'matrixLocation', res[0].acf.matrix_location )
+        this.$bus.$emit( 'crosspointMeta', {
+          matrixLocation: res[0].acf.matrix_location,
+          area: res[0].acf.area,
+          technology: res[0].acf.technology
+        })
         let cases = []
         this.fetchData( `cases?slug=${ this.crosspoint.acf.case_1 }` ).then( res => {
           cases.push(res[0])

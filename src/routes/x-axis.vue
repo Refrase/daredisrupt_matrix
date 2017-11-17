@@ -68,7 +68,7 @@
     </div>
 
     <div class="backgroundColor-white" :style="{ marginBottom: '200px' }" v-if="area.acf.what_if">
-      <grid-block>
+      <grid-block noPadding>
         <headline center watermark="Hvad nu hvis?" headline="Oplæg til dialog og refleksion" />
         <div class="span-8 offset-2">
           <list largeText ellipsis :items="area.acf.what_if" itemKey="point" />

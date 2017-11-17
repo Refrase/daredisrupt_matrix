@@ -32,7 +32,7 @@
     width: 1024px;
     display: flex;
     flex-wrap: wrap;
-    padding: $scale-10-1 $scale-2-1;
+    padding: 120px $scale-2-1;
     margin: 0 auto;
 
     &-noPadding {

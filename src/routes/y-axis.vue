@@ -15,7 +15,7 @@
 
     <div class="backgroundColor-white" v-if="technology.acf.drivers">
       <grid-block>
-        <div class="span-12">
+        <div class="span-12 margin-top-6-1">
           <card
             :illustrationUrl="graphArrow"
             headline="Drivere"
@@ -65,7 +65,7 @@
     </div>
 
     <div class="backgroundColor-white" :style="{ marginBottom: '120px' }" v-if="technology.acf.short_term && technology.acf.long_term">
-      <grid-block>
+      <grid-block noPadding>
         <headline center headline="Forventet udvikling" />
         <headline center yellow headline="Kort sigt" watermark="Ca. 3 år" />
         <div class="span-8 offset-2">
@@ -124,7 +124,7 @@
         this.technology = res[0]
         this.$bus.$emit( 'pageTitleAndIcon', {
           title: this.technology.title.rendered,
-          icon: this.technology._embedded['wp:featuredmedia'][0].source_url 
+          icon: this.technology._embedded['wp:featuredmedia'][0].source_url
         })
         let cases = []
         this.fetchData( `cases?slug=${ this.technology.acf.case_1 }` ).then( res => {

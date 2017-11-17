@@ -62,7 +62,7 @@
           <th scope="row" title="Teknologiske temaer">
             <router-link :to="{ name: 'y-axis', params: { id: 'virtual-reality-og-augmented-reality' } }">
               <img src="../assets/icons/y-axis/virtual-reality-og-augmented-reality.png" alt="" class="icon">
-              <span>Virtual Reality og Augmented Reality</span>
+              <span>Virtual Reality &amp; Augmented Reality</span>
             </router-link>
           </th>
           <td v-for="(slug, index) in slugsXAxis">
@@ -84,7 +84,7 @@
           <th scope="row">
             <router-link :to="{ name: 'y-axis', params: { id: 'data-privatliv-transparens-og-sikkerhed' } }">
               <img src="../assets/icons/y-axis/data-privatliv-transparens-og-sikkerhed.png" alt="" class="icon">
-              <span>Data, Privatliv, Transparens og Sikkerhed</span>
+              <span>Data, Privatliv, Transparens &amp; Sikkerhed</span>
             </router-link>
           </th>
           <td v-for="(slug, index) in slugsXAxis">

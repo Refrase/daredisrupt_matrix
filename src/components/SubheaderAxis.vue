@@ -1,13 +1,13 @@
 <template>
 
-    <grid-block noPadding class="height-full">
+    <grid-block v-if="pageTitleAndIcon" noPadding class="height-full">
       <div class="span-12 margin-none height-full display-flex">
         <div class="subheaderAxis">
           <div :style="{ height: '60px', position: 'relative' }">
-            <div v-if="pageTitleAndIcon.icon" class="height-full display-inlineBlock">
+            <div v-if="pageTitleAndIcon.icon" class="height-full display-inlineBlock fadeIn">
               <img :src="pageTitleAndIcon.icon" height="100%" class="display-block position-relative" :style="{ bottom: '3px', margin: '0 auto' }">
             </div>
-            <h1 v-if="pageTitleAndIcon.title" class="subheaderAxis_title" v-html="pageTitleAndIcon.title" />
+            <h1 v-if="pageTitleAndIcon.title" class="subheaderAxis_title fadeIn" v-html="pageTitleAndIcon.title" />
           </div>
           <dropdown-toggle v-if="isXAxis" @click.native="dropdownVisible = !dropdownVisible" label="De 5 teknologiske temaer" class="margin-none" />
         </div>

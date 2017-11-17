@@ -1,13 +1,13 @@
 <template>
-  <div class="subheaderDot">
-    <router-link :to="{ name: '', params: {} }">Kunstig intelligens, big data og robotter</router-link>
+  <div v-if="crosspointMeta" class="subheaderDot">
+    <router-link :to="{ name: 'y-axis', params: { id: crosspointMeta.technology.value } }">{{ crosspointMeta.technology.label }}</router-link>
     <router-link :to="{ name: 'matrix' }" class="matrixlocation">
       <img
-        v-if="matrixLocation"
-        :src="matrixLocation"
+        v-if="crosspointMeta.matrixLocation"
+        :src="crosspointMeta.matrixLocation"
         alt="Placering i matrix">
     </router-link>
-    <router-link :to="{ name: '', params: {} }">Arbejdsmarked og erhverv</router-link>
+    <router-link :to="{ name: 'x-axis', params: { id: crosspointMeta.area.value } }">{{ crosspointMeta.area.label }}</router-link>
   </div>
 </template>
 
@@ -16,11 +16,11 @@
     name: 'SubheaderDot',
     data() {
       return {
-        matrixLocation: null
+        crosspointMeta: null
       }
     },
     created() {
-      this.$bus.$on( 'matrixLocation', (matrixLocation) => { this.matrixLocation = matrixLocation })
+      this.$bus.$on( 'crosspointMeta', (crosspointMeta) => { this.crosspointMeta = crosspointMeta })
     }
   }
 </script>
