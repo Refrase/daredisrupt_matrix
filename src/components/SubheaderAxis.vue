@@ -80,11 +80,11 @@
 
       @include breakpoint( 'custom', '620px' ) {
         line-height: 1.4;
-        bottom: 28px;
+        bottom: 38px;
         font-size: 14px;
       }
       @include breakpoint( 'custom', '420px' ) {
-        bottom: 26px;
+        bottom: 28px;
         max-width: 60%;
       }
     }

@@ -3,8 +3,8 @@
 
     <grid-block v-if="area.acf.intro_text">
       <div class="span-6 margin-bottom-6-1">
-        <h1 :style="{ fontSize: '100px' }">{{ area.acf.intro_title }}</h1>
-        <p>{{ area.acf.intro_text }}</p>
+        <h1 :style="{ fontSize: '100px', lineHeight: 0.9 }">{{ area.acf.intro_title }}</h1>
+        <p :style="{ marginTop: '32px' }" v-html="area.acf.intro_text" />
       </div>
       <div class="span-4 offset-2" v-if="area.acf.intro_image">
         <app-image
@@ -67,10 +67,10 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white fadeIn" :style="{ marginBottom: '200px' }" v-if="area.acf.what_if">
+    <div class="backgroundColor-white fadeIn" :style="{ paddingBottom: '200px', marginTop: '-1px' }" v-if="area.acf.what_if">
       <grid-block noPadding>
         <headline center watermark="Hvad nu hvis?" headline="Oplæg til dialog og refleksion" />
-        <div class="span-8 offset-2">
+        <div class="span-8 offset-2 margin-top-2-1">
           <list largeText ellipsis :items="area.acf.what_if" itemKey="point" />
         </div>
       </grid-block>

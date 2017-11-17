@@ -3,8 +3,8 @@
 
     <grid-block v-if="crosspoint.acf.intro_text">
       <div class="span-6 margin-bottom-6-1">
-        <h1 :style="{ fontSize: '100px' }">{{ crosspoint.acf.intro_title }}</h1>
-        <p>{{ crosspoint.acf.intro_text }}</p>
+        <h1 :style="{ fontSize: '100px', lineHeight: 0.9 }">{{ crosspoint.acf.intro_title }}</h1>
+        <p :style="{ marginTop: '32px' }" v-html="crosspoint.acf.intro_text" />
       </div>
       <div class="span-4 offset-2">
         <img v-if="crosspoint.acf.intro_image" :src="crosspoint.acf.intro_image" width="100%" alt="Maturity/potential">
@@ -36,7 +36,7 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white fadeIn" v-if="crosspoint.acf.perspectives || crosspoint.acf.perspectives_text">
+    <div class="backgroundColor-white fadeIn" :style="{ marginTop: '-1px' }" v-if="crosspoint.acf.perspectives || crosspoint.acf.perspectives_text">
       <grid-block>
         <div class="span-8 offset-4">
           <h1>Perspektiver</h1>
@@ -66,10 +66,10 @@
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white fadeIn" :style="{ marginBottom: '200px' }" v-if="crosspoint.acf.what_if">
+    <div class="backgroundColor-white fadeIn" :style="{ paddingBottom: '200px' }" v-if="crosspoint.acf.what_if">
       <grid-block>
         <headline center watermark="Hvad nu hvis?" headline="Oplæg til dialog og refleksion" />
-        <div class="span-8 offset-2">
+        <div class="span-8 offset-2 margin-top-2-1">
           <list largeText ellipsis :items="crosspoint.acf.what_if" itemKey="point" />
         </div>
       </grid-block>

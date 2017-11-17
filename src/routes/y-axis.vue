@@ -3,8 +3,8 @@
 
     <grid-block v-if="technology.acf.intro_text">
       <div class="span-6 margin-bottom-6-1">
-        <h1 :style="{ fontSize: '100px' }">{{ technology.acf.intro_title }}</h1>
-        <p>{{ technology.acf.intro_text }}</p>
+        <h1 :style="{ fontSize: '100px', lineHeight: 0.9 }">{{ technology.acf.intro_title }}</h1>
+        <p :style="{ marginTop: '32px' }" v-html="technology.acf.intro_text" />
       </div>
       <div class="span-4 offset-2" v-if="technology.acf.intro_image">
         <app-image
@@ -65,7 +65,7 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white fadeIn" :style="{ marginBottom: '120px' }" v-if="technology.acf.short_term && technology.acf.long_term">
+    <div class="backgroundColor-white fadeIn" :style="{ paddingBottom: '120px', marginTop: '-1px' }" v-if="technology.acf.short_term && technology.acf.long_term">
       <grid-block noPadding>
         <headline center headline="Forventet udvikling" />
         <headline center yellow headline="Kort sigt" watermark="Ca. 3 år" />
