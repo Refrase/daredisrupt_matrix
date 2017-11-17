@@ -92,7 +92,7 @@
   import TableMeaning from '@/components/TableMeaning'
 
   // Assets
-  import GraphArrow from '@/assets/icons/icon-graph-arrow.svg'
+  import GraphArrow from '@/assets/images/icon-graph-arrow.svg'
   import Telescope from '@/assets/images/telescope.png'
 
   // Utils

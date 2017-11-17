@@ -90,7 +90,7 @@
   import TableMeaning from '@/components/TableMeaning'
 
   // Assets
-  import Rocket from '@/assets/icons/icon-rocket.svg'
+  import Rocket from '@/assets/images/icon-rocket.svg'
   import Telescope from '@/assets/images/telescope.png'
 
   // Utils

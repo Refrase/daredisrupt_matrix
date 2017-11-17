@@ -88,7 +88,7 @@
   import Image from '@/components/Image'
 
   // Assets
-  import Rocket from '@/assets/icons/icon-rocket.svg'
+  import Rocket from '@/assets/images/icon-rocket.svg'
   import Telescope from '@/assets/images/telescope.png'
 
   // Utils

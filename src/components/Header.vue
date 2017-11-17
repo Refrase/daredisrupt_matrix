@@ -11,7 +11,7 @@
           </div>
           <div v-else>
             <router-link :to="{ name: 'matrix' }" class="display-flex alignItems-center">
-              <img src="../assets/icons/icon-spilleplade-on-button.svg" height="24" class="margin-right display-inlineBlock" />
+              <img src="../assets/images/icon-spilleplade-on-button.svg" height="24" class="margin-right display-inlineBlock" />
               <span class="buttonBackLabel">Oversigt</span>
             </router-link>
           </div>
