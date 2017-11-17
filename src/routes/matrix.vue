@@ -6,32 +6,32 @@
           <th class="corner"><div/></th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'boern-og-laering' } }">
-              <img src="../assets/images/x-axis/icon-born-og-laering.png" alt="" class="icon">Børn &amp; Læring
+              <img src="../assets/images/icon-born-og-laering.png" alt="" class="icon">Børn &amp; Læring
             </router-link>
           </th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'arbejdsmarked-og-erhverv' } }">
-              <img src="../assets/images/x-axis/icon-arbejdsmarked-og-erhverv.png" alt="" class="icon">Arbejdsmarked &amp; Erhverv
+              <img src="../assets/images/icon-arbejdsmarked-og-erhverv.png" alt="" class="icon">Arbejdsmarked &amp; Erhverv
             </router-link>
           </th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'social-og-sundhed' } }">
-              <img src="../assets/images/x-axis/icon-social-og-sundhed.png" alt="" class="icon">Social &amp; Sundhed
+              <img src="../assets/images/icon-social-og-sundhed.png" alt="" class="icon">Social &amp; Sundhed
             </router-link>
           </th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'miljoe-teknik-og-forsyning' } }">
-              <img src="../assets/images/x-axis/icon-miljo-teknik-og-forsyning.png" alt="" class="icon">Miljø, Teknik &amp; Forsyning
+              <img src="../assets/images/icon-miljo-teknik-og-forsyning.png" alt="" class="icon">Miljø, Teknik &amp; Forsyning
             </router-link>
           </th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'demokrati-og-involvering' } }">
-              <img src="../assets/images/x-axis/icon-demokrati-og-involvering.png" alt="" class="icon">Demokrati &amp; Involvering
+              <img src="../assets/images/icon-demokrati-og-involvering.png" alt="" class="icon">Demokrati &amp; Involvering
             </router-link>
           </th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'administration-og-organisation' } }">
-              <img src="../assets/images/x-axis/icon-administration-og-organisation.png" alt="" class="icon">Administration &amp; Organisation
+              <img src="../assets/images/icon-administration-og-organisation.png" alt="" class="icon">Administration &amp; Organisation
             </router-link>
           </th>
         </tr>
@@ -40,7 +40,7 @@
         <tr>
           <th scope="row">
             <router-link :to="{ name: 'y-axis', params: { id: 'kunstig-intelligens-big-data-og-robotter' } }">
-              <img src="../assets/images/y-axis/kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig Intelligens, Big Data &amp; Robotter</span>
+              <img src="../assets/images/icon-kunstig-intelligens-big-data-og-robotter.png" alt="" class="icon"><span>Kunstig Intelligens, Big Data &amp; Robotter</span>
             </router-link>
           </th>
           <td v-for="(slug, index) in slugsXAxis">
@@ -50,7 +50,7 @@
         <tr>
           <th scope="row">
             <router-link :to="{ name: 'y-axis', params: { id: 'internet-of-things' } }">
-              <img src="../assets/images/y-axis/internet-of-things.png" alt="" class="icon">
+              <img src="../assets/images/icon-internet-of-things.png" alt="" class="icon">
               <span>Internet of Things</span>
             </router-link>
           </th>
@@ -61,7 +61,7 @@
         <tr>
           <th scope="row" title="Teknologiske temaer">
             <router-link :to="{ name: 'y-axis', params: { id: 'virtual-reality-og-augmented-reality' } }">
-              <img src="../assets/images/y-axis/virtual-reality-og-augmented-reality.png" alt="" class="icon">
+              <img src="../assets/images/icon-virtual-reality-og-augmented-reality.png" alt="" class="icon">
               <span>Virtual Reality &amp; Augmented Reality</span>
             </router-link>
           </th>
@@ -72,7 +72,7 @@
         <tr>
           <th scope="row">
             <router-link :to="{ name: 'y-axis', params: { id: 'deleoekonomi-og-blockchain' } }">
-              <img src="../assets/images/y-axis/deleokonomi-og-blockchain.png" alt="" class="icon">
+              <img src="../assets/images/icon-deleokonomi-og-blockchain.png" alt="" class="icon">
               <span>Deleøkonomi &amp; Blockchain</span>
             </router-link>
           </th>
@@ -83,7 +83,7 @@
         <tr>
           <th scope="row">
             <router-link :to="{ name: 'y-axis', params: { id: 'data-privatliv-transparens-og-sikkerhed' } }">
-              <img src="../assets/images/y-axis/data-privatliv-transparens-og-sikkerhed.png" alt="" class="icon">
+              <img src="../assets/images/icon-data-privatliv-transparens-og-sikkerhed.png" alt="" class="icon">
               <span>Data, Privatliv, Transparens &amp; Sikkerhed</span>
             </router-link>
           </th>
