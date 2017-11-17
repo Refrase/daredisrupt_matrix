@@ -7,7 +7,7 @@ module.exports = function( env = {} ) {
 
   if ( env.production ) process.env.NODE_ENV = 'production';
 
-  if ( process.env.NODE_ENV == 'production' ) __webpack_public_path__ = 'http://kommunernesfremtid.dk/wp-content/themes/matrix/dist/'; // TODO: Change when the live-url is decided
+  if ( process.env.NODE_ENV == 'production' ) __webpack_public_path__ = 'http://kommunernes-teknologispring.dk/wp-content/themes/matrix/dist/';
 
   function makeStyleLoader( type ) {
     const cssLoader = {
