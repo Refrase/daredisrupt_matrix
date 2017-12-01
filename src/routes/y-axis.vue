@@ -43,7 +43,7 @@
       </grid-block>
     </div>
 
-    <grid-block v-if="technology.acf.meaning_table_rows">
+    <grid-block v-if="technology.acf.meaning_table_rows && !isDataPrivatlivTransparensOgSikkerhedRoute">
       <div class="span-12">
         <headline headline="Betydning for </br>danske kommuner" center yellow />
         <table-meaning :rows="technology.acf.meaning_table_rows" />
@@ -117,6 +117,9 @@
         graphArrow: GraphArrow,
         telescope: Telescope
       }
+    },
+    computed: {
+      isDataPrivatlivTransparensOgSikkerhedRoute() { return this.$route.params.id === 'data-privatliv-transparens-og-sikkerhed' }
     },
     created() {
       this.$bus.$emit( 'loadingPage', true )
