@@ -140,7 +140,10 @@
   function build_slug_value_array( $post_type ) {
     $array = array();
     // Get title of all posts of given post type
-    $args = array( 'post_type' => $post_type );
+    $args = array(
+      'post_type' => $post_type,
+      'posts_per_page' => '-1' // Ensuring more than 10 entries are fetched - if there are more than 10
+    );
     $query = new WP_Query( $args );
     if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
       array_push($array, get_the_title());
