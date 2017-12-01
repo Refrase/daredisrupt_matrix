@@ -33,12 +33,8 @@
     props: { rows: Array },
     data() {
       return {
-        technologyRowTitles: [
-          'Børn & Læring', 'Arbejdsmarked & Erhverv', 'Social & Sundhed', 'Miljø, Teknik & Forsyning', 'Demokrati & Involvering', 'Administration & Organisation'
-        ],
-        areaRowTitles: [
-          'AI, Big Data & Robotter', 'Internet of Things', 'VR & AR', 'Deleøkonomi & Blockchain', 'Data, Privatliv & Transparens'
-        ]
+        technologyRowTitles: [ 'Børn & Læring', 'Arbejdsmarked & Erhverv', 'Social & Sundhed', 'Miljø, Teknik & Forsyning', 'Demokrati & Involvering', 'Administration & Organisation' ],
+        areaRowTitles: [ 'AI, Big Data & Robotter', 'Internet of Things', 'VR & AR', 'Deleøkonomi & Blockchain' ]
       }
     },
     computed: {
