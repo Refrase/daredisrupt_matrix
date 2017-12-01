@@ -50,12 +50,12 @@
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white fadeIn" v-if="this.cases">
+    <div class="backgroundColor-white fadeIn" v-if="cases && cases.length">
       <grid-block>
         <headline watermark="Cases" center />
-        <div class="span-6" v-for="(caseInstance, index) in cases" :key="index">
+        <div class="span-6" v-bind:class="{ 'offset-3': cases && cases.length === 1 }" v-for="(caseInstance, index) in cases" :key="index">
           <card
-            :imageUrl="caseInstance.acf.image"
+            :imageUrl="caseInstance.acf.image ? caseInstance.acf.image : null"
             backgroundColor="light"
             :headline="caseInstance.title.rendered"
             :text="caseInstance.acf.text"
@@ -66,7 +66,7 @@
     </div>
 
     <div class="backgroundColor-white fadeIn" :style="{ paddingBottom: '120px', marginTop: '-1px' }" v-if="technology.acf.short_term && technology.acf.long_term">
-      <grid-block noPadding>
+      <grid-block :noPadding="cases && cases.length ? true : null">
         <headline center headline="Forventet udvikling" />
         <headline center yellow headline="Kort sigt" watermark="Ca. 3 år" />
         <div class="span-8 offset-2">
@@ -129,9 +129,9 @@
         })
         let cases = []
         this.fetchData( `cases?slug=${ this.technology.acf.case_1 }` ).then( res => {
-          cases.push(res[0])
+          res.length ? cases.push(res[0]) : null
           this.fetchData( `cases?slug=${ this.technology.acf.case_2 }` ).then( res => {
-            cases.push(res[0])
+            res.length ? cases.push(res[0]) : null
             this.cases = cases
           })
         })

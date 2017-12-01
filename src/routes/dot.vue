@@ -53,11 +53,11 @@
       </grid-block>
     </div>
 
-    <grid-block v-if="this.cases">
+    <grid-block v-if="cases && cases.length">
       <headline watermark="Cases" center white />
-      <div class="span-6" v-for="(caseInstance, index) in cases" :key="index">
+      <div class="span-6" v-bind:class="{ 'offset-3': cases && cases.length === 1 }" v-for="(caseInstance, index) in cases" :key="index">
         <card
-          :imageUrl="caseInstance.acf.image"
+          :imageUrl="caseInstance.acf.image ? caseInstance.acf.image : null"
           backgroundColor="white"
           :headline="caseInstance.title.rendered"
           :text="caseInstance.acf.text"
@@ -66,8 +66,8 @@
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white fadeIn" :style="{ paddingBottom: '200px' }" v-if="crosspoint.acf.what_if">
-      <grid-block>
+    <div class="backgroundColor-white fadeIn" :style="{ paddingBottom: '200px', marginTop: '-1px' }" v-if="crosspoint.acf.what_if">
+      <grid-block :noPadding="!cases || cases && !cases.length ? true : null">
         <headline center watermark="Hvad nu hvis?" headline="Oplæg til dialog og refleksion" />
         <div class="span-8 offset-2 margin-top-2-1">
           <list largeText ellipsis :items="crosspoint.acf.what_if" itemKey="point" />
@@ -126,9 +126,9 @@
         })
         let cases = []
         this.fetchData( `cases?slug=${ this.crosspoint.acf.case_1 }` ).then( res => {
-          cases.push(res[0])
+          res.length ? cases.push(res[0]) : null
           this.fetchData( `cases?slug=${ this.crosspoint.acf.case_2 }` ).then( res => {
-            cases.push(res[0])
+            res.length ? cases.push(res[0]) : null
             this.cases = cases
           })
         })
