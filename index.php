@@ -9,6 +9,7 @@
   <meta property="og:image"              content="http://kommunernes-teknologispring.dk/wp-content/themes/matrix/dist/assets/images/matrix.png" />
   <script src="https://use.typekit.net/caa3toj.js"></script> <!-- TODO: On Typekit: Update the kit to also serve on the live domain -->
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <title>Kommunernes teknologiske fremtid - et værktøj til viden og dialog</title>
   <?php wp_head(); ?>
 </head>
 <body>
