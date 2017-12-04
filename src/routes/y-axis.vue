@@ -37,7 +37,7 @@
         </div>
         <div class="span-8 offset-1">
           <h1 class="margin-bottom-2-1">Perspektiver</h1>
-          <p class="margin-bottom-4-1">{{ technology.acf.perspectives_text }}</p>
+          <p class="margin-bottom-4-1" v-html="technology.acf.perspectives_text" />
           <accordion :items="technology.acf.new_possibilities" />
         </div>
       </grid-block>
@@ -77,11 +77,11 @@
         <headline center headline="Forventet udvikling" />
         <headline center yellow headline="Kort sigt" watermark="Ca. 3 år" />
         <div class="span-8 offset-2">
-          <p>{{ technology.acf.short_term }}</p>
+          <p v-html="technology.acf.short_term" />
         </div>
         <headline center yellow headline="Lang sigt" watermark="+ 3 år" />
         <div class="span-8 offset-2">
-          <p>{{ technology.acf.long_term }}</p>
+          <p v-html="technology.acf.long_term" />
         </div>
       </grid-block>
     </div>

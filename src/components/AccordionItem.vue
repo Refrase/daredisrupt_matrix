@@ -1,7 +1,7 @@
 <template>
   <li>
     <span @click="showText = !showText">{{ item.title }}</span>
-    <p v-show="showText">{{ item.text }}</p>
+    <p v-show="showText" v-html="item.text" />
   </li>
 </template>
 
@@ -11,7 +11,7 @@
     props: { item: Object },
     data() {
       return {
-        showText: false  
+        showText: false
       }
     }
   }

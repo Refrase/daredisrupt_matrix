@@ -13,7 +13,7 @@
     <div class="content" :class="{ 'content-illustration': illustrationUrl }">
       <h2 class="headline">{{ headline }}</h2>
       <list v-if="items" :items="items" :itemKey="itemKey" :htmlContent="htmlContent" />
-      <p v-if="text">{{ text }}</p>
+      <p v-if="text" v-html="text" />
     </div>
     <a v-if="linkUrl && linkLabel" class="linkWrap" :href="linkUrl">
       <span class="linkIntro" v-if="linkIntro">{{ linkIntro }}</span>

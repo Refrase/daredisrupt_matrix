@@ -51,7 +51,7 @@
         </div>
         <div class="span-8 offset-1">
           <accordion v-if="crosspoint.acf.perspectives" :items="crosspoint.acf.perspectives" />
-          <p v-else class="margin-bottom-4-1">{{ crosspoint.acf.perspectives_text }}</p>
+          <p v-else class="margin-bottom-4-1" v-html="crosspoint.acf.perspectives_text" />
         </div>
       </grid-block>
     </div>

@@ -11,8 +11,8 @@
     <tbody>
       <tr v-for="(row, index) in rows">
         <th scope="row"><span>{{ rowTitles[index] }}</span></th>
-        <td class="hide-mobile"><span v-html="row.where_is_it_seen" />
-        <td><span>{{ row.perspective_and_possibilities }}</span></td>
+        <td class="hide-mobile"><span v-html="row.where_is_it_seen" /></td>
+        <td><span v-html="row.perspective_and_possibilities" /></td>
         <td
           class="impact hide-mobileSmall"
           :class="{
