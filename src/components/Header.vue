@@ -18,7 +18,7 @@
 
           <div>
             <div :style="{ minWidth: '210px' }">
-              <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: Dare Disrupt" height="19" class="logo logo-daredisrupt" />
+              <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: DareDisrupt" height="19" class="logo logo-daredisrupt" />
               <img v-if="!isMatrix" src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" class="logo logo-kl" />
               <social-links class="float-right" />
             </div>
