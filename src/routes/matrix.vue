@@ -147,7 +147,7 @@
       font-size: $fontSize-xsmall;
       font-weight: bold;
       background-color: $color-yellow;
-      color: $color-yellow-darker-2;
+      color: $color-yellow-darker-4;
       z-index: $zindex-label;
       position: absolute;
       text-transform: uppercase;
