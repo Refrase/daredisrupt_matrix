@@ -13,7 +13,7 @@
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white fadeIn" v-if="technology.acf.drivers">
+    <div class="fadeIn" v-if="technology.acf.drivers">
       <grid-block>
         <div class="span-12 margin-top-6-1">
           <card
@@ -27,7 +27,7 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white fadeIn" :style="{ marginTop: '-8%' }"
+    <div class="backgroundColor-white fadeIn"
       v-if="technology.acf.perspectives_text || technology.acf.new_possibilities">
       <grid-block>
         <div class="span-3 hide-mobile">

@@ -13,7 +13,7 @@
       </div>
     </grid-block>
 
-    <div class="backgroundColor-white fadeIn" v-if="area.acf.pilots">
+    <div class="fadeIn" v-if="area.acf.pilots">
       <grid-block>
         <div class="span-12">
           <card
@@ -29,7 +29,7 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white fadeIn" :style="{ marginTop: '-8%' }" v-if="area.acf.perspectives">
+    <div class="backgroundColor-white fadeIn" v-if="area.acf.perspectives">
       <grid-block>
         <div class="span-8 offset-4">
           <h1>Perspektiver</h1>
