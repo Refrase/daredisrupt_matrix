@@ -138,11 +138,9 @@
   .logo {
     display: block;
     position: relative;
-    top: 1px;
+    top: 3px;
     margin-left: $scale-2-1;
     float: right;
-    @include breakpoint('mobile') { top: 4px; }
-    @include breakpoint('custom', '374px') { top: 6px; }
 
     &-kl {
       @include breakpoint('mobile') { height: 14px; }

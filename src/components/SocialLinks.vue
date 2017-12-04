@@ -47,7 +47,7 @@
     justify-content: space-between;
     position: relative;
     cursor: pointer;
-    top: 1px;
+    top: 2px;
     @include breakpoint('mobile') { top: 2px; }
   }
 </style>
