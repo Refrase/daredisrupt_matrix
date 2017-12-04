@@ -3,9 +3,9 @@
     <thead>
       <tr>
         <th></th>
-        <th scope="col" class="hide-mobile">Hvor ses det?</th>
-        <th scope="col">Perspektiver og muligheder</th>
-        <th scope="col" class="hide-mobileSmall">Impact</th>
+        <th scope="col" style="width: 1000px; max-width: 40%" class="hide-mobile">Hvor ses det?</th>
+        <th scope="col" style="width: 1000px; max-width: 40%">Perspektiver og muligheder</th>
+        <th scope="col" style="width: 80px" class="hide-mobileSmall">Impact</th>
       </tr>
     </thead>
     <tbody>
