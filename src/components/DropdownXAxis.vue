@@ -1,7 +1,7 @@
 <template>
   <dropdown v-if="technologies" fullWidth class="dropdown-axis" :visible="visible">
-    <div v-for="(technology, index) in technologies" class="display-flex margin-bottom-4-1" :key="index">
-      <img :src="technology.icon" :style="{ minWidth: '75px' }" height="75px" />
+    <div v-for="(technology, index) in technologies" class="inner margin-bottom-4-1" :key="index">
+      <img :src="technology.icon" :style="{ minWidth: '75px', maxWidth: '75px' }" height="75px" />
       <div class="margin-left-3-1">
         <h3 class="margin-bottom margin-top">{{ technology.title }}</h3>
         <p>{{ technology.description }}</p>
@@ -32,12 +32,22 @@
 <style lang="scss" scoped>
   @import '~@/styles/vars';
   @import '~@/styles/zindexes';
+  @import '~@/styles/breakpoints';
   .dropdown {
     &-axis {
       padding-top: $scale-6-1 !important;
       z-index: $zindex-dropdownAxis !important;
-      &:after {
-        top: $scale-3-1 !important;
+
+      &:after { top: $scale-3-1 !important; }
+
+      .inner {
+        display: flex;
+        @include breakpoint( 'mobile' ) {
+          flex-direction: column;
+          align-items: center;
+          img { margin-bottom: $scale-2-1; }
+          div { margin-left: 0 !important; }
+        }
       }
     }
   }

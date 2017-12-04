@@ -1,7 +1,7 @@
 <template>
   <div v-if="visible" class="dropdown">
     <grid-block noPadding>
-      <div class="span-8 offset-2" :class="{ 'span-12 margin-none': fullWidth }">
+      <div class="span-6 offset-3" :class="{ 'span-12 margin-none': fullWidth }">
         <slot />
       </div>
     </grid-block>

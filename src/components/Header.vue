@@ -3,11 +3,11 @@
 
     <div class="header" :style="{ height: !isMatrix ? '56px' : '99px', padding: !isMatrix ? '16px 0' : null }">
       <grid-block noPadding>
-        <div class="span-12 display-flex justifyContent-spaceBetween alignItems-center margin-none">
+        <div class="inner span-12 display-flex justifyContent-spaceBetween alignItems-center margin-none">
 
           <div v-if="isMatrix">
-            <h1 class="headline">Kommunernes teknologiske fremtid - et værktøj til viden og dialog</h1>
-            <p class="subheadline">KL har bedt DareDisrupt kortlægge perspektiverne af nye teknologier for kommunernes fremtid</p>
+            <h1 class="headline">Kommunernes teknologiske fremtid<span class="hide-mobile"> &ndash; et værktøj til viden og dialog</span></h1>
+            <p class="subheadline hide-mobile">KL har bedt DareDisrupt kortlægge perspektiverne af nye teknologier for kommunernes fremtid</p>
           </div>
           <div v-else>
             <router-link :to="{ name: 'matrix' }" class="display-flex alignItems-center">
@@ -17,12 +17,12 @@
           </div>
 
           <div>
-            <div :style="{ minWidth: '210px' }">
-              <a href="https://www.daredisrupt.com/" target="_blank">
-                <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: DareDisrupt" height="19" class="logo logo-daredisrupt" />
+            <div :style="{ minWidth: '160px' }">
+              <a href="https://www.daredisrupt.com/" target="_blank" class="logo logo-daredisrupt hide-mobile">
+                <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: DareDisrupt" height="19" />
               </a>
-              <a href="http://kl.dk/" target="_blank">
-                <img v-if="!isMatrix" src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" class="logo logo-kl" />
+              <a href="http://kl.dk/" target="_blank" class="logo logo-kl">
+                <img v-if="!isMatrix" src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" />
               </a>
               <social-links class="float-right" />
             </div>
@@ -103,6 +103,8 @@
     @include breakpoint('tablet') { padding: $scale-2-1 0; }
   }
 
+  .inner { @include breakpoint( 'mobile' ) { padding: 0; } }
+
   .headline,
   .subheadline {
     opacity: 0;
@@ -116,8 +118,6 @@
       max-width: 80%;
       font-size: 16px;
     }
-    @include breakpoint('mobile') { font-size: 14px; }
-    @include breakpoint('custom', '449px') { font-size: 12px; }
   }
 
   .subheadline {

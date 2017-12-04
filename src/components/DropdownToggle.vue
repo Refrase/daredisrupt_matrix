@@ -19,9 +19,7 @@
     white-space: nowrap;
     text-align: right;
     font-size: 14px;
-    margin-top: $scale-4-1;
-
-    @include breakpoint('tablet') { margin-top: $scale-3-1; }
+    margin-top: $scale-1-2;
 
     &:after {
       content: ' \0002C5';

@@ -1,11 +1,14 @@
 <template>
-  <div class="subheader">
+  <div class="subheader" :style="{ position: isXAxis ? 'fixed' : 'absolute' }">
     <slot />
   </div>
 </template>
 
 <script>
-  export default { name: 'Subheader' }
+  export default {
+    name: 'Subheader',
+    computed: { isXAxis() { return this.$route.name == 'x-axis' } }
+  }
 </script>
 
 <style lang="scss" scoped>
