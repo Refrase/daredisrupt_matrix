@@ -36,7 +36,10 @@
       </grid-block>
     </div>
 
-    <div class="backgroundColor-white fadeIn" :style="{ marginTop: '-1px' }" v-if="crosspoint.acf.perspectives || crosspoint.acf.perspectives_text">
+    <div
+      class="backgroundColor-white fadeIn"
+      :style="{ marginTop: !crosspoint.acf.pilots || crosspoint.acf.pilots && !crosspoint.acf.pilots.length ? '-120px' : '-1px' }"
+      v-if="crosspoint.acf.perspectives || crosspoint.acf.perspectives_text">
       <grid-block>
         <div class="span-8 offset-4">
           <h1>Perspektiver</h1>
