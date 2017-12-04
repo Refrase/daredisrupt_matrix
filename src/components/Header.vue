@@ -24,7 +24,7 @@
               <a href="http://kl.dk/" target="_blank" class="logo logo-kl">
                 <img v-if="!isMatrix" src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" />
               </a>
-              <social-links class="float-right" />
+              <social-links class="float-right" :href="shareLink" />
             </div>
             <dropdown-toggle v-if="isMatrix" @click.native="dropdownVisible = !dropdownVisible" label="Om kortlægningen" />
           </div>
@@ -65,13 +65,15 @@
     props: { routeChange: Object },
     data() {
       return {
-        dropdownVisible: false
+        dropdownVisible: false,
+        shareLink: null
       }
     },
     computed: {
       isMatrix() { return this.$route.name === 'matrix' },
       isDot() { return this.$route.name === 'dot' }
     },
+    updated() { this.shareLink = this.routeChange && this.routeChange.to ? this.routeChange.to.path : null },
     watch: { dropdownVisible: function () { this.dropdownToggled(this.dropdownVisible) } },
     methods: {
       dropdownToggled(trigger) {

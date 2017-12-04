@@ -3,9 +3,11 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import App from './components/App.vue'
 import { routes } from './routes'
+import SocialSharing from 'vue-social-sharing'
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(SocialSharing);
 
 // Vue.config.debug = true
 
