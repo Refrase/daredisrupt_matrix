@@ -2,7 +2,7 @@
   <div v-if="crosspoint" class="dotRoute backgroundColor-light">
 
     <grid-block v-if="crosspoint.acf.intro_text">
-      <div class="span-6 margin-bottom-6-1">
+      <div class="span-6 margin-bottom-6-1" :class="{ 'offset-3': !crosspoint.acf.intro_image }" :style="{ textAlign: !crosspoint.acf.intro_image ? 'center' : 'left' }">
         <h1 :style="{ fontSize: '100px', lineHeight: 0.9 }">{{ crosspoint.acf.intro_title }}</h1>
         <p :style="{ marginTop: '32px' }" v-html="crosspoint.acf.intro_text" />
       </div>
