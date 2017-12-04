@@ -25,7 +25,10 @@
     width: 100%;
 
     &-center { text-align: center; }
-    &-white { * { color: white !important; }}
+    &-white {
+      & .watermark { color: white !important; }
+      h1 { color: $color-darkblue !important; }
+    }
     &-yellow {
       & .watermark { color: $color-yellow-lighter-6 !important; }
       h1 { color: $color-yellow !important; }

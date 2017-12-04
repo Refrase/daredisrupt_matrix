@@ -50,6 +50,13 @@
       </div>
     </grid-block>
 
+    <grid-block v-if="technology.acf.important_questions && isDataPrivatlivTransparensOgSikkerhedRoute">
+      <headline center white watermark="Vigtige" headline="Spørgsmål" />
+      <div class="span-8 offset-2 margin-top-2-1">
+        <list largeText ellipsis :items="technology.acf.important_questions" itemKey="point" />
+      </div>
+    </grid-block>
+
     <div class="backgroundColor-white fadeIn" v-if="cases && cases.length">
       <grid-block>
         <headline watermark="Cases" center />
@@ -90,6 +97,7 @@
   import Accordion from '@/components/Accordion'
   import Image from '@/components/Image'
   import TableMeaning from '@/components/TableMeaning'
+  import List from '@/components/List'
 
   // Assets
   import GraphArrow from '@/assets/images/icon-graph-arrow.svg'
@@ -108,7 +116,8 @@
       'headline': Headline,
       'accordion': Accordion,
       'app-image': Image,
-      'table-meaning': TableMeaning
+      'table-meaning': TableMeaning,
+      'list': List
     },
     data() {
       return {
