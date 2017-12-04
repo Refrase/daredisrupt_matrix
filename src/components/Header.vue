@@ -18,8 +18,12 @@
 
           <div>
             <div :style="{ minWidth: '210px' }">
-              <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: DareDisrupt" height="19" class="logo logo-daredisrupt" />
-              <img v-if="!isMatrix" src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" class="logo logo-kl" />
+              <a href="https://www.daredisrupt.com/" target="_blank">
+                <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: DareDisrupt" height="19" class="logo logo-daredisrupt" />
+              </a>
+              <a href="http://kl.dk/" target="_blank">
+                <img v-if="!isMatrix" src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" class="logo logo-kl" />
+              </a>
               <social-links class="float-right" />
             </div>
             <dropdown-toggle v-if="isMatrix" @click.native="dropdownVisible = !dropdownVisible" label="Om kortlægningen" />
