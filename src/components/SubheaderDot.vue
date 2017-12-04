@@ -37,7 +37,7 @@
     a {
       font-size: $fontSize-small;
       display: block;
-      max-width: 160px;
+      width: 160px;
       display: inline-block;
       &:first-child { text-align: right; }
       @include breakpoint('mobile') {
@@ -50,7 +50,7 @@
     position: relative;
     margin: 0 $scale-2-1;
     top: 2px;
-    width: 48px;
+    width: 48px !important;
 
     img {
       width: 100%;
