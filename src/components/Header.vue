@@ -18,13 +18,13 @@
 
           <div>
             <div :style="{ minWidth: '160px' }">
-              <a href="https://www.daredisrupt.com/" target="_blank" class="logo logo-daredisrupt hide-mobile">
+              <a href="https://www.daredisrupt.com/" target="_blank" class="logo logo-daredisrupt">
                 <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: DareDisrupt" height="19" />
               </a>
-              <a href="http://kl.dk/" target="_blank" class="logo logo-kl">
-                <img v-if="!isMatrix" src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" />
+              <a href="http://kl.dk/" target="_blank" class="logo logo-kl" v-if="!isMatrix">
+                <img src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" />
               </a>
-              <social-links class="float-right" :href="shareLink" />
+              <social-links class="float-right" />
             </div>
             <dropdown-toggle v-if="isMatrix" @click.native="dropdownVisible = !dropdownVisible" label="Om kortlægningen" />
           </div>
@@ -65,15 +65,13 @@
     props: { routeChange: Object },
     data() {
       return {
-        dropdownVisible: false,
-        shareLink: null
+        dropdownVisible: false
       }
     },
     computed: {
       isMatrix() { return this.$route.name === 'matrix' },
       isDot() { return this.$route.name === 'dot' }
     },
-    updated() { this.shareLink = this.routeChange && this.routeChange.to ? this.routeChange.to.path : null },
     watch: { dropdownVisible: function () { this.dropdownToggled(this.dropdownVisible) } },
     methods: {
       dropdownToggled(trigger) {
@@ -148,7 +146,7 @@
     }
 
     &-daredisrupt {
-      @include breakpoint('mobile') { height: 17px; }
+      @include breakpoint('mobile') { height: 17px; margin-bottom: $scale; }
       @include breakpoint('custom', '374px') { height: 12px; }
     }
   }
