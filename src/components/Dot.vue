@@ -32,16 +32,17 @@
     left: calc( 50% - 2000px );
 
     // Getting rid of flickering effect
-    backface-visibility: hidden;
-    perspective: 1000;
+    // backface-visibility: hidden;
+    // perspective: 1000;
 
-    transform: scale(0.01) translate3d(0, 0, 0); // translate3d to trigger GPU rendering
-    transition: transform .3s ease-out;
+    transform: scale(0.01);
+    // transition: transform .3s ease-out;
 
-    &:hover { transform: scale(0.012); }
+    // &:hover { transform: scale(0.012); }
 
     &.dot-clicked {
       z-index: $zindex-dotActive;
+      opacity: 1;
       transform: scale(1);
     }
 
@@ -52,9 +53,9 @@
       left: calc( 50% - 40px );
       width: 80px;
       height: 80px;
-      background-color: $color-darkblue-darker-2;
-      transform: scale(0) translate3d(0, 0, 0); // translate3d to trigger GPU rendering
-      animation: pulseTwo 3s cubic-bezier(.17,.67,.57,.99) infinite;
+      // background-color: $color-darkblue-darker-2;
+      // transform: scale(0) translate3d(0, 0, 0); // translate3d to trigger GPU rendering
+      // animation: pulseTwo 5s cubic-bezier(.17,.67,.57,.99) infinite;
     }
   }
 </style>
