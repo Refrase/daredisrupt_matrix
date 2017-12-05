@@ -52,7 +52,7 @@
       left: calc( 50% - 40px );
       width: 80px;
       height: 80px;
-      background-color: $color-darkblue;
+      background-color: $color-darkblue-darker-4;
       transform: scale(0) translate3d(0, 0, 0); // translate3d to trigger GPU rendering
       animation: pulseTwo 2s cubic-bezier(.17,.67,.57,.99) infinite;
     }
