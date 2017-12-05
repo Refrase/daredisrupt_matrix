@@ -1,6 +1,6 @@
 <template>
   <div class="matrixRoute">
-    <table class="matrix" cellspacing="0" cellpadding="0">
+    <table class="matrix fadeInWithDelay" cellspacing="0" cellpadding="0">
       <thead>
         <tr title="Kommunale områder">
           <th class="corner"><div/></th>

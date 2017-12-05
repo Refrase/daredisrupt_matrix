@@ -35,7 +35,7 @@
     backface-visibility: hidden;
     perspective: 1000;
 
-    transform: scale(0.01);
+    transform: scale(0.01) translate3d(0, 0, 0); // translate3d to trigger GPU rendering
     transition: transform .3s ease-out;
 
     &:hover { transform: scale(0.012); }
@@ -52,9 +52,9 @@
       left: calc( 50% - 40px );
       width: 80px;
       height: 80px;
-      background-color: $color-darkblue-darker-4;
+      background-color: $color-darkblue-darker-2;
       transform: scale(0) translate3d(0, 0, 0); // translate3d to trigger GPU rendering
-      animation: pulseTwo 2s cubic-bezier(.17,.67,.57,.99) infinite;
+      animation: pulseTwo 3s cubic-bezier(.17,.67,.57,.99) infinite;
     }
   }
 </style>
