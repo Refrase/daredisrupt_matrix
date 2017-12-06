@@ -11,7 +11,7 @@
     <div v-if="imageUrl" class="image" :style="{ backgroundImage: 'url(' + imageUrl + ')' }" />
     <img v-if="illustrationUrl" class="illustration" :src="illustrationUrl" :alt="illustrationAlt ? illustrationAlt : null" />
     <div class="content" :class="{ 'content-illustration': illustrationUrl }">
-      <h2 class="headline">{{ headline }}</h2>
+      <h2 class="headline" v-html="headline" />
       <list v-if="items" :items="items" :itemKey="itemKey" :htmlContent="htmlContent" />
       <p v-if="text" v-html="text" />
     </div>
