@@ -31,14 +31,10 @@
     top: -2000px;
     left: calc( 50% - 2000px );
 
-    // Getting rid of flickering effect
-    // backface-visibility: hidden;
-    // perspective: 1000;
-
     transform: scale(0.01);
-    // transition: transform .3s ease-out;
+    transition: transform .3s ease-out;
 
-    // &:hover { transform: scale(0.012); }
+    &:hover { transform: scale(0.012); }
 
     &.dot-clicked {
       z-index: $zindex-dotActive;
@@ -49,13 +45,12 @@
     &_shadow {
       position: absolute;
       border-radius: 100%;
-      top: calc( 50% - 40px );
-      left: calc( 50% - 40px );
-      width: 80px;
-      height: 80px;
-      // background-color: $color-darkblue-darker-2;
-      // transform: scale(0) translate3d(0, 0, 0); // translate3d to trigger GPU rendering
-      // animation: pulseTwo 5s cubic-bezier(.17,.67,.57,.99) infinite;
+      top: calc( 50% - 20px );
+      left: calc( 50% - 20px );
+      width: 40px;
+      height: 40px;
+      box-shadow: 0 0 0 0 rgba($color-darkblue-darker-4, 0.4);
+      animation: pulse 2s infinite;
     }
   }
 </style>
