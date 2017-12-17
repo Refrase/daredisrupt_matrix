@@ -1,11 +1,12 @@
 <template>
   <router-link :to="{ name: 'dot', params: { id: linkParam } }">
-    <span class="dot_shadow"></span>
+    <span class="dot_shadow" ref="dotShadow"></span>
     <span class="dot" @click="dotClicked = !dotClicked" :class="{ 'dot-clicked': dotClicked }" />
   </router-link>
 </template>
 
 <script>
+  import { TweenMax } from 'gsap'
   export default {
     name: 'Dot',
     props: { linkParam: String },
@@ -13,6 +14,22 @@
       return {
         dotClicked: false
       }
+    },
+    mounted() {
+      TweenMax.fromTo(
+        this.$refs['dotShadow'],
+        1.2,
+        {
+          boxShadow: "0px 0px 0px 0px rgba(16, 26, 57, 0.8)"
+        },
+        {
+          boxShadow: "0px 0px 0px 18px rgba(16, 26, 57, 0)",
+          repeat: -1,
+          ease: Power4.EaseOut,
+          delay: Math.random() * 3,
+          repeatDelay: 2
+        }
+      )
     }
   }
 </script>
@@ -34,8 +51,6 @@
     transform: scale(0.01);
     transition: transform .3s ease-out;
 
-    &:hover { transform: scale(0.012); }
-
     &.dot-clicked {
       z-index: $zindex-dotActive;
       opacity: 1;
@@ -49,8 +64,6 @@
       left: calc( 50% - 20px );
       width: 40px;
       height: 40px;
-      box-shadow: 0 0 0 0 rgba($color-darkblue-darker-4, 0.4);
-      animation: pulse 2s infinite;
     }
   }
 </style>
