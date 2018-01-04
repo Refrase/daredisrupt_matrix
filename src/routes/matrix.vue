@@ -3,7 +3,11 @@
     <table class="matrix fadeInWithDelay" cellspacing="0" cellpadding="0">
       <thead>
         <tr title="Kommunale områder">
-          <th class="corner"><div/></th>
+          <th class="corner">
+            <div>
+              <img src="../assets/images/logo-kl-white.svg" alt="" height="60px" class="icon position-absolute hide-1200" style="left: 32px; top: 126px;">
+            </div>
+          </th>
           <th scope="col">
             <router-link :to="{ name: 'x-axis', params: { id: 'boern-og-laering' } }">
               <img src="../assets/images/icon-born-og-laering.png" alt="" class="icon">Børn &amp; Læring
@@ -151,9 +155,12 @@
     thead tr:after {
       content: attr(title); // The title="" on the <tr>
       @extend .label;
-      right: calc(50vw - 180px);
+      right: 410px;
       top: 268px;
-      @include breakpoint('custom', '1200px') { top: 262px; }
+      @include breakpoint('custom', '1200px') {
+        right: calc(50vw - 180px);
+        top: 262px;
+      }
       @include breakpoint('mobile') {
         right: 0;
         top: 153px;

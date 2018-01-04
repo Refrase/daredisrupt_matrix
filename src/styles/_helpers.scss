@@ -138,7 +138,8 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .hide { display: none !important;
 	&-mobileSmall { @include breakpoint( 'mobileSmall' ) { display: none !important; }}
 	&-mobile { @include breakpoint( 'mobile' ) { display: none !important; }}
-	&-tablet { @include breakpoint( 'tablet' ) { display: none !important; }}}
+	&-tablet { @include breakpoint( 'tablet' ) { display: none !important; }}
+	&-1200 { @include breakpoint( 'custom', '1200px' ) { display: none !important; }}}
 .show { display: block !important; }
 
 .float {
