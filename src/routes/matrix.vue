@@ -132,14 +132,6 @@
     white-space: pre-line;
     background-color: $color-blue;
 
-    .icon {
-      width: 50%;
-      max-width: 45px;
-      display: block;
-      margin: 0 auto;
-      margin-bottom: $scale-2-1;
-    }
-
     .label {
       font-family: $fontFamily-sans;
       padding: 4px 6px;
@@ -160,8 +152,8 @@
       content: attr(title); // The title="" on the <tr>
       @extend .label;
       right: calc(50vw - 180px);
-      top: 247px;
-      @include breakpoint('custom', '1200px') { top: 241px; }
+      top: 268px;
+      @include breakpoint('custom', '1200px') { top: 262px; }
       @include breakpoint('mobile') {
         right: 0;
         top: 153px;
@@ -173,10 +165,13 @@
       @extend .label;
       bottom: 50%;
       transform: translateX(-43%) rotate(270deg);
-      left: calc(100vw / 7);
+      left: calc(100vw - 978px);
       @include breakpoint('custom', '1200px') {
-        left: 172px;
+        left: calc(100vw - 965px);
         bottom: 100%;
+      }
+      @include breakpoint('custom', '1135px') {
+        left: 172px;
       }
     }
 
@@ -199,22 +194,23 @@
       }
 
       .icon {
-        width: auto;
-        max-height: 40px;
+        height: 60px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: $scale-2-1;
       }
     }
 
     tr { width: 100%; }
     td {
-      width: calc( 100vw / 7 );
+      // width: calc( 100vw / 7 );
+      width: 160px;
       min-width: 160px;
     }
 
     tbody tr:nth-child(odd),
     th:nth-child(even),
     td:nth-child(even), { background-color: rgba($color-darkblue, 0.3); }
-
-    th[scope="row"], td { vertical-align: middle; }
 
     tbody tr:first-child th:before { // Corner of yellow line
       content: '';
@@ -227,6 +223,8 @@
       background-color: $color-yellow;
     }
 
+    th[scope="row"], td { vertical-align: middle; }
+
     th[scope="row"] {
       position: relative;
       border-right: 4px solid $color-yellow;
@@ -235,20 +233,21 @@
         text-decoration: underline;
         text-decoration-color: $color-yellow;
         text-align: left;
-        font-size: $fontSize-small;
+        font-size: $fontSize-large;
+        @include breakpoint('custom', '1250px') { font-size: $fontSize-base; }
         display: flex;
         align-items: center;
         height: 100%;
         &:hover { text-decoration: none; }
         span, .icon { display: inline-block; }
         span {
-          width: calc(80% - #{$scale});
+          width: calc(100% - 57px); // Icon height and therefore width (because it's squared)
           position: relative;
           margin-left: $scale-2-1;
           line-height: 1.3;
         }
         .icon {
-          width: 20%;
+          height: 57px;
           margin: 0;
         }
       }
@@ -265,7 +264,7 @@
     .matrix {
       .corner {
         display: block;
-        width: 176px;
+        width: calc(100% - 960px);
       }
       tr:nth-child(odd) th[scope="row"] { background-color: mix($color-darkblue, $color-blue, 30%); }
       th[scope="row"] {
@@ -273,7 +272,7 @@
         position: fixed;
         height: 100%;
         z-index: $zindex-row;
-        width: 176px;
+        width: calc(100% - 960px);
         background-color: $color-blue;
         padding: $scale-2-1;
         a {
@@ -288,9 +287,16 @@
           }
         }
       }
+      th[scope="col"] { margin-top: -8px; }
       th,
       th[scope="col"] a { font-size: 14px; }
     }
+  }
+
+  @include breakpoint('custom', '1135px') {
+    .corner,
+    th[scope="row"] { width: 176px !important; }
+    table { height: calc(100vh - 10px) !important; } // To compensate for horisontal scrollbar, when the columns get to wide to fit in the window
   }
 
   @include breakpoint('mobile') {

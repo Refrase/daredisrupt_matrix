@@ -51,6 +51,8 @@
     transform: scale(0.01);
     transition: transform .3s ease-out;
 
+    &:hover { transform: scale(0.012); }
+
     &.dot-clicked {
       z-index: $zindex-dotActive;
       opacity: 1;
