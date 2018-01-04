@@ -1,9 +1,15 @@
 <template>
   <div>
 
-    <div class="header" :style="{ height: !isMatrix ? '56px' : '99px', padding: !isMatrix ? '16px 0' : null }">
-      <grid-block noPadding>
-        <div class="inner span-12 display-flex justifyContent-spaceBetween alignItems-center margin-none">
+    <div class="header"
+      :style="{
+        height: !isMatrix ? '56px' : '99px',
+        padding: !isMatrix ? '16px 32px' : '32px',
+        backgroundColor: !isMatrix ? '#28408C' : '#101a39',
+        border: !isMatrix ? null : '1px solid #172450'
+      }">
+      <!-- <grid-block noPadding>
+        <div class="inner span-12 display-flex justifyContent-spaceBetween alignItems-center margin-none"> -->
 
           <div v-if="isMatrix">
             <h1 class="headline">Kommunernes teknologiske fremtid<span class="hide-mobile"> &ndash; et værktøj til viden og dialog</span></h1>
@@ -24,13 +30,13 @@
               <a href="http://kl.dk/" target="_blank" class="logo logo-kl" v-if="!isMatrix">
                 <img src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" />
               </a>
-              <social-links class="float-right" />
+              <social-links class="float-right" :dark="isMatrix ? true : null" />
             </div>
             <dropdown-toggle v-if="isMatrix" @click.native="dropdownVisible = !dropdownVisible" label="Om kortlægningen" />
           </div>
 
-        </div>
-      </grid-block>
+        <!-- </div>
+      </grid-block> -->
     </div>
 
     <subheader v-if="!isMatrix">

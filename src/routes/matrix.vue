@@ -5,7 +5,7 @@
         <tr title="Kommunale områder">
           <th class="corner">
             <div>
-              <img src="../assets/images/logo-kl-white.svg" alt="" height="60px" class="icon position-absolute hide-1200" style="left: 32px; top: 126px;">
+              <!-- <img src="../assets/images/logo-kl-white.svg" alt="" height="60px" class="icon position-absolute hide-1200" style="left: 32px; top: 126px;"> -->
             </div>
           </th>
           <th scope="col">
@@ -122,7 +122,7 @@
   $headerHeight: 99px;
 
   .matrixRoute {
-    background-color: $color-blue;
+    background-color: $color-darkblue-darker-4;
     overflow-y: hidden;
     padding-top: 0;
   }
@@ -155,11 +155,16 @@
     thead tr:after {
       content: attr(title); // The title="" on the <tr>
       @extend .label;
+      background-color: white;
+      color: $color-darkblue-lighter-3;
+      padding-left: 8px;
+      padding-right: 8px;
       right: 410px;
-      top: 268px;
+      top: 259px;
+      border-radius: 2px;
       @include breakpoint('custom', '1200px') {
         right: calc(50vw - 180px);
-        top: 262px;
+        top: 253px;
       }
       @include breakpoint('mobile') {
         right: 0;
@@ -170,15 +175,20 @@
     tbody tr:nth-child(3) th:after {
       content: attr(title); // The title="" on the <tr>
       @extend .label;
+      background-color: white;
+      color: $color-darkblue-lighter-3;
+      padding-left: 8px;
+      padding-right: 8px;
       bottom: 50%;
       transform: translateX(-43%) rotate(270deg);
-      left: calc(100vw - 978px);
+      left: calc(100vw - 987px);
+      border-radius: 2px;
       @include breakpoint('custom', '1200px') {
-        left: calc(100vw - 965px);
+        left: calc(100vw - 974px);
         bottom: 100%;
       }
       @include breakpoint('custom', '1135px') {
-        left: 172px;
+        left: 163px;
       }
     }
 
@@ -190,7 +200,7 @@
     th[scope="col"] {
       padding-top: $headerHeight + $scale-3-1;
       position: relative;
-      border-bottom: 4px solid $color-yellow;
+      border-bottom: 4px solid white;
 
       a {
         color: white;
@@ -215,9 +225,43 @@
       min-width: 160px;
     }
 
-    tbody tr:nth-child(odd),
-    th:nth-child(even),
-    td:nth-child(even), { background-color: rgba($color-darkblue, 0.3); }
+    // tbody tr:nth-child(odd),
+    // th:nth-child(even) { background-color: rgba($color-darkblue, 0.3); }
+    // th:nth-child(2) { background-color: rgba($color-yellow, 0.3); }
+    // td:nth-child(2) { background-color: rgba($color-darkblue, 0.3); }
+
+    // tbody tr:nth-child(odd) { background-color: $color-darkblue }
+
+    // tbody tr:nth-child(1) { background-color: #052BB6; }
+    // tbody tr:nth-child(2) { background-color: #FDFFFC; }
+    // tbody tr:nth-child(3) { background-color: #C1292E; }
+    // tbody tr:nth-child(4) { background-color: #F1D302; }
+    // tbody tr:nth-child(5) { background-color: #161925; }
+
+    // th:nth-child(2),
+    // td:nth-child(2) { background-color: #052BB6; }
+    // th:nth-child(3),
+    // td:nth-child(3) { background-color: #FDFFFC; }
+    // th:nth-child(4),
+    // td:nth-child(4) { background-color: #C1292E; }
+    // th:nth-child(5),
+    // td:nth-child(5) { background-color: #F1D302; }
+    // th:nth-child(6),
+    // td:nth-child(6) { background-color: #161925; }
+    // th:nth-child(7),
+    // td:nth-child(7) { background-color: #052BB6; }
+
+    background-color: $color-darkblue-darker-4;
+
+    td:nth-child(4) { background-color: $color-yellow; }
+    td:nth-child(3) { background-color: #f78536; }
+    td:nth-child(2) { background-color: #ef3b3b; }
+    td:nth-child(5) { background-color: #0DAB76; }
+    td:nth-child(7) { background-color: #6442af; }
+    td:nth-child(6) { background-color: #0931c1; }
+    // td:nth-child(7) { background-color: #1c88c9; }
+
+    // tbody tr:nth-child(1) td:nth-of-type(1) /deep/ a span.dot { background-color: green !important; }
 
     tbody tr:first-child th:before { // Corner of yellow line
       content: '';
@@ -227,14 +271,14 @@
       top: -4px;
       right: -4px;
       border-top-left-radius: $borderRadius;
-      background-color: $color-yellow;
+      background-color: white;
     }
 
     th[scope="row"], td { vertical-align: middle; }
 
     th[scope="row"] {
       position: relative;
-      border-right: 4px solid $color-yellow;
+      border-right: 4px solid white;
       a {
         color: white;
         text-decoration: underline;
@@ -273,14 +317,14 @@
         display: block;
         width: calc(100% - 960px);
       }
-      tr:nth-child(odd) th[scope="row"] { background-color: mix($color-darkblue, $color-blue, 30%); }
+      // tr:nth-child(odd) th[scope="row"] { background-color: mix($color-darkblue, $color-blue, 30%); }
       th[scope="row"] {
         left: 0;
         position: fixed;
         height: 100%;
         z-index: $zindex-row;
         width: calc(100% - 960px);
-        background-color: $color-blue;
+        background-color: $color-darkblue-darker-4;
         padding: $scale-2-1;
         a {
           position: fixed;
