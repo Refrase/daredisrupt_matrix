@@ -26,8 +26,8 @@
           boxShadow: "0px 0px 0px 18px rgba(16, 26, 57, 0)",
           repeat: -1,
           ease: Power4.EaseOut,
-          delay: Math.random() * 3,
-          repeatDelay: 2
+          delay: Math.random() * 15,
+          repeatDelay: 10
         }
       )
     }
