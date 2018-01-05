@@ -134,7 +134,7 @@
     font-family: $fontFamily-serif;
     color: white;
     white-space: pre-line;
-    background-color: $color-blue;
+    background-color: $color-darkblue-darker-4;
 
     .label {
       font-family: $fontFamily-sans;
@@ -220,48 +220,16 @@
 
     tr { width: 100%; }
     td {
-      // width: calc( 100vw / 7 );
       width: 160px;
       min-width: 160px;
     }
 
-    // tbody tr:nth-child(odd),
-    // th:nth-child(even) { background-color: rgba($color-darkblue, 0.3); }
-    // th:nth-child(2) { background-color: rgba($color-yellow, 0.3); }
-    // td:nth-child(2) { background-color: rgba($color-darkblue, 0.3); }
-
-    // tbody tr:nth-child(odd) { background-color: $color-darkblue }
-
-    // tbody tr:nth-child(1) { background-color: #052BB6; }
-    // tbody tr:nth-child(2) { background-color: #FDFFFC; }
-    // tbody tr:nth-child(3) { background-color: #C1292E; }
-    // tbody tr:nth-child(4) { background-color: #F1D302; }
-    // tbody tr:nth-child(5) { background-color: #161925; }
-
-    // th:nth-child(2),
-    // td:nth-child(2) { background-color: #052BB6; }
-    // th:nth-child(3),
-    // td:nth-child(3) { background-color: #FDFFFC; }
-    // th:nth-child(4),
-    // td:nth-child(4) { background-color: #C1292E; }
-    // th:nth-child(5),
-    // td:nth-child(5) { background-color: #F1D302; }
-    // th:nth-child(6),
-    // td:nth-child(6) { background-color: #161925; }
-    // th:nth-child(7),
-    // td:nth-child(7) { background-color: #052BB6; }
-
-    background-color: $color-darkblue-darker-4;
-
-    td:nth-child(4) { background-color: $color-yellow; }
-    td:nth-child(3) { background-color: #f78536; }
-    td:nth-child(2) { background-color: #ef3b3b; }
-    td:nth-child(5) { background-color: #0DAB76; }
-    td:nth-child(7) { background-color: #6442af; }
-    td:nth-child(6) { background-color: #0931c1; }
-    // td:nth-child(7) { background-color: #1c88c9; }
-
-    // tbody tr:nth-child(1) td:nth-of-type(1) /deep/ a span.dot { background-color: green !important; }
+    td:nth-child(2) { background-color: mix(#bbb, #3057ba, 32%); }
+    td:nth-child(3) { background-color: mix(#bbb, $color-yellow-lighter-1, 14%); }
+    td:nth-child(4) { background-color: mix(#bbb, #f78536, 22%); }
+    td:nth-child(5) { background-color: mix(#bbb, #0DAB76, 29%); }
+    td:nth-child(6) { background-color: mix(#bbb, #593d99, 26%); }
+    td:nth-child(7) { background-color: mix(#bbb, #ef3b3b, 26%); }
 
     tbody tr:first-child th:before { // Corner of yellow line
       content: '';
