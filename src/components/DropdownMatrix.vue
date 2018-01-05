@@ -1,5 +1,5 @@
 <template>
-  <dropdown v-if="dropdown" :visible="visible">
+  <dropdown fullWidth contentHeight v-if="dropdown" :visible="visible">
     <h1 class="margin-bottom-2-1">{{ dropdown.title }}</h1>
     <p>{{ dropdown.text }}</p>
   </dropdown>

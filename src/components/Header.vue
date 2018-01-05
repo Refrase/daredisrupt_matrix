@@ -1,42 +1,16 @@
 <template>
   <div>
 
-    <div class="header"
-      :style="{
-        height: !isMatrix ? '56px' : '99px',
-        padding: !isMatrix ? '16px 32px' : '32px',
-        backgroundColor: !isMatrix ? '#28408C' : '#101a39',
-        border: !isMatrix ? null : '1px solid #172450'
-      }">
-      <!-- <grid-block noPadding>
-        <div class="inner span-12 display-flex justifyContent-spaceBetween alignItems-center margin-none"> -->
+    <div class="header" :class="{ 'header-matrix': isMatrix, 'header-notMatrix': !isMatrix }">
 
-          <div v-if="isMatrix">
-            <h1 class="headline">Kommunernes teknologiske fremtid<span class="hide-mobile"> &ndash; et værktøj til viden og dialog</span></h1>
-            <p class="subheadline hide-mobile">KL har bedt DareDisrupt kortlægge perspektiverne af nye teknologier for kommunernes fremtid</p>
-          </div>
-          <div v-else>
-            <router-link :to="{ name: 'matrix' }" class="display-flex alignItems-center">
-              <img src="../assets/images/icon-spilleplade-on-button.svg" height="24" class="margin-right display-inlineBlock" />
-              <span class="buttonBackLabel">Oversigt</span>
-            </router-link>
-          </div>
+      <grid-block noPadding v-if="!isMatrix">
+        <div class="inner span-12 display-flex justifyContent-spaceBetween alignItems-center margin-none">
+          <header-inner />
+        </div>
+      </grid-block>
 
-          <div>
-            <div :style="{ minWidth: '160px' }">
-              <a href="https://www.daredisrupt.com/" target="_blank" class="logo logo-daredisrupt hide-mobile">
-                <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: DareDisrupt" height="19" />
-              </a>
-              <a href="http://kl.dk/" target="_blank" class="logo logo-kl" v-if="!isMatrix">
-                <img src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" />
-              </a>
-              <social-links class="float-right margin-bottom" />
-            </div>
-            <dropdown-toggle v-if="isMatrix" @click.native="dropdownVisible = !dropdownVisible" label="Om kortlægningen" />
-          </div>
+      <header-inner v-on:dropdownToggled="dropdownVisible = !dropdownVisible" v-else />
 
-        <!-- </div>
-      </grid-block> -->
     </div>
 
     <subheader v-if="!isMatrix">
@@ -51,7 +25,7 @@
 
 <script>
   import GridBlock from '@/components/GridBlock'
-  import SocialLinks from '@/components/SocialLinks'
+  import HeaderInner from '@/components/HeaderInner'
   import Subheader from '@/components/Subheader'
   import SubheaderDot from '@/components/SubheaderDot'
   import SubheaderAxis from '@/components/SubheaderAxis'
@@ -61,7 +35,7 @@
     name: 'Header',
     components: {
       'grid-block': GridBlock,
-      'social-links': SocialLinks,
+      'header-inner': HeaderInner,
       'subheader': Subheader,
       'subheader-dot': SubheaderDot,
       'subheader-axis': SubheaderAxis,
@@ -107,53 +81,23 @@
     transition: height .6s ease-out;
     padding: $scale-3-1 0;
     @include breakpoint('tablet') { padding: $scale-2-1 0; }
+
+    &-matrix {
+      height: 99px;
+      padding: $scale-4-1;
+      background-color: $color-darkblue-darker-4;
+      border: 1px solid $color-darkblue-darker-3;
+      @include breakpoint('custom', '1200px') { padding: $scale-4-1 $scale-2-1; }
+    }
+
+    &-notMatrix {
+      height: 56px;
+      padding: $scale-2-1 0;
+      background-color: $color-darkblue;
+      border: none !important;
+      @include breakpoint('tablet') { padding: $scale-2-1; }
+    }
   }
 
   .inner { @include breakpoint( 'mobile' ) { padding: 0; } }
-
-  .headline,
-  .subheadline {
-    opacity: 0;
-    animation: fadeIn .3s .6s ease-out forwards;
-  }
-
-  .headline {
-    line-height: 1.3;
-    font-size: 22px;
-    @include breakpoint('tablet') {
-      max-width: 80%;
-      font-size: 16px;
-    }
-  }
-
-  .subheadline {
-    font-family: $fontFamily-serif;
-    font-style: italic;
-    font-size: 14px;
-    margin-top: $scale;
-    @include breakpoint('tablet') { display: none; }
-  }
-
-  .buttonBackLabel {
-    display: inline-block;
-    @include breakpoint('custom', '479px') { display: none; }
-  }
-
-  .logo {
-    display: block;
-    position: relative;
-    top: 3px;
-    margin-left: $scale-2-1;
-    float: right;
-
-    &-kl {
-      @include breakpoint('mobile') { height: 14px; }
-      @include breakpoint('custom', '374px') { height: 10px; }
-    }
-
-    &-daredisrupt {
-      @include breakpoint('mobile') { height: 17px; margin-bottom: $scale; }
-      @include breakpoint('custom', '374px') { height: 12px; }
-    }
-  }
 </style>
