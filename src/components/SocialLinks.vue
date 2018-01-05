@@ -6,13 +6,13 @@
     inline-template>
     <div>
       <network network="linkedin">
-        <img src="../assets/images/icon-linkedin.svg" alt="LinkedIn" height="18" />
+        <img src="../assets/images/icon-linkedin-white.svg" alt="LinkedIn" height="18" />
       </network>
       <network network="facebook">
-        <img src="../assets/images/icon-facebook.svg" alt="Facebook" height="18" />
+        <img src="../assets/images/icon-facebook-white.svg" alt="Facebook" height="18" />
       </network>
       <network network="twitter">
-        <img src="../assets/images/icon-twitter.svg" alt="Twitter" height="18" />
+        <img src="../assets/images/icon-twitter-white.svg" alt="Twitter" height="18" />
       </network>
     </div>
   </social-sharing>

@@ -140,7 +140,13 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-mobile { @include breakpoint( 'mobile' ) { display: none !important; }}
 	&-tablet { @include breakpoint( 'tablet' ) { display: none !important; }}
 	&-1200 { @include breakpoint( 'custom', '1200px' ) { display: none !important; }}}
-.show { display: block !important; }
+.show {
+	display: block !important;
+	&-tabletOnly {
+		display: none;
+		@include breakpoint( 'tablet' ) { display: block !important; }
+		@include breakpoint( 'mobile' ) { display: none !important; }}
+}
 
 .float {
 	&-right { float: right; }
