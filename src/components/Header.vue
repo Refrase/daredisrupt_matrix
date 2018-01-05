@@ -24,13 +24,13 @@
 
           <div>
             <div :style="{ minWidth: '160px' }">
-              <a href="https://www.daredisrupt.com/" target="_blank" class="logo logo-daredisrupt">
+              <a href="https://www.daredisrupt.com/" target="_blank" class="logo logo-daredisrupt hide-mobile">
                 <img src="../assets/images/logo-daredisrupt-white.png" alt="Logo: DareDisrupt" height="19" />
               </a>
               <a href="http://kl.dk/" target="_blank" class="logo logo-kl" v-if="!isMatrix">
                 <img src="../assets/images/logo-kl-white.svg" alt="Logo: KL" height="16" />
               </a>
-              <social-links class="float-right" :dark="isMatrix ? true : null" />
+              <social-links class="float-right margin-bottom" />
             </div>
             <dropdown-toggle v-if="isMatrix" @click.native="dropdownVisible = !dropdownVisible" label="Om kortlægningen" />
           </div>
