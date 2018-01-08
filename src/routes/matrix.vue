@@ -130,12 +130,35 @@
 
   .matrix {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     text-align: center;
     font-family: $fontFamily-serif;
     color: white;
     white-space: pre-line;
     background-color: $color-darkblue-darker-4;
+
+    // Avoiding content being hidden behind the bottom tab bar on iOS safari
+    /* All iOS phones in portrait and landscape */
+    /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+    @media only screen
+      and (min-device-width: 320px)
+      and (max-device-width: 568px)
+      and (-webkit-min-device-pixel-ratio: 2) { height: calc(100vh - 44px) !important; }
+    /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+    @media only screen
+      and (min-device-width: 375px)
+      and (max-device-width: 667px)
+      and (-webkit-min-device-pixel-ratio: 2) { height: calc(100vh - 44px) !important; }
+    /* ----------- iPhone 6+, 7+ and 8+ ----------- */
+    @media only screen
+      and (min-device-width: 414px)
+      and (max-device-width: 736px)
+      and (-webkit-min-device-pixel-ratio: 3) { height: calc(100vh - 44px) !important; }
+    /* ----------- iPhone X ----------- */
+    @media only screen
+      and (min-device-width: 375px)
+      and (max-device-width: 812px)
+      and (-webkit-min-device-pixel-ratio: 3) { height: calc(100vh - 104px) !important; }
 
     .label {
       font-family: $fontFamily-sans;
@@ -317,6 +340,15 @@
     .corner,
     th[scope="row"] { width: 176px !important; }
     table { height: calc(100vh - 10px) !important; } // To compensate for horisontal scrollbar, when the columns get to wide to fit in the window
+  }
+
+  // Special styles for iPads to make the matrix fill the viewport area exactly without having to scroll on neither X og Y axis
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .matrix td {
+      width: 136px;
+      min-width: 136px;
+    }
+    table { height: 100vh !important; }
   }
 
   @include breakpoint('mobile') {
