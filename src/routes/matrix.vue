@@ -125,6 +125,7 @@
     background-color: $color-darkblue-darker-4;
     overflow-y: hidden;
     padding-top: 0;
+    -webkit-overflow-scrolling: touch;
   }
 
   .matrix {
@@ -135,7 +136,6 @@
     color: white;
     white-space: pre-line;
     background-color: $color-darkblue-darker-4;
-    -webkit-overflow-scrolling: touch;
 
     .label {
       font-family: $fontFamily-sans;

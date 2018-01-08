@@ -28,7 +28,7 @@ import GridBlock from '@/components/GridBlock'
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     z-index: $zindex-dropdown;
     background-color: rgba($color-yellow, 0.98);
     color: $color-yellow-darker-3;
