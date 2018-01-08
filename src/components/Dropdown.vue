@@ -35,6 +35,7 @@ import GridBlock from '@/components/GridBlock'
     padding-top: $headerHeight + $scale-6-1;
     padding-bottom: $scale-6-1;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     animation: fadeIn .15s ease-out, slideDownSubheader .3s $animationBezier-easeOut-extreme;
 
     &:after {

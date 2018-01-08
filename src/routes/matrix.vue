@@ -129,12 +129,13 @@
 
   .matrix {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     text-align: center;
     font-family: $fontFamily-serif;
     color: white;
     white-space: pre-line;
     background-color: $color-darkblue-darker-4;
+    -webkit-overflow-scrolling: touch;
 
     .label {
       font-family: $fontFamily-sans;
