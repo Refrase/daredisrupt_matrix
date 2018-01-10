@@ -184,16 +184,11 @@
       padding-left: 8px;
       padding-right: 8px;
       right: 410px;
-      top: 259px;
+      top: 268px;
       border-radius: 2px;
-      @include breakpoint('custom', '1200px') {
-        right: calc(50vw - 180px);
-        top: 253px;
-      }
-      @include breakpoint('mobile') {
-        right: 0;
-        top: 153px;
-      }
+      @include breakpoint('custom', '1600px', true) { right: 520px; }
+      @include breakpoint('custom', '1200px') { right: 400px; top: 264px; }
+      @include breakpoint('mobile') { right: 0; top: 154px; }
     }
 
     tbody tr:nth-child(3) th:after {
@@ -205,14 +200,18 @@
       padding-right: 8px;
       bottom: 50%;
       transform: translateX(-43%) rotate(270deg);
-      left: calc(100vw - 987px);
+      left: calc(100vw - 978px);
       border-radius: 2px;
+      @include breakpoint('custom', '1600px', true) {
+        left: calc(100vw - 1205px);
+        bottom: 100%;
+      }
       @include breakpoint('custom', '1200px') {
-        left: calc(100vw - 974px);
+        left: calc(100vw - 965px);
         bottom: 100%;
       }
       @include breakpoint('custom', '1135px') {
-        left: 163px;
+        left: 171px;
       }
     }
 
@@ -246,6 +245,11 @@
     td {
       width: 160px;
       min-width: 160px;
+
+      @include breakpoint('custom', '1600px', true) {
+        width: 200px;
+        min-width: 200px;
+      }
     }
 
     td:nth-child(2) { background-color: mix(#bbb, #3057ba, 32%); }
@@ -344,11 +348,15 @@
 
   // Special styles for iPads to make the matrix fill the viewport area exactly without having to scroll on neither X og Y axis
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    .matrix td {
-      width: 136px;
-      min-width: 136px;
+    .matrix {
+      height: 100vh !important;
+      td {
+        width: 136px;
+        min-width: 136px;
+      }
+      tbody tr:nth-child(3) th:after { bottom: 92%; }
+      thead tr:after { right: 345px; }
     }
-    table { height: 100vh !important; }
   }
 
   @include breakpoint('mobile') {
